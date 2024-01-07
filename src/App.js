@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import Register from "./pages/Register";
+import About from "./pages/About";
 
 function App() {
   return (
     <div>
-      <Register />
       {/* Header */}
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes> */}
+      <Routes>
+        <Route path="/" element={<Register />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
       {/* Footer */}
     </div>
   );
