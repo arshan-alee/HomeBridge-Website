@@ -1,6 +1,7 @@
 import React from "react";
 import AboutInformation from "../components/About/AboutInformation";
 import AboutTeamSection from "../components/About/AboutTeamSection";
+import AboutContact from "../components/About/AboutContact";
 
 const About = () => {
   return (
@@ -28,6 +29,9 @@ const About = () => {
       <AboutInformation />
       {/* Team */}
       <AboutTeamSection />
+
+      {/* Contact Information */}
+      <AboutContact />
     </>
   );
 };
