@@ -1,14 +1,14 @@
 import React from 'react'
 import LoginLeft from '../components/Shared/LoginLeft'
-import LoginRightSide from '../components/Login/LoginRightSide'
+import ForgotRightSide from '../components/Forgot Password/ForgotRightSide'
 
-function Login() {
+function ForgotPassword() {
   return (
     <div className='flex flex-row'>
         <LoginLeft />
-        <LoginRightSide />
+        <ForgotRightSide />
     </div>
   )
 }
 
-export default Login
+export default ForgotPassword
