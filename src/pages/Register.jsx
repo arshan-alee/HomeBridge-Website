@@ -13,7 +13,7 @@ function Register() {
         <RegisterRightSide />
       </div>
 
-      <div>
+      {/* <div>
         <Input
           name="area"
           label="Enter Your Area"
@@ -38,7 +38,7 @@ function Register() {
           rows={6}
           label="Optional"
         />
-      </div>
+      </div> */}
     </>
   );
 }
