@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LoginRightSide = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center w-full md:w-[40%]">
+    <div className="flex items-center justify-center w-full md:w-[40%]" style={{height: "calc(100vh - 4rem)"}}>
       <div className="bg-white p-4 md:p-8 rounded w-96">
         <h2 className="text-3xl mb-2 font-bold">Hello Again!</h2>
         <p className="text-gray-600 mb-6 font-[400]">
