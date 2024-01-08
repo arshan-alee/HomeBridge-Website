@@ -5,12 +5,15 @@ import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import NewPassword from "./pages/NewPassword";
 import MyPage from "./pages/MyPage";
+import Header from "./components/Shared/Header";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div>
-      {/* Header */}
+      <Header />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
