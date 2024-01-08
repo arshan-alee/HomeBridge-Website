@@ -10,7 +10,7 @@ const Input = ({
   require,
 }) => {
   return (
-    <div className="">
+    <div className="flex-grow">
       <input
         name={name}
         type={type}
@@ -18,7 +18,7 @@ const Input = ({
         onChange={onChange}
         required={require}
         placeholder={placeholder}
-        className="outline-none text-sm  p-4 w-full rounded-md border-2 border-[#d9e4df] "
+        className="outline-none text-sm p-3 w-full rounded-2xl bg-[#D4D4D433]"
       />
     </div>
   );
