@@ -16,7 +16,7 @@ const WhoWeAre = () => {
         </p>
         {/* About */}
         <div className="mt-10 flex flex-col gap-5">
-          {/* !st */}
+          {/* 1st */}
           <div
             className="flex justify-start items-center gap-5 rounded-[30px] w-fit  py-5 pl-10 pr-16"
             style={{
@@ -52,6 +52,25 @@ const WhoWeAre = () => {
           </div>
         </div>
       </div>
+
+      {/* Right */}
+
+      <div className="w-1/2 flex gap-2">
+            
+            <img src="/images/who__we__are__gallery__1.png" alt="logo " className="w-1/2  mt-10" />
+
+            <div className="w-1/2 flex flex-col gap-2">
+
+            <img src="/images/who__we__are__gallery__2.png" alt="logo " className="" />
+            <img src="/images/who__we__are__gallery__3.png" alt="logo " className="" />
+
+
+
+            </div>
+
+      </div>
+
+
     </div>
   );
 };
