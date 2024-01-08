@@ -14,7 +14,7 @@ const Select = ({ options, onChange, value, placeholder, label }) => {
       <div className="">
         <button
           type="button"
-          className="inline-flex justify-between w-full rounded-md border-2 border-[#d9e4df] text-sm  p-4  font-medium"
+          className="inline-flex justify-between w-full rounded-lg bg-[#D4D4D433] text-sm p-4 font-medium"
           onClick={() => setIsOpen(!isOpen)}
         >
           {value ? (
