@@ -39,7 +39,11 @@ const Opportunity = () => {
       <div className="grid grid-cols-5 gap-24 mt-20">
         <div className="col-span-2 relative">
           <img
-            src="/images/opportunity__image__1.png"
+            src={
+              currentTab === "foreigners"
+                ? "/images/opportunity__image__2.png"
+                : "/images/opportunity__image__1.png"
+            }
             alt="logo"
             className="w-full h-full z-10"
           />
