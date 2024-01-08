@@ -5,3 +5,8 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
+
+.custom-shadow-right-bottom {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+  
