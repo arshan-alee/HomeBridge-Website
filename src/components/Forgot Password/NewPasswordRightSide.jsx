@@ -1,6 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function NewPasswordRightSide() {
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/login');
+  };
+
   return (
     <div className="flex items-center justify-center w-full md:w-[40%]" style={{height: "calc(100vh - 4rem)"}}>
       <div className="bg-white p-4 md:p-8 rounded w-96">
@@ -26,7 +34,7 @@ function NewPasswordRightSide() {
             <img src="/icons/lock.png" alt="icon" className="absolute left-3 top-2 text-gray-500" />
           </div>
         </div>
-        <button className="w-full bg-[#00CE3A] text-white py-4 rounded-full mt-6 focus:outline-none focus:shadow-outline">
+        <button className="w-full bg-[#00CE3A] text-white py-4 rounded-full mt-6 focus:outline-none focus:shadow-outline" onClick={handleButtonClick}>
           Change Password
         </button>
       </div>
