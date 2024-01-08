@@ -62,7 +62,15 @@ const WhoWeAre = () => {
             <div className="w-1/2 flex flex-col gap-2">
 
             <img src="/images/who__we__are__gallery__2.png" alt="logo " className="" />
-            <img src="/images/who__we__are__gallery__3.png" alt="logo " className="" />
+          
+          <div className="relative">
+          <img src="/images/who__we__are__gallery__3.png" alt="logo " className="" />
+
+{/* Ball */}
+
+<img src="/images/who__we__are__ball.svg" alt="logo " className="absolute -bottom-8 left-[22%] " />
+          </div>
+
 
 
 
