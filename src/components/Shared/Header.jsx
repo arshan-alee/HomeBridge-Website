@@ -28,7 +28,7 @@ const linksArray = [
 const Drawer = ({ isOpen, onClose }) => {
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-[80%] bg-[#00CE3A] text-white px-6 pt-7 ${
+      className={`fixed z-50 top-0 right-0 h-full w-[80%] bg-[#00CE3A] text-white px-6 pt-7 ${
         isOpen ? "transform translate-x-0" : "transform translate-x-full"
       } transition-transform ease-in-out duration-300`}
     >
@@ -43,16 +43,18 @@ const Drawer = ({ isOpen, onClose }) => {
       </div>
 
       <div className="flex flex-col">
-        <Link className="mb-5 mt-2" to="/">
+        <Link className="mb-5 mt-2" to="/" onClick={onClose}>
           Home
         </Link>
-        <Link className="mb-5" to="/f_2_r">
+        <Link className="mb-5" to="/f_2_r" onClick={onClose}>
           F-2-R
         </Link>
-        <Link className="mb-5" to="/job_house">
+        <Link className="mb-5" to="/job_house" onClick={onClose}>
           Job&House
         </Link>
-        <Link to="/event">Event</Link>
+        <Link to="/event" onClick={onClose}>
+          Event
+        </Link>
       </div>
 
       {/* Add other drawer content here */}
