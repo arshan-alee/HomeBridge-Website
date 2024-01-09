@@ -1,6 +1,40 @@
+import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
+const heroSliderData = [
+  {
+    imgSrc: "/images/hero__slider__1.png",
+  },
+  {
+    imgSrc: "/images/hero__slider__2.png",
+  },
+  {
+    imgSrc: "/images/hero__slider__2.png",
+  },
+  {
+    imgSrc: "/images/hero__slider__2.png",
+  },
+];
+
 const Hero = () => {
+  const [currentSlider, setCurrentSlider] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlider((current) => (current + 1) % heroSliderData.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const goPrev = () =>
+    setCurrentSlider((current) =>
+      current === 0 ? heroSliderData.length - 1 : current - 1
+    );
+
+  const goNext = () =>
+    setCurrentSlider((current) => (current + 1) % heroSliderData.length);
+
   return (
     <div
       className="w-full min-h-screen flex justify-center items-center"
@@ -32,18 +66,24 @@ const Hero = () => {
             />
             {/* Slider */}
             <img
-              src="/images/hero__slider__1.png"
+              src={heroSliderData[currentSlider].imgSrc}
               alt="logo"
               className="rounded-[20px] shadow-[10px 10px 40px 0px rgba(0, 0, 0, 0.20)] w-full h-full "
             />
 
             {/* Chevrons */}
 
-            <div className="absolute top-[45%] -left-5 w-[40px] h-[40px] bg-[#fff] rounded-full grid place-items-center cursor-pointer">
+            <div
+              onClick={goPrev}
+              className="absolute top-[45%] -left-5 w-[40px] h-[40px] bg-[#fff] rounded-full grid place-items-center cursor-pointer"
+            >
               <FaAngleLeft className="text-[#aaaaaa]" />
             </div>
 
-            <div className="absolute top-[45%] -right-5 w-[40px] h-[40px] bg-[#fff] rounded-full grid place-items-center cursor-pointer">
+            <div
+              onClick={goNext}
+              className="absolute top-[45%] -right-5 w-[40px] h-[40px] bg-[#fff] rounded-full grid place-items-center cursor-pointer"
+            >
               <FaAngleRight className="text-[#aaaaaa]" />
             </div>
           </div>
@@ -52,7 +92,9 @@ const Hero = () => {
             {[1, 2, 3, 4].map((item, i) => (
               <div
                 key={i}
-                className="col-span-1 bg-[#00CE3A] h-[5px] rounded-xl"
+                className={`col-span-1 ${
+                  currentSlider === i ? "bg-[#00CE3A]" : "bg-[#fff]"
+                } h-[5px] rounded-xl`}
               ></div>
             ))}
           </div>
