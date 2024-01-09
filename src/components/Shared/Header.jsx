@@ -20,7 +20,7 @@ const linksArray = [
   },
   {
     linkText: "About us",
-    linkTo: "/about_us",
+    linkTo: "/about",
   },
 ];
 
