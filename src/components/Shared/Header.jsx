@@ -138,7 +138,7 @@ const Header = () => {
   };
 
   return (
-    <div className="px-5 sm:px-10 lg:px-20 py-4 flex lg:flex-row flex-row-reverse justify-between items-center">
+    <div className="px-5 sm:px-10 lg:px-20 py-6 flex lg:flex-row flex-row-reverse justify-between items-center">
       {/* Hamburger */}
       <img
         src="/icons/hamburger__icon.png"
