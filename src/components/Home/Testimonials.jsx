@@ -87,7 +87,7 @@ const Testimonials = () => {
             className="absolute z-[-1] -top-6 -left-6"
           />
 
-          <p className="text-[#2B2B2B]  h-[140px] overflow-y-auto ">
+          <p className="text-[#2B2B2B]   h-[140px] overflow-y-auto ">
             {testimonialsData[currentTestimonial].testimonial}
           </p>
 
