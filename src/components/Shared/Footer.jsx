@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="w-full py-24 px-24 bg-[#e5faeb] flex justify-between items-center">
+    <div className="w-full py-16 px-5 sm:py-20 sm:px-12 lg:py-24 lg:px-24 bg-[#e5faeb] gap-12 lg:gap-unset flex lg:flex-row flex-col justify-between items-center">
       {/* Left */}
       <div>
-        <h1 className="text-lg font-bold mb-3">HomeBridge</h1>
-        <p className="text-[#8992a4] text-[14px] w-[400px]">
+        <h1 className="text-lg text-[#1B1C57] font-bold mb-2 sm:mb-3">
+          HomeBridge
+        </h1>
+        <p className="text-[#8992a4] text-[14px] lg:w-[400px]">
           We are a start-up that is solving the growing shortage of local
           manpower through foreigners. If you have any suggestions or interest
           in collaboration with our team, please contact us.
         </p>
       </div>
       {/* Right */}
-      <div className="flex justify-start items-start gap-20">
-        <div>
-          <h1 className="text-lg font-bold mb-3">Quick Links</h1>
+      <div className="flex justify-start items-start w-full lg:w-fit lg:gap-20">
+        <div className="lg:block hidden ">
+          <h1 className="text-lg text-[#0E1735] font-bold mb-3">Quick Links</h1>
           <div className="flex flex-col gap-3">
             <Link className="text-[#8992a4] text-[14px] " to="/">
               HOME
@@ -33,8 +35,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div>
-          <h1 className="text-lg font-bold mb-3">Contact</h1>
+        <div className="">
+          <h1 className="text-lg font-bold  mb-2 sm:mb-3 text-[#0E1735]">
+            Contact
+          </h1>
           <div className="flex flex-col gap-3">
             <p className="text-[#8992a4] text-[14px] ">
               B1 381, Uicheon-ro, Dobong-gu, Seoul
