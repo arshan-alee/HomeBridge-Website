@@ -44,20 +44,20 @@ const Testimonials = () => {
     setCurrentTestimonial((current) => (current + 1) % testimonialsData.length);
 
   return (
-    <div className="my-32 w-[80%] mx-auto flex justify-between items-center gap-20">
+    <div className="my-24 sm:my-32 w-[90%] sm:w-[75%] lg:w-[85%] mx-auto flex lg:flex-row flex-col justify-between items-center gap-20">
       {/* Left */}
-      <div className="w-1/2">
+      <div className="w-full lg:w-1/2">
         <h3 className="text-lg font-medium text-[#00CE3A] mb-2">
           TESTIMONIALS
         </h3>
-        <h1 className="text-[40px] font-semibold text-[#2B2B2B] leading-[45px] mb-5">
-          Look What Our <br /> Customers Say!
+        <h1 className="text-[36px] sm:text-[40px] font-semibold text-[#2B2B2B] leading-[45px] mb-5">
+          Look What Our <br className="lg:block hidden" /> Customers Say!
         </h1>
         <p className="font-nomral text-[#2B2B2B]">
-          We will create a service that will help both <br /> foreigners and
-          business owners.
+          We will create a service that will help both{" "}
+          <br className="lg:block hidden" /> foreigners and business owners.
         </p>
-        <div className="w-fit flex justify-start items-center gap-10 mt-10">
+        <div className="w-fit hidden lg:flex justify-start items-center gap-10 mt-10">
           <img
             src="/images/testimonials__backward.png"
             alt="logo"
@@ -73,9 +73,9 @@ const Testimonials = () => {
         </div>
       </div>
       {/* Right */}
-      <div className=" w-1/2 flex justify-center items-center gap-5 ">
+      <div className="w-full lg:w-1/2 flex justify-center items-center gap-3 sm:gap-5 ">
         <div
-          className="relative  p-10 rounded-[30px]"
+          className="relative p-5 lg:p-10 rounded-[30px]"
           style={{
             boxShadow: " 10px 10px 30px 0px rgba(0, 0, 0, 0.10)",
           }}
@@ -87,13 +87,13 @@ const Testimonials = () => {
             className="absolute z-[-1] -top-6 -left-6"
           />
 
-          <p className="text-[#2B2B2B]   h-[140px] overflow-y-auto ">
+          <p className="text-[#2B2B2B] sm:text-base text-[14px] h-[160px] sm:h-[140px] overflow-y-auto ">
             {testimonialsData[currentTestimonial].testimonial}
           </p>
 
-          <hr className="bg-[#D4D4D4] mt-10" />
+          <hr className="bg-[#D4D4D4] mt-3 sm:mt-10" />
 
-          <div className="flex justify-between items-center mt-7">
+          <div className="flex justify-between items-center mt-4 sm:mt-7">
             <p className="text-lg font-medium">
               {testimonialsData[currentTestimonial].givenBy}
             </p>
