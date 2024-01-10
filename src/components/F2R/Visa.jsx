@@ -2,22 +2,23 @@ import React from "react";
 
 const Visa = () => {
   return (
-    <div className="my-28 w-[80%] mx-auto flex justify-between items-center gap-32">
+    <div className="my-28 w-full sm:w-[70%] lg:[85%] mx-auto flex lg:flex-row flex-col justify-between items-center gap-12 sm:gap-5 lg:gap-32">
       {/* Left */}
-      <div className="w-1/2">
+      <div className="w-full lg:w-1/2">
         <img
           src="/images/f2r__visa__img.png"
           alt="logo"
-          className="rounded-[30px]"
+          className="rounded-[30px] w-full"
         />
       </div>
 
       {/* Right */}
-      <div className="w-1/2">
+      <div className="w-[90%] lg:w-1/2">
         <h3 className="text-lg font-medium text-[#00CE3A] mb-2">
-          What if you don't live in the local government?
+          What if you don't live <br className="block sm:hidden" /> in the local
+          government?
         </h3>
-        <h1 className="text-[40px] font-semibold text-[#2B2B2B] leading-[45px] mb-5">
+        <h1 className="text-[36px] sm:text-[40px] font-semibold text-[#2B2B2B] leading-[43px] sm:leading-[45px] mb-5">
           If anyone doesn't live in the local government and wants to issue an
           F-2-R visa, please refer to the following order!
         </h1>
