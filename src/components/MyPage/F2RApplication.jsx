@@ -5,9 +5,9 @@ import Select from '../Shared/Select'
 
 function F2RApplication() {
   return (
-    <div className="my-32">
-        <h2 className="px-36 text-[38px] font-bold mb-16 hidden lgcls:block">F-2-R Application</h2>
-        <div className="mx-2 md:mx-16 lg:mx-72 text-xl custom-shadow-right-bottom px-4 rounded-lg">
+    <div className="my-24">
+        <h2 className="px-36 text-[38px] font-bold mb-16 hidden lg:block">F-2-R Application</h2>
+        <div className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-lg">
             <h3 className="font-600 text-[16px]">F-2-R Application</h3>
             <div className='py-2 w-full'>
                 <Input 

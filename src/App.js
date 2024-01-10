@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import F2RApplication from "./components/MyPage/F2RApplication";
 import Header from "./components/Shared/Header";
 import F2R from "./pages/F2R";
+import JobPage from "./components/MyPage/JobPage";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/new-password" element={<NewPassword />} />
-        <Route path="/mypage" element={<F2RApplication />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mypage/f2r-application" element={<F2RApplication />} />
+        <Route path="/mypage/job-house" element={<JobPage />} />
         <Route path="/about" element={<About />} />
       </Routes>
       {/* Footer */}
