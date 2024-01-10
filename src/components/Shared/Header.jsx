@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
 
@@ -25,6 +25,52 @@ const linksArray = [
   },
 ];
 
+// Profile DropDown
+const ProfileDropDown = ({
+  isMobile,
+  setOpenProfileDropdown,
+  openProfileDropDown,
+}) => {
+  return (
+    <div
+      className={`absolute ${
+        isMobile
+          ? " -left-7 top-10 lg:hidden block"
+          : "right-0 top-10 lg:block hidden"
+      } z-50 rounded-md w-[200px] sm:w-[220px] bg-[#fff]  `}
+    >
+      <div className="pt-4 pb-5 sm:pt-5 sm:pb-6 border-b-[0.5px] border-[#AAA]">
+        <img
+          src="/icons/user_circle .png"
+          alt="logo"
+          className="w-[40px] sm:w-[60px] mx-auto mb-1"
+        />
+        <p className="font-semibold text-center">Jason</p>
+      </div>
+      <div className="w-full flex ">
+        <div className="w-1/2 py-3 sm:py-4 text-center border-r-[0.5px] border-[#AAA]">
+          <Link
+            className="text-[#2B2B2B] text-[12px]"
+            to="/mypage"
+            onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+          >
+            Mypage{" "}
+          </Link>
+        </div>
+        <div className="w-1/2 py-3 sm:py-4 text-center">
+          <Link
+            className="text-[#2B2B2B] text-[12px]"
+            onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+          >
+            logout{" "}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Mobile Devices
 const Drawer = ({ isOpen, onClose }) => {
   return (
     <div
@@ -64,9 +110,29 @@ const Drawer = ({ isOpen, onClose }) => {
 
 const Header = () => {
   const location = useLocation();
-
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [openNavbar, setOpenNavbar] = useState(false);
+  const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
 
+  const dropdownRef = useRef(null);
+
+  // const handleClickOutsideDropdown = (event) => {
+  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //     setOpenProfileDropdown(false);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (openProfileDropDown) {
+  //     window.addEventListener("click", handleClickOutsideDropdown);
+  //   }
+
+  //   return () => {
+  //     window.removeEventListener("click", handleClickOutsideDropdown);
+  //   };
+  // }, [openProfileDropDown]);
+
+  // Mobile
   const handleNavbar = () => {
     setOpenNavbar(!openNavbar);
   };
@@ -82,7 +148,9 @@ const Header = () => {
       />
 
       {/* Left */}
-      <h1 className="font-semibold text-lg">HOMEBRIDGE</h1>
+      <h1 className="font-semibold text-base sm:text-lg lg:ml-unset -ml-12">
+        HOMEBRIDGE
+      </h1>
       {/* Right */}
       <div className="flex justify-end items-center gap-7">
         {linksArray.map((item, i) => (
@@ -98,14 +166,53 @@ const Header = () => {
         ))}
 
         <div className="flex justify-center items-center gap-2">
-          <img
-            src="/icons/header__profile.svg"
-            alt="logo"
-            className="cursor-pointer"
-          />
-          <Link to="/login" className="lg:block hidden">
-            Login/Register
-          </Link>
+          <div className="flex gap-2">
+            <img
+              src="/icons/header__profile.svg"
+              alt="logo"
+              className="cursor-pointer "
+            />
+            {isLoggedIn && (
+              <div className="relative">
+                <p
+                  onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+                  className="lg:hidden block cursor-pointer"
+                >
+                  Jason
+                </p>
+                {openProfileDropDown && (
+                  <ProfileDropDown
+                    isMobile={true}
+                    openProfileDropDown={openProfileDropDown}
+                    setOpenProfileDropdown={setOpenProfileDropdown}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+          <div className="relative w-fit">
+            {isLoggedIn ? (
+              <p
+                onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+                className="lg:block hidden cursor-pointer"
+              >
+                Jason
+              </p>
+            ) : (
+              <Link to="/login" className="lg:block hidden">
+                Login/Register
+              </Link>
+            )}
+
+            {/* DropDown */}
+            {openProfileDropDown && (
+              <ProfileDropDown
+                isMobile={false}
+                openProfileDropDown={openProfileDropDown}
+                setOpenProfileDropdown={setOpenProfileDropdown}
+              />
+            )}
+          </div>
         </div>
       </div>
 
