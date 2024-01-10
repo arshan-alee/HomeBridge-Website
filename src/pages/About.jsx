@@ -25,7 +25,7 @@ const About = () => {
           <div className="flex flex-row gap-6 items-center">
             <p className="text-[#00CE3A] h-[2px] w-[72px] border-solid border-2 border-green-500"></p>
 
-            <p className="text-[#00CE3A] text-lg">TEAM</p>
+            <p className="text-[#00CE3A] font-bold text-lg">TEAM</p>
           </div>
           <h2 className="text-[#fff] md:text-[60px] lg:text-[88px] text-[36px] sm:text-[50px] leading-[50px] sm:leading-[60px] md:leading-[70px] lg:leading-[100px] font-extrabold">
             Real Korean <br /> Experience <br /> for Foreigners
