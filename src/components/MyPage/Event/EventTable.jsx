@@ -1,7 +1,13 @@
 import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const TableComponent = ({ columns, data, handleClick }) => {
+const EventTable = ({ columns, data, handleClick }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/event')
+  }
 
   const recordsPerPage = 10;
   const totalPages = Math.ceil(data.length / recordsPerPage);
@@ -37,7 +43,7 @@ const TableComponent = ({ columns, data, handleClick }) => {
   };
 
   return (
-    <div className="overflow-x-auto max-w-3/4 custom-shadow-right-bottom rounded-b-xl">
+    <div className="overflow-x-auto max-w-3/4 flex-grow custom-shadow-right-bottom rounded-b-xl">
       <table className="min-w-full">
         <thead className="bg-[#00CE3A]">
           <tr>
@@ -60,6 +66,9 @@ const TableComponent = ({ columns, data, handleClick }) => {
                   <div className="truncate" onClick={handleClick}>{row[column]}</div>
                 </td>
               ))}
+              <td className="">
+                <div className={`w-3/4 text-center rounded-2xl py-1 text-white ${row['Payment'] === '완료' ? 'bg-[#FF7878]' : 'bg-[#00CE3A]'}`}>{row['Payment']}</div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -87,4 +96,4 @@ const TableComponent = ({ columns, data, handleClick }) => {
   );
 };
 
-export default TableComponent;
+export default EventTable;

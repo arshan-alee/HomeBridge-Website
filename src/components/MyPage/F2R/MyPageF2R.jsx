@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import TableComponent from './Table'
+import TableComponent from '../Table'
 
 function MyPageF2R() {
   const columns = ['Name', 'Gender', 'Country', 'City', 'Phone Number', 'E-mail', 'Message'];

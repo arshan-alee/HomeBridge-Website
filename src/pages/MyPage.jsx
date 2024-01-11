@@ -1,26 +1,26 @@
 import {useState} from 'react'
 import SideMenu from '../components/MyPage/SideMenu'
-import MyPageF2R from '../components/MyPage/MyPageF2R'
+import MyPageF2R from '../components/MyPage/F2R/MyPageF2R'
 import JobHouse from '../components/MyPage/JobHouse'
-import EventTable from '../components/MyPage/EventTable'
+import EventTable from '../components/MyPage/Event/EventTable'
 
 function MyPage() {
 
   const [selectedOption, setSelectedOption] = useState(0);
-  const columns = ['Event', 'Departure', 'Arrival', 'Price'];
+  const columns = ['Event', 'Departure', 'Arrival', 'Price', ''];
   const data = [
-    { Event: 'Business Meeting', Departure: 'New York', Arrival: 'Los Angeles', Price: 500 },
-    { Event: 'Vacation', Departure: 'London', Arrival: 'Paris', Price: 800 },
-    { Event: 'Conference', Departure: 'Tokyo', Arrival: 'Seoul', Price: 600 },
-    { Event: 'Family Reunion', Departure: 'Sydney', Arrival: 'Auckland', Price: 700 },
+    { Event: 'Business Meeting', Departure: 'New York', Arrival: 'Los Angeles', Price: 500, Payment: '결제취소' },
+    { Event: 'Vacation', Departure: 'London', Arrival: 'Paris', Price: 800, Payment: '결제취소' },
+    { Event: 'Conference', Departure: 'Tokyo', Arrival: 'Seoul', Price: 600, Payment: '결제취소' },
+    { Event: 'Family Reunion', Departure: 'Sydney', Arrival: 'Auckland', Price: 700, Payment: '완료' },
   ];
 
   return (
-    <div className="my-8 px-12">
-      <h1 className="py-12 font-bold text-[36px]">My Page</h1>
-      <div className="flex">
-        <div className="min-w-1/4">
-          <SideMenu setSelectedOption={setSelectedOption} />
+    <div className="my-8 px-4 md:px-12">
+      <h1 className="hidden md:block py-12 font-bold text-[36px] pl-8">My Page</h1>
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-1/4">
+          <SideMenu selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
         </div>
         {
           selectedOption === 0 ?

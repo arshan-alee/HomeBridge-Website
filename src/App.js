@@ -6,10 +6,12 @@ import ForgotPassword from "./pages/ForgotPassword";
 import NewPassword from "./pages/NewPassword";
 import MyPage from "./pages/MyPage";
 import Home from "./pages/Home";
-import F2RApplication from "./components/MyPage/F2RApplication";
 import Header from "./components/Shared/Header";
 import F2R from "./pages/F2R";
 import JobPage from "./components/MyPage/JobPage";
+import F2RApplication from "./pages/F2RApplication";
+import RefundPage from "./pages/RefundPage";
+import EventPage from "./pages/EventPage";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/f2r-application" element={<F2RApplication />} />
         <Route path="/mypage/job-house" element={<JobPage />} />
+        <Route path="/refund" element={<RefundPage />} />
+        <Route path="/event" element={<EventPage />} />
         <Route path="/about" element={<About />} />
       </Routes>
       {/* Footer */}
