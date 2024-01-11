@@ -41,7 +41,7 @@ const ProfileDropDown = ({
     >
       <div className="pt-4 pb-5 sm:pt-5 sm:pb-6 border-b-[0.5px] border-[#AAA]">
         <img
-          src="/icons/user_circle .png"
+          src="/icons/user_circle.png"
           alt="logo"
           className="w-[40px] sm:w-[60px] mx-auto mb-1"
         />
