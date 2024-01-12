@@ -1,12 +1,12 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const EventTable = ({ columns, data, handleClick }) => {
+const EventTable = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate('/event')
+    navigate('/mypage/event')
   }
 
   const recordsPerPage = 10;
@@ -44,6 +44,7 @@ const EventTable = ({ columns, data, handleClick }) => {
 
   return (
     <div className="overflow-x-auto max-w-3/4 flex-grow custom-shadow-right-bottom rounded-b-xl">
+      <h1 className="text-[22px] font-semibold mb-6">Event</h1>
       <table className="min-w-full">
         <thead className="bg-[#00CE3A]">
           <tr>
@@ -66,8 +67,8 @@ const EventTable = ({ columns, data, handleClick }) => {
                   <div className="truncate" onClick={handleClick}>{row[column]}</div>
                 </td>
               ))}
-              <td className="">
-                <div className={`w-3/4 text-center rounded-2xl py-1 text-white ${row['Payment'] === '완료' ? 'bg-[#FF7878]' : 'bg-[#00CE3A]'}`}>{row['Payment']}</div>
+              <td className="min-w-[85px] flex items-center justify-center">
+                <div className={`w-full md:w-3/4 text-center rounded-2xl py-1 text-white ${row['Payment'] === '완료' ? 'bg-[#FF7878]' : 'bg-[#00CE3A]'}`}>{row['Payment']}</div>
               </td>
             </tr>
           ))}

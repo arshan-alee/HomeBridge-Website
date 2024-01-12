@@ -17,7 +17,7 @@ const ImageShowcase = ({ images }) => {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 py-8 rounded-b-xl bg-white custom-shadow-right-bottom">
+    <div className="flex flex-col items-center px-4 py-8 rounded-b-xl bg-white custom-shadow-right-bottom">
       <div className="relative mb-1">
         <img
           src={images[currentImageIndex]}

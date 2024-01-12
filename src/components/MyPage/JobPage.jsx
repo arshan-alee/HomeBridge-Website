@@ -11,12 +11,12 @@ function JobPage() {
             <h1 className="text-[32px] font-semibold">UX / UI Designer</h1>
             <h5 className="text-[14px] font-normal"><b>₩</b> company name</h5>
         </div>
-        <div className="w-full flex flex-row">
+        <div className="flex flex-row">
           <JobDetails />
           <ApplicationForm title='Job application' type='job' />
         </div>
         <GeneralSection />
-        <div className="flex md:hidden"><ApplicationForm /></div>
+        <div className="flex lg:hidden"><ApplicationForm title='Job application' type='job' /></div>
     </div>
   )
 }

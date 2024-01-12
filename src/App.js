@@ -12,6 +12,8 @@ import JobPage from "./components/MyPage/JobPage";
 import F2RApplication from "./pages/F2RApplication";
 import RefundPage from "./pages/RefundPage";
 import EventPage from "./pages/EventPage";
+import JobNHouse from "./pages/JobNHouse";
+import Events from "./pages/Events";
 
 function App() {
   return (
@@ -24,11 +26,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/new-password" element={<NewPassword />} />
+        <Route path="/job_house" element={<JobNHouse />} />
+        <Route path="/event" element={<Events />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/f2r-application" element={<F2RApplication />} />
         <Route path="/mypage/job-house" element={<JobPage />} />
+        <Route path="/mypage/event" element={<EventPage />} />
         <Route path="/refund" element={<RefundPage />} />
-        <Route path="/event" element={<EventPage />} />
         <Route path="/about" element={<About />} />
       </Routes>
       {/* Footer */}

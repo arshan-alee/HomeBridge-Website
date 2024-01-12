@@ -5,7 +5,7 @@ import Select from '../../Shared/Select'
 
 function ApplicationForm({title, type}) {
   return (
-    <div className="w-full md:w-1/3 px-6">
+    <div className="w-full lg:w-1/3 px-2 lg:px-6">
         <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-lg">
             <h3 className="font-semibold text-[16px]">{title}</h3>
             <div className='py-2 w-full'>
