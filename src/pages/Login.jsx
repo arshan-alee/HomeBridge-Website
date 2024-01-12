@@ -1,13 +1,17 @@
 import React from 'react'
 import LoginLeft from '../components/Shared/LoginLeft'
 import LoginRightSide from '../components/Login/LoginRightSide'
+import Header from '../components/Shared/Header'
 
 function Login() {
   return (
-    <div className='flex flex-row'>
-        <LoginLeft />
-        <LoginRightSide />
-    </div>
+    <>
+      <Header />
+      <div className='flex flex-row'>
+          <LoginLeft />
+          <LoginRightSide />
+      </div>
+    </>
   )
 }
 

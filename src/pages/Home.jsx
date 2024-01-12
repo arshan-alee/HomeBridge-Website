@@ -7,10 +7,12 @@ import Services from "../components/Home/Services";
 import Testimonials from "../components/Home/Testimonials";
 import Question from "../components/Home/Question";
 import Footer from "../components/Shared/Footer";
+import Header from "../components/Shared/Header";
 
 const Home = () => {
   return (
     <div>
+      <Header />
       <Hero />
       <Partnership />
       <WhoWeAre />

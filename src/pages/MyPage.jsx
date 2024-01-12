@@ -3,6 +3,7 @@ import SideMenu from '../components/MyPage/SideMenu'
 import MyPageF2R from '../components/MyPage/F2R/MyPageF2R'
 import JobHouse from '../components/MyPage/JobHouse'
 import EventTable from '../components/MyPage/Event/EventTable'
+import Header from '../components/Shared/Header'
 
 function MyPage() {
 
@@ -16,23 +17,26 @@ function MyPage() {
   ];
 
   return (
-    <div className="my-8 px-4 lg:px-12">
-      <h1 className="hidden md:block py-12 font-bold text-[36px] pl-8">My Page</h1>
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-1/4">
-          <SideMenu selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+    <>
+      <Header />
+      <div className="my-8 px-4 lg:px-12">
+        <h1 className="hidden md:block py-12 font-bold text-[36px] pl-8">My Page</h1>
+        <div className="flex flex-col lg:flex-row">
+          <div className="w-full lg:w-1/4">
+            <SideMenu selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+          </div>
+          {
+            selectedOption === 0 ?
+            <MyPageF2R />
+            :
+            selectedOption === 1 ?
+            <JobHouse />
+            :
+            <EventTable columns={columns} data={data} />
+          }
         </div>
-        {
-          selectedOption === 0 ?
-          <MyPageF2R />
-          :
-          selectedOption === 1 ?
-          <JobHouse />
-          :
-          <EventTable columns={columns} data={data} />
-        }
       </div>
-    </div>
+    </>
   )
 }
 

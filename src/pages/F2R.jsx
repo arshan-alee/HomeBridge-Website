@@ -5,10 +5,12 @@ import Visa from "../components/F2R/Visa";
 import QualificationRequirements from "../components/F2R/QualificationRequirements";
 import NeedHelp from "../components/F2R/NeedHelp";
 import Footer from "../components/Shared/Footer";
+import TransparentHeader from "../components/Shared/TransparentHeader";
 
 const F2R = () => {
   return (
     <div>
+      <TransparentHeader />
       <Hero />
       <Advantages />
       <Visa />

@@ -4,10 +4,12 @@ import RegisterRightSide from "../components/Register/RegisterRightSide";
 import Input from "../components/Shared/Input";
 import Textarea from "../components/Shared/Textarea";
 import Select from "../components/Shared/Select";
+import Header from "../components/Shared/Header";
 
 function Register() {
   return (
     <>
+      <Header />
       <div className="flex flex-row">
         <LoginLeft />
         <RegisterRightSide />

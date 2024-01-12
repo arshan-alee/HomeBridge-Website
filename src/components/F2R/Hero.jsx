@@ -10,7 +10,7 @@ const Hero = () => {
         className="top-0 left-0 absolute bottom-0 right-0 w-full h-full"
       />
 
-      <div className="absolute sm:bottom-[15%] md:bottom-[20%] lg:bottom-[15%] left-[6%]  ">
+      <div className="absolute sm:bottom-[15%] md:bottom-[20%] lg:bottom-[10%] left-[6%]  ">
         <div className="flex flex-row gap-6 items-center">
           <p className="text-[#00CE3A] h-[2px] w-[72px] border-solid border-2 border-green-500"></p>
 

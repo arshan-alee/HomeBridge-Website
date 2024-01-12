@@ -18,7 +18,7 @@ import Events from "./pages/Events";
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/f_2_r" element={<F2R />} />
@@ -29,9 +29,9 @@ function App() {
         <Route path="/job_house" element={<JobNHouse />} />
         <Route path="/event" element={<Events />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/mypage/f2r-application" element={<F2RApplication />} />
-        <Route path="/mypage/job-house" element={<JobPage />} />
-        <Route path="/mypage/event" element={<EventPage />} />
+        <Route path="/mypage/f2r-application" element={<><Header /><F2RApplication /></>} />
+        <Route path="/mypage/job-house" element={<><Header /><JobPage /></>} />
+        <Route path="/mypage/event" element={<><Header /><EventPage /></>} />
         <Route path="/refund" element={<RefundPage />} />
         <Route path="/about" element={<About />} />
       </Routes>

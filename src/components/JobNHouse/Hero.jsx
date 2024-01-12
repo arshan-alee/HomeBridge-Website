@@ -1,4 +1,6 @@
 import React from "react";
+import TransparentHeader from "../Shared/TransparentHeader";
+import Header from "../Shared/Header";
 
 const Hero = () => {
   return (

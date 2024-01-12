@@ -2,10 +2,12 @@ import React from "react";
 import AboutInformation from "../components/About/AboutInformation";
 import AboutTeamSection from "../components/About/AboutTeamSection";
 import AboutContact from "../components/About/AboutContact";
+import TransparentHeader from "../components/Shared/TransparentHeader";
 
 const About = () => {
   return (
     <>
+      <TransparentHeader />
       <div
         style={
           {
