@@ -23,7 +23,7 @@ function JobHouse() {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate('/mypage/job-house')
+    navigate('/job_house/123')
   }
 
   return (

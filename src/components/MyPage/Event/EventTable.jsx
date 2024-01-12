@@ -6,7 +6,7 @@ const EventTable = ({ columns, data }) => {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate('/mypage/event')
+    navigate('/event/123')
   }
 
   const recordsPerPage = 10;

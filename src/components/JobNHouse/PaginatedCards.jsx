@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const data = [
   { id: 1, title: 'Store management at a burger joint in Itaewon.', subtitle: 'Yongsan-gu, Seoul', imageUrl: '/images/jobnhouse_card.png' },
@@ -28,6 +29,7 @@ const PaginatedCards = () => {
   const endIndex = startIndex + CardsPerPage * RowsPerPage;
 
   const currentCards = data.slice(startIndex, endIndex);
+  const navigate = useNavigate();
 
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
@@ -42,7 +44,7 @@ const PaginatedCards = () => {
         <h1 className="text-[34px] font-extrabold my-12">Job & Accommodation</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 rounded-2xl">
         {currentCards.map((card) => (
-          <div key={card.id} className="p-4 bg-white shadow-lg shadow-[#0858D02B] rounded-md">
+          <div key={card.id} className="p-4 bg-white shadow-lg shadow-[#0858D02B] rounded-md cursor-pointer" onClick={()=> navigate('/job_house/123')}>
             <img src={card.imageUrl} alt={card.title} className="w-full h-[200px] object-cover mb-2 rounded-md" />
             <h3 className="text-[20px] font-semibold mb-2">{card.title}</h3>
             <p className="text-[#3A544F] text-[12px] font-normal mb-2">{card.subtitle}</p>

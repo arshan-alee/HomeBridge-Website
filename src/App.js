@@ -30,8 +30,8 @@ function App() {
         <Route path="/event" element={<Events />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/f2r-application" element={<><Header /><F2RApplication /></>} />
-        <Route path="/mypage/job-house" element={<><Header /><JobPage /></>} />
-        <Route path="/mypage/event" element={<><Header /><EventPage /></>} />
+        <Route path="/job_house/:id" element={<><Header /><JobPage /></>} />
+        <Route path="/event/:id" element={<><Header /><EventPage /></>} />
         <Route path="/refund" element={<RefundPage />} />
         <Route path="/about" element={<About />} />
       </Routes>
