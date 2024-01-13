@@ -18,7 +18,7 @@ const ImageShowcase = ({ images }) => {
 
   return (
     <div className="flex flex-col items-center px-4 py-8 rounded-b-xl bg-white custom-shadow-right-bottom">
-      <div className="relative mb-1">
+      <div className="relative w-full mb-1">
         <img
           src={images[currentImageIndex]}
           alt={`${currentImageIndex + 1}`}
@@ -37,12 +37,12 @@ const ImageShowcase = ({ images }) => {
           <FaChevronRight className="w-4 md:w-6 h-4 md:h-6 text-[#00000080]" />
         </button>
       </div>
-      <div className="w-full px-8 hidden md:flex space-x-2">
+      <div className="w-full hidden lg:flex space-x-2">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => selectImage(index)}
-            className={`w-1/4 h-[105px] overflow-hidden focus:outline-none ${
+            className={`w-1/4 md:h-[200px] lg:h-[130px] overflow-hidden focus:outline-none ${
               index === currentImageIndex ? 'ring-2 ring-blue-500' : ''
             }`}
           >

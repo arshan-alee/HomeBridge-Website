@@ -33,7 +33,7 @@ function RefundPage() {
   ];
 
   return (
-    <div className="my-12 md:my-24">
+    <div className="my-12 lg:my-22">
         <h2 className="mx-2 md:mx-16 lg:mx-72 text-[16px] font-bold mb-6 hidden lg:block">Refund application</h2>
         <div className="relative mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom p-6 md:p-12 rounded-lg mb-8">
           <div className='border-b pb-2'>

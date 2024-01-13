@@ -5,7 +5,7 @@ import Select from '../../Shared/Select'
 
 function ApplicationForm({title, type}) {
   return (
-    <div className="w-full lg:w-1/3 px-2 lg:px-6">
+    <div className="w-full lg:w-1/3 px-2 md:px-6">
         <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-lg">
             <h3 className="font-semibold text-[16px]">{title}</h3>
             <div className='py-2 w-full'>
@@ -16,31 +16,31 @@ function ApplicationForm({title, type}) {
             </div>
             {type === 'job' && <div className='py-2 w-full'>
                 <Select 
-                    placeholder='Country'
+                    placeholder='japan'
                     options={['Japan', 'South Korea']}
                 />
             </div>}
             {type === 'job' && <div className='py-2 w-full'>
                 <Select
-                    placeholder='Gender'
+                    placeholder='man'
                     options={['Male', 'Female']}
                 />
             </div>}
             <div className='py-2 w-full'>
                 <Input 
-                    placeholder='Phone number'
+                    placeholder='010-1111-1111'
                     type="tel"
                 />
             </div>
             <div className='py-2 w-full'>
                 <Input 
-                    placeholder='E-mail'
+                    placeholder='test@gmail.com'
                     type="mail"
                 />
             </div>
             <div className='w-full mb-4'>
                 <Textarea
-                    placeholder='Message'
+                    placeholder='How long is the rent?.................'
                     rows={8}
                 />
             </div>

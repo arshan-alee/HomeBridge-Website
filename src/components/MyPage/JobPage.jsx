@@ -1,9 +1,11 @@
 import React from 'react'
+import { useMediaQuery } from 'react-responsive';
 import GeneralSection from './JobPage/GeneralSection'
 import ApplicationForm from './JobPage/ApplicationForm'
 import JobDetails from './JobPage/JobDetails'
 
 function JobPage() {
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 1024px)' });
 
   return (
     <div className="py-12">
@@ -13,10 +15,10 @@ function JobPage() {
         </div>
         <div className="flex flex-row">
           <JobDetails />
-          <ApplicationForm title='Job application' type='job' />
+          {isLargeScreen && <ApplicationForm title='Job application' type='job' />}
         </div>
         <GeneralSection />
-        <div className="flex lg:hidden"><ApplicationForm title='Job application' type='job' /></div>
+        <div className="flex md:mx-16 lg:hidden"><ApplicationForm title='Job application' type='job' /></div>
     </div>
   )
 }
