@@ -1,0 +1,47 @@
+import { Link } from "react-router-dom";
+
+const ProfileDropDown = ({
+  isMobile,
+  setOpenProfileDropdown,
+  openProfileDropDown,
+}) => {
+  return (
+    <div
+      className={`absolute ${
+        isMobile
+          ? " -left-7 top-10 lg:hidden block"
+          : "right-0 top-10 lg:block hidden"
+      } z-50 rounded-md w-[200px] sm:w-[220px] bg-[#fff]  `}
+    >
+      <div className="pt-4 pb-5 sm:pt-5 sm:pb-6 border-b-[0.5px] border-[#AAA]">
+        <img
+          src="/icons/user_circle.png"
+          alt="logo"
+          className="w-[40px] sm:w-[60px] mx-auto mb-1"
+        />
+        <p className="font-semibold text-center">Jason</p>
+      </div>
+      <div className="w-full flex ">
+        <div className="w-1/2 py-3 sm:py-4 text-center border-r-[0.5px] border-[#AAA]">
+          <Link
+            className="text-[#2B2B2B] text-[12px]"
+            to="/mypage"
+            onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+          >
+            Mypage{" "}
+          </Link>
+        </div>
+        <div className="w-1/2 py-3 sm:py-4 text-center">
+          <Link
+            className="text-[#2B2B2B] text-[12px]"
+            onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+          >
+            logout{" "}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProfileDropDown;
