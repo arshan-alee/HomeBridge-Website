@@ -14,6 +14,7 @@ import RefundPage from "./pages/RefundPage";
 import EventPage from "./pages/EventPage";
 import JobNHouse from "./pages/JobNHouse";
 import Events from "./pages/Events";
+import Footer from "./components/Shared/Footer";
 
 function App() {
   return (
@@ -32,9 +33,10 @@ function App() {
         <Route path="/mypage/f2r-application" element={<><Header /><F2RApplication /></>} />
         <Route path="/job_house/:id" element={<><Header /><JobPage /></>} />
         <Route path="/event/:id" element={<><Header /><EventPage /></>} />
-        <Route path="/refund" element={<RefundPage />} />
+        <Route path="/refund" element={<><Header /><RefundPage /></>} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Footer />
       {/* Footer */}
     </div>
   );

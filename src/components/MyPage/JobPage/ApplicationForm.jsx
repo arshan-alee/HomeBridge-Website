@@ -45,7 +45,7 @@ function ApplicationForm({title, type}) {
                 />
             </div>
             {
-                type === 'event' && (
+                type === 'event' ? (
                     <>
                         <div className="flex justify-between border-t pt-4">
                             <p className="text-[12px] font-medium">Price</p>
@@ -54,6 +54,15 @@ function ApplicationForm({title, type}) {
                         <div className="flex justify-center mt-4">
                             <button className='bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]'>Reservation cancellation</button>
                         </div>
+                    </>
+                )
+                :
+                (
+                    <>
+                        <div className="flex justify-center mt-4 mb-2">
+                            <button className='bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]'>To apply</button>
+                        </div>
+                        <p className="text-center text-[12px] font-medium mb-2">The person in charge will contact you after checking.</p>
                     </>
                 )
             }

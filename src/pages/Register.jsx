@@ -1,9 +1,6 @@
 import React from "react";
 import LoginLeft from "../components/Shared/LoginLeft";
 import RegisterRightSide from "../components/Register/RegisterRightSide";
-import Input from "../components/Shared/Input";
-import Textarea from "../components/Shared/Textarea";
-import Select from "../components/Shared/Select";
 import Header from "../components/Shared/Header";
 
 function Register() {

@@ -138,7 +138,7 @@ const TransparentHeader = () => {
   };
 
   return (
-    <div className="absolute z-20 w-full text-white px-5 sm:px-10 lg:px-20 py-6 flex lg:flex-row flex-row-reverse justify-between items-center">
+    <div className="lg:absolute z-20 w-full lg:text-white px-5 sm:px-10 lg:px-20 py-6 flex lg:flex-row flex-row-reverse justify-between items-center">
       {/* Hamburger */}
       <img
         src="/icons/hamburger__icon.png"

@@ -14,6 +14,7 @@ const data = [
   { id: 10, title: '2 nights and 3 days, Tongyeong German village tour', subtitle: 'Best natural scenery, accommodation with a panoramic view of the sea', price: '199,000KRW', imageUrl: '/images/event_card.png' },
   { id: 11, title: '2 nights and 3 days, Tongyeong German village tour', subtitle: 'Best natural scenery, accommodation with a panoramic view of the sea', price: '199,000KRW', imageUrl: '/images/event_card.png' },
   { id: 12, title: '2 nights and 3 days, Tongyeong German village tour', subtitle: 'Best natural scenery, accommodation with a panoramic view of the sea', price: '199,000KRW', imageUrl: '/images/event_card.png' },
+  { id: 13, title: '2 nights and 3 days, Tongyeong German village tour', subtitle: 'Best natural scenery, accommodation with a panoramic view of the sea', price: '199,000KRW', imageUrl: '/images/event_card.png' },
 ];
 
 const CardsPerPage = 4;
@@ -39,6 +40,30 @@ const PaginatedCards = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(
+        <button
+          key={i}
+          onClick={() => handlePageChange(i)}
+          className={`${
+            currentPage === i
+              ? 'text-[#00CE3A]'
+              : 'text-black hover:text-[#00CE3A]'
+          } relative inline-flex items-center px-4 py-2 bg-white font-semibold text-[16px]`}
+        >
+          {i}
+        </button>
+      );
+    }
+    return pageNumbers;
+  };
+
   return (
     <div className="mx-4 md:mx-14 lg:mx-24 my-8">
         <h1 className="text-[34px] font-extrabold my-12">Experiencing Korea</h1>
@@ -54,24 +79,24 @@ const PaginatedCards = () => {
         ))}
       </div>
 
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}
-          className={`bg-blue-500 text-white px-4 py-2 rounded ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}`}
-        >
-          Previous
-        </button>
-        <span className="text-gray-700">
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          className={`bg-blue-500 text-white px-4 py-2 rounded ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''}`}
-        >
-          Next
-        </button>
+      <div className="my-4 md:my-12 flex justify-center py-2">
+        <nav className="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
+          <div
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white cursor-pointer"
+          >
+            <img src="/icons/left.png" alt="" />
+          </div>
+          {renderPageNumbers()}
+          <div
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white cursor-pointer"
+          >
+            <img src="/icons/right.png" alt="" />
+          </div>
+        </nav>
       </div>
     </div>
   );
