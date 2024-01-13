@@ -87,10 +87,17 @@ const TransparentHeader = () => {
         <div className="flex justify-center items-center gap-2">
           <div className="flex gap-2">
             <img
+              src="/icons/header__profile__white.png"
+              alt="logo"
+              className="cursor-pointer lg:block hidden "
+            />
+
+            <img
               src="/icons/header__profile.svg"
               alt="logo"
-              className="cursor-pointer "
+              className="cursor-pointer lg:hidden block "
             />
+
             {isLoggedIn && (
               <div className="relative">
                 <p

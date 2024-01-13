@@ -86,10 +86,18 @@ const Header = () => {
           </Link>
         ))}
 
-        <div className="flex justify-center items-center gap-2">
-          <div className="flex gap-2">
+        <div
+          className={`flex justify-center items-center py-1 px-3 rounded-[30px] gap-2 ${
+            location.pathname === "/mypage" && "bg-[#00CE3A] text-[#fff]"
+          } `}
+        >
+          <div className="flex gap-2 ">
             <img
-              src="/icons/header__profile.svg"
+              src={
+                location.pathname === "/mypage"
+                  ? "/icons/header__profile__white.png"
+                  : "/icons/header__profile.svg"
+              }
               alt="logo"
               className="cursor-pointer "
             />
