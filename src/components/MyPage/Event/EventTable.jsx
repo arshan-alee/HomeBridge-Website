@@ -43,7 +43,7 @@ const EventTable = ({ columns, data }) => {
   };
 
   return (
-    <div className="overflow-x-auto max-w-3/4 flex-grow custom-shadow-right-bottom rounded-b-xl">
+    <div className="overflow-x-auto w-full lg:max-w-3/4 flex-grow custom-shadow-right-bottom rounded-b-xl">
       <h1 className="text-[22px] font-semibold mb-6">Event</h1>
       <table className="min-w-full">
         <thead className="bg-[#00CE3A]">
@@ -75,21 +75,21 @@ const EventTable = ({ columns, data }) => {
         </tbody>
       </table>
       <div className="mt-4 flex justify-center py-2">
-        <nav className="relative z-0 inline-flex shadow-sm -space-x-px" aria-label="Pagination">
+        <nav className="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:bg-[#00CE3A] hover:text-white"
+            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
           >
-            {'<'}
+            <img src="/icons/left.png" alt="" />
           </button>
           {renderPageNumbers()}
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:bg-[#00CE3A] hover:text-white"
+            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
           >
-            {'>'}
+            <img src="/icons/right.png" alt="" />
           </button>
         </nav>
       </div>

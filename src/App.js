@@ -37,7 +37,7 @@ function App() {
         <Route path="/job_house" element={<JobNHouse />} />
         <Route path="/event" element={<Events />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/mypage/f2r-application" element={<><Header /><F2RApplication /></>} />
+        <Route path="/f2r-application" element={<><Header /><F2RApplication /></>} />
         <Route path="/job_house/:id" element={<><Header /><JobPage /></>} />
         <Route path="/event/:id" element={<><Header /><EventPage /></>} />
         <Route path="/payment/success" element={<><Header /><PaymentSuccess /></>} />

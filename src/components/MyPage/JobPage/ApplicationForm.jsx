@@ -1,9 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Input from '../../Shared/Input'
 import Textarea from '../../Shared/Textarea'
 import Select from '../../Shared/Select'
 
 function ApplicationForm({title, type}) {
+    const navigate = useNavigate();
+
   return (
     <div className="w-full lg:w-1/3 px-2 md:px-6">
         <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-lg">
@@ -52,7 +56,7 @@ function ApplicationForm({title, type}) {
                             <p className="text-[24px] font-semibold text-[#00CE3A]">199,000KRW</p>
                         </div>
                         <div className="flex justify-center mt-4">
-                            <button className='bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]'>Reservation cancellation</button>
+                            <button className='bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px] w-full' onClick={()=> navigate('/payment/success')}>Payment</button>
                         </div>
                     </>
                 )

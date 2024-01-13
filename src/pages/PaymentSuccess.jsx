@@ -11,7 +11,7 @@ function PaymentSuccess() {
     <div className="mx-4 lg:mx-56 my-8 lg:my-16">
         <h1 className="text-[36px] text-center font-semibold mb-8 text-[#00CE3A]">결제가 정상적으로 완료 <span className="text-[#2B2B2B]">되었습니다.</span></h1>
         <div className="w-full my-8 custom-shadow-right-bottom rounded-xl overflow-hidden">
-            <h1 className="text-[24px] font-bold bg-[#00CE3A] text-white pl-12 py-3">상품 정보</h1>
+            <h1 className="text-[24px] font-bold bg-[#00CE3A] text-white pl-4 lg:pl-12 py-3">상품 정보</h1>
             <h1 className="lg:hidden text-[24px] font-semibold p-6">[신년일출] 전라도 별미와 함께하는 여수 향일암 일출, 순천 전주 1박2일</h1>
             <div className="w-full flex flex-col-reverse lg:flex-row p-6 lg:p-12">
                 <div className="w-full lg:w-1/2 p-4">

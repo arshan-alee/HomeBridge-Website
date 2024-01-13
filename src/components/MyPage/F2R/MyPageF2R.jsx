@@ -14,7 +14,7 @@ function MyPageF2R() {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate('/mypage/f2r-application')
+    navigate('/f2r-application')
   }
 
   return (

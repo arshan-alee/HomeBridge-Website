@@ -17,42 +17,42 @@ function F2RApplication() {
             </div>
             <div className='py-2 flex flex-col md:flex-row w-full gap-2'>
                 <Select 
-                    placeholder='Country'
+                    placeholder='japan'
                     options={['Japan', 'South Korea']}
                 />
                 <Select 
-                    placeholder='Gender'
+                    placeholder='man'
                     options={['Male', 'Female']}
                 />
             </div>
             <div className='py-2 w-full'>
                 <Input 
-                    placeholder='Address'
+                    placeholder='seoul'
                     type="text"
                 />
             </div>
             <div className='py-2 w-full'>
                 <Input 
-                    placeholder='Phone number'
+                    placeholder='010-1111-1111'
                     type="tel"
                 />
             </div>
             <div className='py-2 w-full'>
                 <Input 
-                    placeholder='E-mail'
+                    placeholder='test@gmail.com'
                     type="mail"
                 />
             </div>
-            <div className='py-2 w-full mb-4'>
+            <div className='w-full mb-4'>
                 <Textarea 
-                    placeholder='Message'
+                    placeholder='How much is the f-2-r visa ap.........'
                     rows={8}
                 />
             </div>
-            <div className='py-2 w-full mb-3 text-center'>
+            <div className='py-2 w-full mb-1 text-center'>
                 <button className='bg-[#00CE3A] text-white px-8 py-2 rounded-3xl'>To apply</button>
             </div>
-            <p className='text-center text-[12px]'>The person in charge will contact you after checking.</p>
+            <p className='text-center text-[12px] text-[#000000]'>The person in charge will contact you after checking.</p>
         </div>
     </div>
   )

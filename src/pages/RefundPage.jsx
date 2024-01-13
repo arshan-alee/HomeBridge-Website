@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from '../components/Shared/Input'
 
 function RefundPage() {
@@ -9,6 +9,8 @@ function RefundPage() {
     { label: 'Payment method', value: 'Credit Card (Kukmin Card)' },
     { label: 'Payment amount', value: '199,000KRW' },
   ];
+
+  const [condition, setCondition] = useState(false);
 
   const refundInfo = [
     { label: 'Application date', value: '2023.12.18 15:50' },
@@ -34,6 +36,15 @@ function RefundPage() {
 
   return (
     <div className="my-12 lg:my-22">
+    {
+      condition ? 
+      <div className="w-full h-screen flex flex-col items-center justify-center px-4 text-center">
+        <h2 className="text-[16px]">Your refund application has been completed.</h2>
+        <p className="text-[14px] mb-8">(The refund may be completed 30 minutes to 1 hour depending on the payment method.)</p>
+        <button className="bg-[#00CE3A] text-white rounded-3xl px-8 py-4">Move main page</button>
+      </div>
+      :
+      <>
         <h2 className="mx-2 md:mx-16 lg:mx-72 text-[16px] font-bold mb-6 hidden lg:block">Refund application</h2>
         <div className="relative mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom p-6 md:p-12 rounded-lg mb-8">
           <div className='border-b pb-2'>
@@ -68,7 +79,7 @@ function RefundPage() {
               </div>
             </div>
             <div className='w-full flex items-center md:items-end justify-center md:justify-end'>
-              <button className="bg-green-500 text-white text-[16px] px-6 py-2 rounded-3xl">Refund request</button>
+              <button className="bg-green-500 text-white text-[16px] px-6 py-2 rounded-3xl" onClick={()=> setCondition(true)}>Refund request</button>
             </div>
           </div>
         </div>
@@ -94,6 +105,8 @@ function RefundPage() {
             </ul>
           </div>
         </div>
+      </>
+    }
     </div>
   )
 }

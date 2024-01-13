@@ -15,7 +15,7 @@ function SideMenu({selectedOption, setSelectedOption}) {
                 <p className='text-[#333333] text-[14px] font-normal'>kim9999@gmail.com</p>
             </div>
         </div>
-        <div className="hidden lg:flex flex-col rounded-xl py-8 custom-shadow-right-bottom space-y-4">
+        <div className="hidden lg:flex flex-col rounded-xl p-8 custom-shadow-right-bottom space-y-4">
             <h1 className={`text-[18px] font-semibold cursor-pointer ${selectedOption === 0 ? 'text-[#00CE3A]' : 'text-[#607092]'}`} onClick={()=> handleOptionSelection(0)}>F-2-R application</h1>
             <h1 className={`text-[18px] font-semibold cursor-pointer ${selectedOption === 1 ? 'text-[#00CE3A]' : 'text-[#607092]'}`} onClick={()=> handleOptionSelection(1)}>Job & House</h1>
             <h1 className={`text-[18px] font-semibold cursor-pointer ${selectedOption === 2 ? 'text-[#00CE3A]' : 'text-[#607092]'}`} onClick={()=> handleOptionSelection(2)}>Event</h1>
