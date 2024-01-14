@@ -85,7 +85,7 @@ function RefundPage() {
         </div>
         <div className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom p-6 md:p-12 rounded-lg">
           <div className="mb-12">
-            <h1 className="mb-2 text-[#2C406E] text-[20px]">Precautions</h1>
+            <h1 className="mb-2 text-[#2C406E] text-[10px] md:text-[14px]">Precautions</h1>
             <ul className="list-disc">
               {
                 precautions.map((item, index)=> (
@@ -95,7 +95,7 @@ function RefundPage() {
             </ul>
           </div>
           <div className="mb-12">
-            <h1 className="mb-2 text-[#2C406E] text-[20px]">Refund Regulations</h1>
+            <h1 className="mb-2 text-[#2C406E] text-[16px]">Refund Regulations</h1>
             <ul className="list-disc">
               {
                 refundRegulations.map((item, index)=> (

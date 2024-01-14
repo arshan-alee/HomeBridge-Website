@@ -54,7 +54,7 @@ const TableComponent = ({ columns, data, handleClick }) => {
         </thead>
         <tbody className="bg-gray-500">
           {paginatedData.map((row, index) => (
-            <tr key={index} className='bg-white mb-2'>
+            <tr key={index} className='bg-white rounded-2xl'>
               {columns.map((column) => (
                 <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer">
                   <div className="truncate" onClick={handleClick}>{row[column]}</div>

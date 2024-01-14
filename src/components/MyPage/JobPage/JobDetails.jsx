@@ -21,8 +21,8 @@ function JobDetails() {
     };
 
   return (
-    <div className='w-2/3 mx-6 md:mx-12'>
-              <div className='py-4 border-b'>
+    <div className='w-full lg:w-2/3 mx-4 md:mx-12'>
+              <div className='lg:py-4 border-b py-8'>
                 <h3 className="font-semibold mb-2">JOB INFO</h3>
                 {Object.entries(jobInfo).map(([label, value]) => (
                   <div key={label} className="flex mr-4 mb-2 text-[14px]">
@@ -31,7 +31,7 @@ function JobDetails() {
                   </div>
                 ))}
               </div>
-              <div className='py-4 border-b'>
+              <div className='lg:py-4 border-b py-8'>
                 <h3 className="font-semibold mb-2">Salary & Fringe benefits</h3>
                 {Object.entries(jobBenefits).map(([label, value]) => (
                   <div key={label} className="flex mr-4 mb-2 text-[14px]">
@@ -40,7 +40,7 @@ function JobDetails() {
                   </div>
                 ))}
               </div>
-              <div className='py-4'>
+              <div className='py-12 lg:py-4'>
                 <h3 className="font-semibold mb-2">JOB DETAILS</h3>
                 <div className='mb-2'>
                   <h2 className="font-semibold">Responsabilities:</h2>

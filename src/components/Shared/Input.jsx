@@ -18,7 +18,7 @@ const Input = ({
         onChange={onChange}
         required={require}
         placeholder={placeholder}
-        className="outline-none text-sm p-3 w-full rounded-2xl bg-[#D4D4D433]"
+        className="outline-none text-sm p-3 w-full rounded-xl bg-[#D4D4D433]"
       />
     </div>
   );

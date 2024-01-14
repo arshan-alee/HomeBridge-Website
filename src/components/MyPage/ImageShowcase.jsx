@@ -7,8 +7,8 @@ const ImageShowcase = ({ images }) => {
     useImageSlider(0, images);
 
   return (
-    <div className="flex flex-col items-center px-4 py-8 rounded-b-xl bg-white custom-shadow-right-bottom">
-      <div className="relative w-full mb-1">
+    <div className="flex flex-col items-center lg:px-6 lg:py-8 rounded-2xl lg:bg-white lg:custom-shadow-right-bottom">
+      <div className="relative w-full mb-2">
         <img
           src={images[currentImageIndex]}
           alt={`${currentImageIndex + 1}`}

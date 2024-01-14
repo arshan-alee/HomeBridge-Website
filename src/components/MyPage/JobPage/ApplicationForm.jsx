@@ -9,9 +9,9 @@ function ApplicationForm({title, type}) {
     const navigate = useNavigate();
 
   return (
-    <div className="w-full lg:w-1/3 px-2 md:px-6">
-        <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-lg">
-            <h3 className="font-semibold text-[16px]">{title}</h3>
+    <div className="w-full lg:w-1/3 md:px-6">
+        <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-8 rounded-xl bg-white">
+            <h3 className="font-semibold text-[16px] py-3">{title}</h3>
             <div className='py-2 w-full'>
                 <Input 
                     placeholder='Jason Kim'
@@ -64,7 +64,7 @@ function ApplicationForm({title, type}) {
                 (
                     <>
                         <div className="flex justify-center mt-4 mb-2">
-                            <button className='bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]'>To apply</button>
+                            <button className='w-full bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]'>To apply</button>
                         </div>
                         <p className="text-center text-[12px] font-medium mb-2">The person in charge will contact you after checking.</p>
                     </>
