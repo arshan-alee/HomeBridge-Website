@@ -75,7 +75,7 @@ const Testimonials = () => {
       {/* Right */}
       <div className="w-full lg:w-1/2 flex justify-center items-center gap-3 sm:gap-5 ">
         <div
-          className="relative p-5 lg:p-10 rounded-[30px]"
+          className="relative z-10 p-5 lg:p-10 rounded-[30px]"
           style={{
             boxShadow: " 10px 10px 30px 0px rgba(0, 0, 0, 0.10)",
           }}

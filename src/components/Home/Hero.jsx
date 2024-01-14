@@ -9,10 +9,10 @@ const heroSliderData = [
     imgSrc: "/images/hero__slider__2.png",
   },
   {
-    imgSrc: "/images/hero__slider__2.png",
+    imgSrc: "/images/hero__slider__3.png",
   },
   {
-    imgSrc: "/images/hero__slider__2.png",
+    imgSrc: "/images/hero__slider__4.png",
   },
 ];
 
