@@ -5,9 +5,10 @@ import ContactInfo from '../ContactInfo';
 
 function GeneralSection() {
     const images = [
-        'https://picsum.photos/id/1018/1000/600/',
-        'https://picsum.photos/id/1015/1000/600/',
-        'https://picsum.photos/id/1018/1000/600/',
+        '/images/image_catalogue.png',
+        '/images/image_catalogue.png',
+        '/images/image_catalogue.png',
+        '/images/image_catalogue.png'
     ];
 
   return (

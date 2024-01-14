@@ -7,8 +7,8 @@ function F2RApplication() {
   return (
     <div className="my-12 md:my-24">
         <h2 className="px-36 text-[38px] font-bold mb-16 hidden lg:block">F-2-R Application</h2>
-        <div className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-lg">
-            <h3 className="font-600 text-[16px]">F-2-R Application</h3>
+        <div className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-2xl">
+            <h3 className="font-600 text-[16px] pt-6 pb-4">F-2-R Application</h3>
             <div className='py-2 w-full'>
                 <Input 
                     placeholder='Jason Kim'
