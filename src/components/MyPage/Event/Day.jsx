@@ -1,6 +1,18 @@
 import { IoMdCheckmark } from "react-icons/io";
+import ImageShowcase from "../ImageShowcase";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import useImageSlider from "../../../utils/useImageSlider";
+
+const images = [
+  "/images/image_catalogue.png",
+  "/images/image_catalogue.png",
+  "/images/image_catalogue.png",
+  "/images/image_catalogue.png",
+];
 
 const Day = () => {
+  const { currentImageIndex, prevImage, nextImage } = useImageSlider(0, images);
+
   return (
     <div className="w-full my-8 custom-shadow-right-bottom  lg:rounded-xl overflow-hidden">
       <div className="bg-[#00CE3A] text-white pl-6 py-3 flex justify-start items-center gap-2 sm:gap-7">
@@ -9,6 +21,29 @@ const Day = () => {
         <h3 className="text-base font-normal">
           2023.12.30(토)-서울/전주/순천/광양
         </h3>
+      </div>
+
+      {/* ImageSlider */}
+      <div className="lg:hidden block  rounded-b-xl bg-white custom-shadow-right-bottom">
+        <div className="relative w-full mb-1">
+          <img
+            src={images[currentImageIndex]}
+            alt={`${currentImageIndex + 1}`}
+            className="w-full h-auto"
+          />
+          <button
+            onClick={prevImage}
+            className="absolute top-1/2 left-4 transform -translate-y-1/2 focus:outline-none bg-[#FFFFFF80] p-2 rounded-full"
+          >
+            <FaChevronLeft className="w-6 h-6 text-[#00000080]" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 focus:outline-none bg-[#FFFFFF80] p-2 rounded-full"
+          >
+            <FaChevronRight className="w-6 h-6 text-[#00000080]" />
+          </button>
+        </div>
       </div>
 
       <div className="p-6 md:p-12">

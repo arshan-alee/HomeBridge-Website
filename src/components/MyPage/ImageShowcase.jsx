@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import React from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import useImageSlider from "../../utils/useImageSlider";
 
 const ImageShowcase = ({ images }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const selectImage = (index) => {
-    setCurrentImageIndex(index);
-  };
+  const { currentImageIndex, prevImage, nextImage, selectImage } =
+    useImageSlider(0, images);
 
   return (
     <div className="flex flex-col items-center px-4 py-8 rounded-b-xl bg-white custom-shadow-right-bottom">
@@ -43,10 +33,14 @@ const ImageShowcase = ({ images }) => {
             key={index}
             onClick={() => selectImage(index)}
             className={`w-1/4 md:h-[200px] lg:h-[130px] overflow-hidden focus:outline-none ${
-              index === currentImageIndex ? 'ring-2 ring-blue-500' : ''
+              index === currentImageIndex ? "ring-2 ring-blue-500" : ""
             }`}
           >
-            <img src={image} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+            <img
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
           </button>
         ))}
       </div>
