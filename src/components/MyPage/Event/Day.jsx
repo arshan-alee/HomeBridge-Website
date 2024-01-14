@@ -2,8 +2,8 @@ import { IoMdCheckmark } from "react-icons/io";
 
 const Day = () => {
   return (
-    <div className="w-full my-8 custom-shadow-right-bottom rounded-xl overflow-hidden">
-      <div className="bg-[#00CE3A] text-white pl-6 py-3 flex justify-start items-center gap-7">
+    <div className="w-full my-8 custom-shadow-right-bottom  lg:rounded-xl overflow-hidden">
+      <div className="bg-[#00CE3A] text-white pl-6 py-3 flex justify-start items-center gap-2 sm:gap-7">
         <h1 className="text-[24px] font-bold   ">1일차</h1>
 
         <h3 className="text-base font-normal">
@@ -15,10 +15,10 @@ const Day = () => {
         {/* Schedules */}
         {/* Row 1 */}
         <div className="grid grid-cols-5 gap-3 mb-3">
-          <div className="col-span-1"></div>
+          <div className="col-span-1 lg:block hidden"></div>
           <div className="col-span-4 flex justify-start item-center gap-4">
             {/* Left */}
-            <div className="flex flex-col justify-center items-center w-[24px] gap-2 h-full">
+            <div className="flex flex-col justify-center items-center  gap-2 h-full">
               <div className="bg-[#00CE3A] rounded-full p-1 ">
                 <IoMdCheckmark className="text-[#fff] text-[16px]" />
               </div>
@@ -38,14 +38,14 @@ const Day = () => {
         </div>
         {/* Row 2 */}
         <div className="grid grid-cols-5 gap-3 mb-3">
-          <div className="col-span-1">
+          <div className="col-span-1 lg:block hidden">
             <img src="/images/day__pic.png" alt="logo" className="w-full" />
             <img src="/images/day__pic.png" alt="logo" className="w-full" />
           </div>
 
           <div className="col-span-4 flex justify-start item-center gap-4 mb-3">
             {/* Left */}
-            <div className="flex flex-col justify-center items-center gap-2 h-full w-[24px]">
+            <div className="flex flex-col justify-center items-center gap-2 h-full ml-[5px]">
               <div className="bg-[#00CE3A] rounded-full p-[7px]"></div>
               <div className="bg-[#EAEAEA] rounded-sm h-full w-[4px]"></div>
             </div>
@@ -72,13 +72,13 @@ const Day = () => {
 
         {/* Row 3 */}
         <div className="grid grid-cols-5 gap-3 mb-3">
-          <div className="col-span-1">
+          <div className="col-span-1 lg:block hidden">
             <img src="/images/day__pic.png" alt="logo" className="w-full" />
           </div>
 
           <div className="col-span-4 flex justify-start item-center gap-4 mb-3">
             {/* Left */}
-            <div className="flex flex-col justify-center items-center gap-2 h-full w-[24px]">
+            <div className="flex flex-col justify-center items-center gap-2 h-full ml-[5px]">
               <div className="bg-[#00CE3A] rounded-full p-[7px]"></div>
               <div className="bg-[#EAEAEA] rounded-sm h-full w-[4px]"></div>
             </div>
@@ -101,13 +101,13 @@ const Day = () => {
 
         {/* Row 4 */}
         <div className="grid grid-cols-5 gap-3 mb-3">
-          <div className="col-span-1">
+          <div className="col-span-1 lg:block hidden">
             {" "}
             <img src="/images/day__pic.png" alt="logo" className="w-full" />
           </div>
           <div className="col-span-4 flex justify-start item-center gap-4">
             {/* Left */}
-            <div className="flex flex-col justify-center items-center gap-2 h-full w-[24px]">
+            <div className="flex flex-col justify-center items-center gap-2 h-full ml-[5px]">
               <div className="bg-[#00CE3A] rounded-full p-[7px]"></div>
               <div className="bg-[#EAEAEA] rounded-sm h-full w-[4px]"></div>
             </div>
