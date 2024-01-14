@@ -30,8 +30,11 @@ const Drawer = ({ isOpen, onClose }) => {
         <Link className="mb-5" to="/job_house" onClick={onClose}>
           Job&House
         </Link>
-        <Link to="/event" onClick={onClose}>
+        <Link className="mb-5" to="/event" onClick={onClose}>
           Event
+        </Link>
+        <Link to="/about" onClick={onClose}>
+          About
         </Link>
       </div>
 
