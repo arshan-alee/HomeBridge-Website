@@ -46,18 +46,18 @@ const TableComponent = ({ columns, data, handleClick }) => {
               <th
                 key={column}
                 scope="col"
-                className="px-4 py-3 text-xs font-medium text-white text-left uppercase tracking-wider"
+                className="px-4 py-3 text-[16px] font-normal font-hind text-white text-left tracking-wider"
               >
                 {column}
               </th>
             ))}
           </tr>
         </thead>
-        <tbody className="bg-gray-500">
+        <tbody className="bg-white">
           {paginatedData.map((row, index) => (
-            <tr key={index} className='bg-white rounded-2xl'>
+            <tr key={index} className='custom-shadow-right-bottom rounded-2xl mb-24'>
               {columns.map((column) => (
-                <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer">
+                <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
                   <div className="truncate" onClick={handleClick}>{row[column]}</div>
                 </td>
               ))}

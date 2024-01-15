@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import Input from '../components/Shared/Input'
+import Precautions from '../components/Refund/Precautions';
 
 function RefundPage() {
+
+  const [precautions, setPrecautions] = useState(false)
   const purchaseInfo = [
     { label: 'Payment date', value: '2023.12.08' },
     { label: 'Product', value: "[New Year's Day] With ...." },
@@ -17,25 +20,8 @@ function RefundPage() {
     { label: 'Refund amount', value: '199,000KRW' },
   ];
 
-  const precautions = [
-    "If the traveler cancels the reservation before the start date of the trip after the reservation is confirmed, a cancellation fee will be charged according to the time of notification of cancellation.",
-    "The cancellation time is based on the time when the cancellation notification was recorded through the reservation inquiry window on the Zoom platform.",
-    "In the case of entrance/ticket products, there is no refund after purchase.",
-    "The date and time is based on the local time of the service destination (or service destination).",
-    "Travel (including tours) or experience dates are based on 00:00 on the day of reservation.",
-    "When paying with an overseas card, some fees may be charged depending on the card company even if it is set as a full refund.",
-    "Refunds after overseas card payments may be displayed more or less than the amount you paid, depending on the exchange rate application of the payment card company."
-  ];
-
-  const refundRegulations = [
-    "~ 7 days ago: Full refund of travel fees",
-    "7 to 3 days ago: 50% cancellation fee applies to the total travel fee",
-    "2~1 days ago: 100% cancellation fee of travel fee applied (no refund)",
-    "Day of travel: 100% cancellation fee of travel fee applied (no refund)"
-  ];
-
   return (
-    <div className="my-12 lg:my-22">
+    <div className={`${!precautions && 'mx-4'} my-6 lg:my-22`}>
     {
       condition ? 
       <div className="w-full h-screen flex flex-col items-center justify-center px-4 text-center">
@@ -43,6 +29,9 @@ function RefundPage() {
         <p className="text-[14px] mb-8">(The refund may be completed 30 minutes to 1 hour depending on the payment method.)</p>
         <button className="bg-[#00CE3A] text-white rounded-[20px] px-8 py-4 btn-shadow">Move main page</button>
       </div>
+      :
+      precautions ?
+      <Precautions />
       :
       <>
         <h2 className="mx-2 md:mx-16 lg:mx-72 text-[16px] font-bold mb-6 hidden lg:block">Refund application</h2>
@@ -58,7 +47,7 @@ function RefundPage() {
               ))
             }
           </div>
-          <div className='border-b py-2'>
+          <div className='border-b py-2 mt-4'>
             <h2 className='mb-2 text-[#2C406E] text-[15px]'>Refund information</h2>
             {
               refundInfo.map((item, index) => (
@@ -69,7 +58,10 @@ function RefundPage() {
               ))
             }
           </div>
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row mt-4">
+            <div className="lg:hidden flex justify-end">
+              <button className="w-[135px] text-[12px] border border-[#B2B2B2] text-[#B2B2B2] rounded-[10px]" onClick={()=> setPrecautions(true)}>Refund Regulations</button>
+            </div>
             <div className='w-full md:w-1/2 py-2'>
               <h2 className='mb-2 text-[#2C406E] text-[15px]'>Refund account</h2>
               <div className='relative space-y-4'>
@@ -83,27 +75,8 @@ function RefundPage() {
             </div>
           </div>
         </div>
-        <div className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom p-6 md:p-12 rounded-lg">
-          <div className="mb-12">
-            <h1 className="mb-2 text-[#2C406E] text-[10px] md:text-[14px]">Precautions</h1>
-            <ul className="list-disc">
-              {
-                precautions.map((item, index)=> (
-                  <li className="text-[14px]">{item}</li>
-                ))
-              }
-            </ul>
-          </div>
-          <div className="mb-12">
-            <h1 className="mb-2 text-[#2C406E] text-[16px]">Refund Regulations</h1>
-            <ul className="list-disc">
-              {
-                refundRegulations.map((item, index)=> (
-                  <li className="text-[14px]">{item}</li>
-                ))
-              }
-            </ul>
-          </div>
+        <div className="hidden lg:flex">
+          <Precautions />
         </div>
       </>
     }

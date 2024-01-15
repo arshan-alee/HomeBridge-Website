@@ -65,8 +65,8 @@ const PaginatedCards = () => {
   };
 
   return (
-    <div className="mx-4 md:mx-14 lg:mx-28 my-8">
-        <h1 className="text-[34px] font-extrabold my-12">Job & Accommodation</h1>
+    <div className="mx-12 md:mx-14 lg:mx-28 my-8">
+        <h1 className="hidden lg:block text-[34px] font-extrabold my-12">Job & Accommodation</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 rounded-2xl">
         {currentCards.map((card) => (
           <div key={card.id} className="p-4 bg-white card-shadow rounded-2xl cursor-pointer mb-2" style={{background: "linear-gradient(161.47deg, #E7E9F3 -11.63%, #FFFFFF 91.02%)"}} onClick={()=> navigate('/job_house/123')}>

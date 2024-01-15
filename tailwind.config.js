@@ -12,6 +12,9 @@ module.exports = {
         home__hero__curve__sm:
           "linear-gradient(180deg, rgba(76, 201, 240, 0.00) 0%, rgba(0, 206, 58, 0.30) 100%)",
       },
+      fontFamily: {
+        hind: ['Hind Siliguri', 'sans-serif'],
+      },
     },
   },
   plugins: [],

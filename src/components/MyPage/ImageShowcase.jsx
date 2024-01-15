@@ -2,7 +2,7 @@ import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useImageSlider from "../../utils/useImageSlider";
 
-const ImageShowcase = ({ images }) => {
+const ImageShowcase = ({ images, type }) => {
   const { currentImageIndex, prevImage, nextImage, selectImage } =
     useImageSlider(0, images);
 

@@ -44,57 +44,59 @@ const EventTable = ({ columns, data }) => {
   };
 
   return (
-    <div className="overflow-x-auto max-w-3/4 custom-shadow-right-bottom rounded-b-xl">
-      <h1 className="hidden lg:block text-[22px] font-semibold mb-6">Event</h1>
-      <table className="min-w-full">
-        <thead className="bg-[#00CE3A]">
-          <tr>
-            {columns.map((column) => (
-              <th
-                key={column}
-                scope="col"
-                className="px-4 py-3 text-xs font-medium text-white text-left uppercase tracking-wider"
-              >
-                {column}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="bg-gray-500">
-          {paginatedData.map((row, index) => (
-            <tr key={index} className='bg-white mb-2'>
+    <>
+      <h1 className="hidden lg:block text-[24px] font-semibold mb-12">Event</h1>
+      <div className="overflow-x-auto max-w-3/4 custom-shadow-right-bottom rounded-b-xl">
+        <table className="min-w-full">
+          <thead className="bg-[#00CE3A]">
+            <tr>
               {columns.map((column) => (
-                <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer">
-                  <div className="truncate" onClick={handleClick}>{row[column]}</div>
-                </td>
+                <th
+                  key={column}
+                  scope="col"
+                  className="px-4 py-3 text-[16px] font-hind font-normal text-white text-left tracking-wider"
+                >
+                  {column}
+                </th>
               ))}
-              <td className="min-w-[85px] flex items-center justify-center">
-                <div className={`w-full md:w-3/4 text-center rounded-2xl py-1 text-white ${row['Payment'] === '완료' ? 'bg-[#FF7878]' : 'bg-[#00CE3A]'}`}>{row['Payment']}</div>
-              </td>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="mt-4 flex justify-center py-2">
-        <nav className="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
-          >
-            <FaChevronLeft className={`w-4 h-[12px] ${currentPage === 1 ? 'text-[#00000080]' : 'text-[#000000]'}`} />
-          </button>
-          {renderPageNumbers()}
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
-          >
-            <FaChevronRight className={`w-4 h-[12px] ${currentPage === totalPages ? 'text-[#00000080]' : 'text-[#000000]'}`} />
-          </button>
-        </nav>
+          </thead>
+          <tbody className="bg-gray-500">
+            {paginatedData.map((row, index) => (
+              <tr key={index} className='bg-white mb-2'>
+                {columns.map((column) => (
+                  <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
+                    <div className="truncate" onClick={handleClick}>{row[column]}</div>
+                  </td>
+                ))}
+                <td className="min-w-[85px] flex items-center justify-center">
+                  <div className={`w-full md:w-3/4 text-center rounded-2xl py-1 text-white ${row['Payment'] === '완료' ? 'bg-[#FF7878]' : 'bg-[#00CE3A]'}`}>{row['Payment']}</div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="mt-4 flex justify-center py-2">
+          <nav className="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
+            >
+              <FaChevronLeft className={`w-4 h-[12px] ${currentPage === 1 ? 'text-[#00000080]' : 'text-[#000000]'}`} />
+            </button>
+            {renderPageNumbers()}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
+            >
+              <FaChevronRight className={`w-4 h-[12px] ${currentPage === totalPages ? 'text-[#00000080]' : 'text-[#000000]'}`} />
+            </button>
+          </nav>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

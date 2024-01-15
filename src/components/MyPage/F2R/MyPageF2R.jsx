@@ -19,7 +19,7 @@ function MyPageF2R() {
 
   return (
     <div className="flex-grow">
-      <h1 className="hidden lg:block text-[22px] font-semibold mb-6">F-2-R application</h1>
+      <h1 className="hidden lg:block text-[24px] font-semibold mb-12">F-2-R application</h1>
       <TableComponent columns={columns} data={data} handleClick={handleClick} />
     </div>
   )
