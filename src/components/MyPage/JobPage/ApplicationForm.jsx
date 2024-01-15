@@ -45,7 +45,7 @@ function ApplicationForm({title, type}) {
             <div className='w-full mb-4'>
                 <Textarea
                     placeholder='How long is the rent?.................'
-                    rows={8}
+                    rows={10}
                 />
             </div>
             {

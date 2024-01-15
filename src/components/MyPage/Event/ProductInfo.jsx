@@ -17,13 +17,13 @@ function ProductInfo() {
     ];
 
   return (
-    <div className="w-full my-8 custom-shadow-right-bottom rounded-xl overflow-hidden">
-      <h1 className="text-[24px] font-bold bg-[#00CE3A] text-white pl-6 py-3">상품정보</h1>
-      <div className="flex flex-wrap p-6 md:p-12">
+    <div className="w-full my-8 custom-shadow-right-bottom rounded-2xl overflow-hidden">
+      <h1 className="text-[24px] font-bold bg-[#00CE3A] text-white pl-6 lg:pl-12 py-3">Product information</h1>
+      <div className="flex flex-wrap p-6 lg:py-8 lg:px-12">
         {productInfo.map((item, index) => (
-          <div key={index} className="w-full my-2">
-            <p className="text-[#00000080]">{item.label}</p>
-            <p className="text-left">{item.value}</p>
+          <div key={index} className="w-full my-2 text-[#384247]">
+            <p className="font-normal text-[16px]">{item.label}</p>
+            <p className="font-normal text-[16px]">{item.value}</p>
           </div>
         ))}
       </div>

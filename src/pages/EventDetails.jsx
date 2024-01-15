@@ -5,7 +5,7 @@ import EventInfo from "../components/MyPage/Event/EventInfo";
 import ProductInfo from "../components/MyPage/Event/ProductInfo";
 import Day from "../components/MyPage/Event/Day";
 
-function EventPage() {
+function EventDetails() {
   const images = [
     "/images/image_catalogue.png",
     "/images/image_catalogue.png",
@@ -19,8 +19,10 @@ function EventPage() {
         [신년일출] 전라도 별미와 함께하는 여수 향일암 일출, 순천 전주 1박2일
       </h1>
       <div className="w-full lg:px-12 flex flex-col lg:flex-row">
-        <div className="w-full lg:w-2/3 mr-4">
-          <ImageShowcase images={images} />
+        <div className="w-full lg:w-2/3 mr-2">
+          <div className="rounded-2xl custom-shadow-right-bottom">
+            <ImageShowcase images={images} />
+          </div>
           <EventInfo />
           <ProductInfo />
           <Day />
@@ -31,4 +33,4 @@ function EventPage() {
   );
 }
 
-export default EventPage;
+export default EventDetails;

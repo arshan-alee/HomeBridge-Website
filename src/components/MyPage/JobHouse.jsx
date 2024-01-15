@@ -28,7 +28,7 @@ function JobHouse() {
 
   return (
     <div className="flex-grow">
-      <h1 className="text-[22px] font-semibold mb-6">Job & House</h1>
+      <h1 className="hidden lg:block text-[22px] font-semibold mb-6">Job & House</h1>
       <TableComponent columns={columns} data={data} handleClick={handleClick} />
     </div>
   )

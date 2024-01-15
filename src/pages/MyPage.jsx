@@ -19,7 +19,7 @@ function MyPage() {
   return (
     <>
       <Header />
-      <div className="my-8 px-4 lg:px-12">
+      <div className="my-8 lg:px-12">
         <h1 className="hidden md:block py-12 font-bold text-[36px] pl-8">My Page</h1>
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/4">
@@ -32,7 +32,9 @@ function MyPage() {
             selectedOption === 1 ?
             <JobHouse />
             :
-            <EventTable columns={columns} data={data} />
+            <div className="w-full lg:w-3/4">
+              <EventTable columns={columns} data={data} />
+            </div>
           }
         </div>
       </div>

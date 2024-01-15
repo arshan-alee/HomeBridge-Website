@@ -1,6 +1,6 @@
 import React from 'react'
 
-function JobDetails() {
+function JobDetail() {
     const jobInfo = {
         'Job main categories': 'Lorem',
         'Job subcategories': 'Sagittis',
@@ -59,4 +59,4 @@ function JobDetails() {
   )
 }
 
-export default JobDetails
+export default JobDetail

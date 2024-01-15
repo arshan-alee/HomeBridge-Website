@@ -8,7 +8,7 @@ function ContactInfo() {
   ];
 
   return (
-    <div className="w-full mt-8 custom-shadow-right-bottom p-6 md:p-12 rounded-2xl bg-white">
+    <div className="w-full lg:mt-8 custom-shadow-right-bottom p-6 md:p-12 lg:rounded-2xl bg-white">
       <h1 className="text-[22px] mb-4">Contract information</h1>
       <div className="flex flex-wrap">
         {contactData.map((item, index) => (

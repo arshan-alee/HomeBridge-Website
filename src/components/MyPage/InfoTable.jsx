@@ -23,22 +23,22 @@ const InfoTable = () => {
   ];
 
   return (
-    <div className="w-full mt-8 lg:custom-shadow-right-bottom p-6 md:p-12 rounded-2xl bg-white">
+    <div className="w-full mt-8 custom-shadow-right-bottom p-6 md:p-12 rounded-2xl bg-white">
         <div className='mb-6'>
             <h1 className="text-[22px] font-normal mb-2">General Information</h1>
             <div className="flex flex-wrap">
                 {contactData.map((item, index) => (
                     <div key={index} className="flex w-full md:w-1/2 my-2">
-                        <p className="w-1/2 text-[#00000080]">{item.label}</p>
+                        <p className={`${(index+1) % 2 === 0 && 'lg:ml-12'} w-1/2 text-[#00000080]`}>{item.label}</p>
                         <p className="w-1/2 text-left">{item.value}</p>
                     </div>
                 ))}
             </div>
         </div>
 
-        <div className='my-6'>
+        <div className='my-6 lg:mb-12'>
             <h1 className="text-[22px] font-normal mb-2">Explanation</h1>
-            <p>영월지역 포도농장과 가까워 출퇴근이 쉽습니다. 주변에 마트와 편의점이 있습니다.</p>
+            <p className="text-[#00000080]">영월지역 포도농장과 가까워 출퇴근이 쉽습니다. 주변에 마트와 편의점이 있습니다.</p>
         </div>
 
         <div>
@@ -47,7 +47,7 @@ const InfoTable = () => {
                 features.map((feature, index) => (
                     <div className="flex items-center gap-2 mb-1">
                         <img src="/icons/tick.png" alt="" className="w-[10px] h-[8px]" />
-                        <p className="text-[16px]">{feature}</p>
+                        <p className="text-[16px] text-[#00000080]">{feature}</p>
                     </div>
                 ))
             }

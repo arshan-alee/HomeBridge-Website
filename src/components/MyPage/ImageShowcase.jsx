@@ -32,7 +32,7 @@ const ImageShowcase = ({ images }) => {
           <button
             key={index}
             onClick={() => selectImage(index)}
-            className={`w-1/4 md:h-[200px] lg:h-[130px] overflow-hidden focus:outline-none ${
+            className={`w-1/4 md:h-[200px] lg:h-[105px] overflow-hidden focus:outline-none ${
               index === currentImageIndex ? "ring-2 ring-blue-500" : ""
             }`}
           >

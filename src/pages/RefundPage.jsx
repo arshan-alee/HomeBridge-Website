@@ -41,7 +41,7 @@ function RefundPage() {
       <div className="w-full h-screen flex flex-col items-center justify-center px-4 text-center">
         <h2 className="text-[16px]">Your refund application has been completed.</h2>
         <p className="text-[14px] mb-8">(The refund may be completed 30 minutes to 1 hour depending on the payment method.)</p>
-        <button className="bg-[#00CE3A] text-white rounded-3xl px-8 py-4">Move main page</button>
+        <button className="bg-[#00CE3A] text-white rounded-[20px] px-8 py-4 btn-shadow">Move main page</button>
       </div>
       :
       <>
@@ -79,7 +79,7 @@ function RefundPage() {
               </div>
             </div>
             <div className='w-full flex items-center md:items-end justify-center md:justify-end'>
-              <button className="bg-green-500 text-white text-[16px] px-6 py-2 rounded-3xl" onClick={()=> setCondition(true)}>Refund request</button>
+              <button className="bg-[#00CE3A] text-white text-[16px] px-6 py-2 rounded-[20px] btn-shadow" onClick={()=> setCondition(true)}>Refund request</button>
             </div>
           </div>
         </div>

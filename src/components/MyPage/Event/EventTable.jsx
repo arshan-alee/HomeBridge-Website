@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const EventTable = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,8 +44,8 @@ const EventTable = ({ columns, data }) => {
   };
 
   return (
-    <div className="overflow-x-auto w-full lg:max-w-3/4 flex-grow custom-shadow-right-bottom rounded-b-xl">
-      <h1 className="text-[22px] font-semibold mb-6">Event</h1>
+    <div className="overflow-x-auto max-w-3/4 custom-shadow-right-bottom rounded-b-xl">
+      <h1 className="hidden lg:block text-[22px] font-semibold mb-6">Event</h1>
       <table className="min-w-full">
         <thead className="bg-[#00CE3A]">
           <tr>
@@ -81,7 +82,7 @@ const EventTable = ({ columns, data }) => {
             disabled={currentPage === 1}
             className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
           >
-            <img src="/icons/left.png" alt="" />
+            <FaChevronLeft className={`w-4 h-[12px] ${currentPage === 1 ? 'text-[#00000080]' : 'text-[#000000]'}`} />
           </button>
           {renderPageNumbers()}
           <button
@@ -89,7 +90,7 @@ const EventTable = ({ columns, data }) => {
             disabled={currentPage === totalPages}
             className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
           >
-            <img src="/icons/right.png" alt="" />
+            <FaChevronRight className={`w-4 h-[12px] ${currentPage === totalPages ? 'text-[#00000080]' : 'text-[#000000]'}`} />
           </button>
         </nav>
       </div>

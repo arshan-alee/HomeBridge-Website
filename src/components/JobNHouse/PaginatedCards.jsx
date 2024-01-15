@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const data = [
   { id: 1, title: 'Store management at a burger joint in Itaewon.', subtitle: 'Yongsan-gu, Seoul', imageUrl: '/images/jobnhouse_card.png' },
@@ -78,21 +79,21 @@ const PaginatedCards = () => {
 
       <div className="my-4 md:my-12 flex justify-center py-2">
         <nav className="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
-          <div
+          <button
             onClick={handlePrevPage}
             disabled={currentPage === 1}
             className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white cursor-pointer"
           >
-            <img src="/icons/left.png" alt="" />
-          </div>
+            <FaChevronLeft className={`w-4 h-[12px] ${currentPage === 1 ? 'text-[#00000080]' : 'text-[#000000]'}`} />
+          </button>
           {renderPageNumbers()}
-          <div
+          <button
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
             className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white cursor-pointer"
           >
-            <img src="/icons/right.png" alt="" />
-          </div>
+            <FaChevronRight className={`w-4 h-[12px] ${currentPage === totalPages ? 'text-[#00000080]' : 'text-[#000000]'}`} />
+          </button>
         </nav>
       </div>
     </div>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive';
-import GeneralSection from './JobPage/GeneralSection'
-import ApplicationForm from './JobPage/ApplicationForm'
-import JobDetails from './JobPage/JobDetails'
+import GeneralSection from '../components/MyPage/JobPage/GeneralSection'
+import ApplicationForm from '../components/MyPage/JobPage/ApplicationForm'
+import JobDetail from '../components/MyPage/JobPage/JobDetail'
 
-function JobPage() {
+function JobDetails() {
   const isLargeScreen = useMediaQuery({ query: '(min-width: 1024px)' });
 
   return (
@@ -14,7 +14,7 @@ function JobPage() {
             <h5 className="text-[14px] font-normal"><b className='mr-2'>₩</b> company name</h5>
         </div>
         <div className="flex flex-row px-6">
-          <JobDetails />
+          <JobDetail />
           {isLargeScreen && <ApplicationForm title='Job application' type='job' />}
         </div>
         <GeneralSection />
@@ -23,4 +23,4 @@ function JobPage() {
   )
 }
 
-export default JobPage
+export default JobDetails

@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const TableComponent = ({ columns, data, handleClick }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,7 +72,7 @@ const TableComponent = ({ columns, data, handleClick }) => {
             disabled={currentPage === 1}
             className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
           >
-            <img src="/icons/left.png" alt="" />
+            <FaChevronLeft className={`w-4 h-[12px] ${currentPage === 1 ? 'text-[#00000080]' : 'text-[#000000]'}`} />
           </button>
           {renderPageNumbers()}
           <button
@@ -79,7 +80,7 @@ const TableComponent = ({ columns, data, handleClick }) => {
             disabled={currentPage === totalPages}
             className="relative inline-flex items-center px-4 py-2 bg-white text-lg font-medium text-gray-500 hover:text-white"
           >
-            <img src="/icons/right.png" alt="" />
+            <FaChevronRight className={`w-4 h-[12px] ${currentPage === totalPages ? 'text-[#00000080]' : 'text-[#000000]'}`} />
           </button>
         </nav>
       </div>
