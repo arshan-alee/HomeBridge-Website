@@ -10,7 +10,7 @@ function ApplicationForm({title, type}) {
 
   return (
     <div className="w-full lg:w-1/3 md:px-6">
-        <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-8 rounded-xl bg-white">
+        <div className="mx-2 pb-4 text-xl custom-shadow-right-bottom px-8 rounded-xl lg:rounded-[30px] bg-white">
             <h3 className="font-semibold text-[16px] py-3">{title}</h3>
             <div className='py-2 w-full'>
                 <Input 

@@ -20,7 +20,7 @@ function EventDetails() {
       </h1>
       <div className="w-full lg:px-12 flex flex-col lg:flex-row">
         <div className="w-full lg:w-2/3 mr-2">
-          <div className="rounded-2xl custom-shadow-right-bottom">
+          <div className="rounded-[30px] py-3 custom-shadow-right-bottom">
             <ImageShowcase images={images} />
           </div>
           <EventInfo />

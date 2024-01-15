@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         hind: ['Hind Siliguri', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
     },
   },

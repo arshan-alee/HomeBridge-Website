@@ -9,7 +9,7 @@ function JobDetails() {
 
   return (
     <div className="py-12 bg-white">
-        <div className="flex flex-col items-center justify-center my-6 md:my-12">
+        <div className="flex flex-col items-center justify-center my-4 md:mt-8 mb-12">
             <h1 className="text-[32px] font-semibold">UX / UI Designer</h1>
             <h5 className="text-[14px] font-normal"><b className='mr-2'>₩</b> company name</h5>
         </div>

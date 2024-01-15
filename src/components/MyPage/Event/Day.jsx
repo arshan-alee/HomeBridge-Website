@@ -14,9 +14,9 @@ const Day = () => {
   const { currentImageIndex, prevImage, nextImage } = useImageSlider(0, images);
 
   return (
-    <div className="w-full my-8 custom-shadow-right-bottom  lg:rounded-xl overflow-hidden">
+    <div className="w-full my-8 custom-shadow-right-bottom lg:rounded-[30px] overflow-hidden">
       <div className="bg-[#00CE3A] text-white pl-6 py-3 flex justify-start items-center gap-2 sm:gap-7">
-        <h1 className="text-[24px] font-bold   ">1일차</h1>
+        <h1 className="text-[24px] font-bold">1일차</h1>
 
         <h3 className="text-base font-normal">
           2023.12.30(토)-서울/전주/순천/광양

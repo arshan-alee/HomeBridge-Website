@@ -9,7 +9,7 @@ function EventInfo() {
     ];
 
   return (
-    <div className="w-full mt-8 custom-shadow-right-bottom rounded-2xl overflow-hidden">
+    <div className="w-full mt-8 custom-shadow-right-bottom rounded-[30px] overflow-hidden">
       <h1 className="text-[24px] font-bold bg-[#00CE3A] text-white pl-6 lg:pl-12 py-3">Event Information</h1>
       <div className="flex flex-wrap p-6 lg:p-12">
         {contactData.map((item, index) => (
