@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AboutInformation from "../components/About/AboutInformation";
 import AboutTeamSection from "../components/About/AboutTeamSection";
 import AboutContact from "../components/About/AboutContact";
 import TransparentHeader from "../components/Shared/TransparentHeader";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <TransparentHeader />
