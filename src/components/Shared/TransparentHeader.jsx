@@ -74,7 +74,11 @@ const TransparentHeader = () => {
         alt="logo"
         className="w-[80px] lg:block hidden lg:w-[130px] cursor-pointer"
       />
-      <h1 className="font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset -ml-12">
+      <h1
+        className={`font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset ${
+          isLoggedIn ? "-ml-16" : "-ml-5"
+        }`}
+      >
         HOMEBRIDGE
       </h1>
       {/* Right */}
