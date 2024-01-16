@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageShowcase from "../components/MyPage/ImageShowcase";
 import ApplicationForm from "../components/MyPage/JobPage/ApplicationForm";
 import EventInfo from "../components/MyPage/Event/EventInfo";
@@ -6,6 +6,9 @@ import ProductInfo from "../components/MyPage/Event/ProductInfo";
 import Day from "../components/MyPage/Event/Day";
 
 function EventDetails() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const images = [
     "/images/image_catalogue.png",
     "/images/image_catalogue.png",

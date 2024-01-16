@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useStateContext } from "../../context/StateContext";
 
 const ProfileDropDown = ({
   isMobile,
   setOpenProfileDropdown,
   openProfileDropDown,
 }) => {
+  const { setIsLoggedIn } = useStateContext();
+  const navigate = useNavigate();
   return (
     <div
       className={`absolute ${
@@ -34,7 +37,11 @@ const ProfileDropDown = ({
         <div className="w-1/2 py-3 sm:py-4 text-center">
           <Link
             className="text-[#2B2B2B] text-[12px]"
-            onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
+            onClick={() => {
+              setOpenProfileDropdown(!openProfileDropDown);
+              setIsLoggedIn(false);
+              navigate("/");
+            }}
           >
             logout{" "}
           </Link>
