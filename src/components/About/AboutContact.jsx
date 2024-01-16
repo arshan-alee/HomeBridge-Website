@@ -4,16 +4,9 @@ import AboutInputContainer from "./AboutInputContainer";
 const AboutContact = () => {
   return (
     <div className="bg-white">
-      <div
-        className="w-[80%] my-[100px] mx-auto min-h-[600px] p-2 bg-white flex flex-col md:flex-row relative"
-        style={{
-          borderRadius: "10px",
-          background: "#FFF",
-          boxShadow: "0px 0px 60px 30px rgba(0, 0, 0, 0.03)",
-        }}
-      >
+      <div className="w-[80%] my-[100px]  mx-auto min-h-[600px] p-2 bg-white flex flex-col md:flex-row relative shadow-md rounded-lg">
         {/* Left Container */}
-        <div className="bg-[#00CE3A] md:w-[40%] w-[100%] h-[470px] md:h-auto rounded-lg md:text-left text-center relative">
+        <div className="bg-[#00CE3A] md:w-[40%]  w-[100%] h-[470px] md:h-auto rounded-lg md:text-left text-center relative">
           <div className="md:pl-10 pt-10">
             <h2 className="text-[#FFF] text-[20px] md:text-[24px] lg:text-[28px] font-semibold">
               Contact Information
@@ -48,7 +41,7 @@ const AboutContact = () => {
 
         {/* Right Container */}
 
-        <div className="bg-white md:w-[60%] w-[100%] mx-auto py-4 px-4 rounded-lg shadow-lg">
+        <div className="bg-white md:w-[60%] w-[100%] mx-auto py-4 px-4 rounded-lg ">
           <div className="flex flex-1 flex-col gap-4 sm:flex-row md:gap-8 sm:pr-2 md:pr-6 lg:pr-0 ">
             <div className="flex-1 md:w-1/2">
               <AboutInputContainer label="First Name" />

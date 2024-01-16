@@ -2,7 +2,7 @@ import React from "react";
 
 const Advantages = () => {
   return (
-    <div className="mt-28 md:mt-32 lg:mt-40 w-full sm:w-[85%] md:w-[70%] lg:w-[85%] mx-auto flex lg:flex-row flex-col-reverse justify-between items-center gap-12 sm:gap-10 md:gap-12 lg:gap-32">
+    <div className="mt-20 md:mt-32 lg:mt-40 w-full sm:w-[85%] md:w-[70%] lg:w-[85%] mx-auto flex lg:flex-row flex-col-reverse justify-between items-center gap-12 sm:gap-10 md:gap-12 lg:gap-32">
       {/* Left */}
       <div className="w-[90%] lg:w-1/2">
         <h3 className="text-lg font-medium text-[#00CE3A] mb-2">Advantages</h3>
