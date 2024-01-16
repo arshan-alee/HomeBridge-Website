@@ -9,7 +9,7 @@ const Drawer = ({ isOpen, onClose }) => {
       } transition-transform ease-in-out duration-300`}
     >
       <div className="flex justify-between items-center  ">
-        <Link to="/login" className="text-[20px]">
+        <Link to="/auth/login" className="text-[20px]">
           Login/Register
         </Link>
         <div
