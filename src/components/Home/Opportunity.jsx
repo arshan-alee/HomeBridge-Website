@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { FaAngleRight } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const Opportunity = () => {
+  const navigate = useNavigate();
   const [currentTab, setCurrentTab] = useState("foreigners");
 
   const handleCurrentTab = (tab) => {
@@ -76,7 +78,14 @@ const Opportunity = () => {
           </h1>
 
           <div className="flex justify-center items-center">
-            <button className="bg-[#00CE3A] mx-auto w-full lg:w-[43%] mt-5 lg:mt-12  text-center text-[#fff] relative rounded-3xl px-4 py-4 lg:py-3">
+            <button
+              onClick={() =>
+                navigate(
+                  `${currentTab === "foreigners" ? "/job_house" : "about"}`
+                )
+              }
+              className="bg-[#00CE3A] mx-auto w-full lg:w-[43%] mt-5 lg:mt-12  text-center text-[#fff] relative rounded-3xl px-4 py-4 lg:py-3"
+            >
               <span> {currentTab === "foreigners" ? "Apply" : "연락하기"}</span>
               <FaAngleRight className="absolute right-5 top-5 lg:top-4 text-[#fff]" />
             </button>
