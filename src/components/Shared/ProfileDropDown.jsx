@@ -19,7 +19,7 @@ const ProfileDropDown = ({
           alt="logo"
           className="w-[40px] sm:w-[60px] mx-auto mb-1"
         />
-        <p className="font-semibold text-center">Jason</p>
+        <p className="font-semibold text-center text-[#000]">Jason</p>
       </div>
       <div className="w-full flex ">
         <div className="w-1/2 py-3 sm:py-4 text-center border-r-[0.5px] border-[#AAA]">
