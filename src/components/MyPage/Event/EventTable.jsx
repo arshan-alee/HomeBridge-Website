@@ -61,15 +61,15 @@ const EventTable = ({ columns, data }) => {
               ))}
             </tr>
           </thead>
-          <tbody className="bg-gray-500">
+          <tbody className="bg-white">
             {paginatedData.map((row, index) => (
-              <tr key={index} className='bg-white mb-2'>
+              <tr key={index} className='custom-shadow-right-bottom rounded-2xl'>
                 {columns.map((column) => (
-                  <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
-                    <div className="truncate" onClick={handleClick}>{row[column]}</div>
+                  <td key={column} onClick={handleClick} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
+                    <div className="truncate">{row[column]}</div>
                   </td>
                 ))}
-                <td className="min-w-[85px] flex items-center justify-center">
+                <td className="h-full min-w-[85px] flex items-end justify-center">
                   <div className={`w-full md:w-3/4 text-center rounded-2xl py-1 text-white ${row['Payment'] === '완료' ? 'bg-[#FF7878]' : 'bg-[#00CE3A]'}`}>{row['Payment']}</div>
                 </td>
               </tr>

@@ -40,7 +40,7 @@ const TableComponent = ({ columns, data, handleClick }) => {
   return (
     <div className="overflow-x-auto max-w-3/4 custom-shadow-right-bottom rounded-b-xl">
       <table className="min-w-full">
-        <thead className="bg-[#00CE3A]">
+        <thead className="bg-[#00CE3A]" style={{border: 'none'}}>
           <tr>
             {columns.map((column) => (
               <th
@@ -53,12 +53,12 @@ const TableComponent = ({ columns, data, handleClick }) => {
             ))}
           </tr>
         </thead>
-        <tbody className="bg-white">
+        <tbody className="bg-white" style={{border: 'none'}}>
           {paginatedData.map((row, index) => (
-            <tr key={index} className='custom-shadow-right-bottom rounded-2xl mb-24'>
+            <tr key={index} className='custom-shadow-right-bottom rounded-2xl'>
               {columns.map((column) => (
-                <td key={column} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
-                  <div className="truncate" onClick={handleClick}>{row[column]}</div>
+                <td key={column} onClick={handleClick} className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
+                  <div className="truncate text-[12px]">{row[column]}</div>
                 </td>
               ))}
             </tr>
