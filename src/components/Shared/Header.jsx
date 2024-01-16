@@ -3,6 +3,7 @@ import { RxCross1 } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
 import Drawer from "./Drawer";
 import ProfileDropDown from "./ProfileDropDown";
+import { useStateContext } from "../../context/StateContext";
 
 const linksArray = [
   {
@@ -31,7 +32,7 @@ const linksArray = [
 
 const Header = () => {
   const location = useLocation();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const { isLoggedIn, setIsLoggedIn } = useStateContext();
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
 
@@ -128,7 +129,7 @@ const Header = () => {
                 Jason
               </p>
             ) : (
-              <Link to="/login" className="lg:block hidden">
+              <Link to="/auth/login" className="lg:block hidden">
                 Login/Register
               </Link>
             )}

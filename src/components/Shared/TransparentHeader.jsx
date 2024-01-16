@@ -125,7 +125,7 @@ const TransparentHeader = () => {
                 Jason
               </p>
             ) : (
-              <Link to="/login" className="lg:block hidden">
+              <Link to="/auth/login" className="lg:block hidden">
                 Login/Register
               </Link>
             )}
