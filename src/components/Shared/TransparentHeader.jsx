@@ -67,7 +67,12 @@ const TransparentHeader = () => {
       />
 
       {/* Left */}
-      <h1 className="font-semibold text-base sm:text-lg lg:ml-unset -ml-12">
+      <img
+        src="/icons/header__logo.png"
+        alt="logo"
+        className="w-[80px] lg:block hidden lg:w-[130px]"
+      />
+      <h1 className="font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset -ml-12">
         HOMEBRIDGE
       </h1>
       {/* Right */}
