@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Drawer from "./Drawer";
 import ProfileDropDown from "./ProfileDropDown";
 
@@ -29,6 +29,7 @@ const linksArray = [
 
 const TransparentHeader = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
@@ -68,9 +69,10 @@ const TransparentHeader = () => {
 
       {/* Left */}
       <img
+        onClick={() => navigate("/")}
         src="/icons/header__logo.png"
         alt="logo"
-        className="w-[80px] lg:block hidden lg:w-[130px]"
+        className="w-[80px] lg:block hidden lg:w-[130px] cursor-pointer"
       />
       <h1 className="font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset -ml-12">
         HOMEBRIDGE
