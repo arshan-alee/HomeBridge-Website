@@ -44,7 +44,7 @@ function ApplicationForm({title, type}) {
             </div>
             <div className='w-full mb-4'>
                 <Textarea
-                    placeholder='How long is the rent?.................'
+                    placeholder={type === 'job' ? 'Message' : 'How long is the rent?.................'}
                     rows={10}
                 />
             </div>

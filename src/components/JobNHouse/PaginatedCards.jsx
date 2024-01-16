@@ -71,7 +71,7 @@ const PaginatedCards = () => {
         {currentCards.map((card) => (
           <div key={card.id} className="p-4 bg-white card-shadow rounded-[32px] cursor-pointer mb-2" style={{background: "linear-gradient(161.47deg, #E7E9F3 -11.63%, #FFFFFF 91.02%)"}} onClick={()=> navigate('/job_house/123')}>
             <img src={card.imageUrl} alt={card.title} className="w-full h-[200px] object-cover mb-2 rounded-[10px]" />
-            <h3 className="text-[20px] font-semibold mb-2 mt-4" style={{fontFamily: "Montserrat"}}>{card.title}</h3>
+            <h3 className="text-[20px] font-semibold mb-2 mt-4 leading-6 font-montserrat">{card.title}</h3>
             <p className="text-[#3A544F] text-[12px] font-normal mb-2">{card.subtitle}</p>
           </div>
         ))}

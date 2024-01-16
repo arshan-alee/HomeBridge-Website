@@ -21,8 +21,6 @@ function App() {
   const location = useLocation();
 
   const isAuthRoute = location.pathname.startsWith("/auth");
-  // const isF2RApplicationRoute = location.pathname === "/mypage/f2r-application";
-
   const renderFooter = !isAuthRoute;
 
   return (
@@ -45,7 +43,6 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
       {renderFooter && <Footer />}
-      {/* Footer */}
     </div>
   );
 }

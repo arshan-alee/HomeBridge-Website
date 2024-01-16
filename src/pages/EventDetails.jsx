@@ -14,13 +14,13 @@ function EventDetails() {
   ];
 
   return (
-    <div className="py-12">
-      <h1 className="text-center text-[26px] md:text-[32px] font-semibold mb-6 md:mb-12 px-4">
+    <div className="py-6 lg:py-12">
+      <h1 className="text-center text-[26px] md:text-[32px] font-semibold mb-6 md:mb-12 px-10 lg:px-4">
         [신년일출] 전라도 별미와 함께하는 여수 향일암 일출, 순천 전주 1박2일
       </h1>
       <div className="w-full lg:px-12 flex flex-col lg:flex-row">
         <div className="w-full lg:w-2/3 mr-2">
-          <div className="rounded-[30px] py-3 custom-shadow-right-bottom">
+          <div className="rounded-[30px] pt-3 lg:py-3 custom-shadow-right-bottom">
             <ImageShowcase images={images} />
           </div>
           <EventInfo />
