@@ -23,7 +23,7 @@ const InfoTable = () => {
   ];
 
   return (
-    <div className="w-full mt-8 custom-shadow-right-bottom p-6 md:p-12 rounded-2xl bg-white">
+    <div className="w-full mt-4 lg:mt-8 custom-shadow-right-bottom p-6 md:p-12 rounded-2xl bg-white">
         <div className='mb-6'>
             <h1 className="text-[22px] font-normal mb-2">General Information</h1>
             <div className="flex flex-wrap">

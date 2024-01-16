@@ -13,7 +13,7 @@ function JobDetails() {
             <h1 className="text-[32px] font-semibold">UX / UI Designer</h1>
             <h5 className="text-[14px] font-normal"><b className='mr-2'>₩</b> company name</h5>
         </div>
-        <div className="flex flex-row px-6">
+        <div className="flex flex-row px-2 lg:px-6">
           <JobDetail />
           {isLargeScreen && <ApplicationForm title='Job application' type='job' />}
         </div>

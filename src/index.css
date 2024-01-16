@@ -49,4 +49,7 @@
     .nav.nav-tabs .nav-item .nav-link {
         font-size: 14px
     }
+    .custom-shadow-right-bottom {
+        box-shadow: none;
+    }
 }
