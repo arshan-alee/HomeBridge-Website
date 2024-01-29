@@ -18,11 +18,11 @@ const Partnership = () => {
           alt="logo"
           className="w-[200px] md:w-fit"
         />
-        <img
+        {/* <img
           src="/images/partnership_2.svg"
           alt="logo"
           className="w-[140px] md:w-fit"
-        />
+        /> */}
         <div className="relative">
           <img
             src="/images/partnership_3.svg"
@@ -33,7 +33,7 @@ const Partnership = () => {
           <img
             src="/images/partnership__ball__small.png"
             alt="logo"
-            className="absolute -top-16 -left-20 block sm:hidden "
+            className="absolute -top-8 -left-12 block sm:hidden w-[60px] "
           />
         </div>
       </div>
