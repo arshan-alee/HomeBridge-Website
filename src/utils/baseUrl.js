@@ -3,7 +3,7 @@ const environment = "dev";
 
 let baseUrl;
 if (environment === "production") {
-  baseUrl = "https://calm-gray-haddock-sock.cyclic.app";
+  baseUrl = "https://black-panda-slip.cyclic.app";
 } else {
   baseUrl = "http://localhost:5000";
 }
