@@ -3,53 +3,57 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .custom-shadow-right-bottom {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .bottom-shadow {
-    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .card-shadow {
-    box-shadow: 10px 10px 10px #0858D02B;
+  box-shadow: 10px 10px 10px #0858d02b;
 }
 
 .nav.nav-tabs {
-    border: none;
-    border-bottom: 1px solid #ddd;
+  border: none;
+  border-bottom: 1px solid #ddd;
 }
 
 .nav.nav-tabs .nav-item .nav-link {
-    border: none;
-    color: black;
-    border-bottom: 2px solid transparent;
-    font-size: 14px;
-    cursor: pointer;
+  border: none;
+  color: black;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .nav.nav-tabs .nav-item .nav-link:hover {
-    border-bottom: 2px solid #3ecc6d;
-    color: #05cf48
+  border-bottom: 2px solid #3ecc6d;
+  color: #05cf48;
 }
 
 .nav.nav-tabs .nav-item .nav-link.active {
-    border: none;
-    border-bottom: 2px solid #3ecc6d
+  border: none;
+  border-bottom: 2px solid #3ecc6d;
 }
 
 .btn-shadow {
-    box-shadow: 0px 10px 10px #0858D02B;
+  box-shadow: 0px 10px 10px #0858d02b;
 }
 
-@media (max-width:750px) {
-    .nav.nav-tabs .nav-item .nav-link {
-        font-size: 14px
-    }
-    .custom-shadow-right-bottom {
-        box-shadow: none;
-    }
+.red-placeholder::placeholder {
+  color: #ffb8b8; /* Or use any specific shade of red you prefer */
+}
+
+@media (max-width: 750px) {
+  .nav.nav-tabs .nav-item .nav-link {
+    font-size: 14px;
+  }
+  .custom-shadow-right-bottom {
+    box-shadow: none;
+  }
 }

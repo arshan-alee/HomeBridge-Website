@@ -1,5 +1,4 @@
 import axios from "axios";
-import Cookies from "js-cookie";
 import baseUrl from "../utils/baseUrl";
 
 const axiosInstance = axios.create({
@@ -8,10 +7,11 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async function (config) {
-    const token = Cookies.get("token");
+    const user = JSON.parse(localStorage.getItem("info"));
 
-    if (token) {
-      config.headers["Authorization"] = "Bearer " + token;
+    if (user) {
+      console.log("useruser: ", user.token);
+      config.headers["Authorization"] = user?.token;
     }
     return config;
   },
