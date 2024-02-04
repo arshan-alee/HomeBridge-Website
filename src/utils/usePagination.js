@@ -38,22 +38,14 @@ const usePagination = (initialPage, initialItemsPerPage) => {
     );
   };
 
-  const paginate = (data) => {
-    const totalItems = data?.length;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-    const visibleItems =
-      data !== undefined ? data?.slice(startIndex, endIndex) : [];
+  const paginate = (data, totalData) => {
+    const totalPages = Math.ceil(totalData / itemsPerPage);
 
     const pageNumbersToShow = calculatePagesToShow(totalPages, currentPage);
 
     return {
       currentPage,
       totalPages,
-      visibleItems,
       goToPage,
       changeItemsPerPage,
       pageNumbersToShow,
