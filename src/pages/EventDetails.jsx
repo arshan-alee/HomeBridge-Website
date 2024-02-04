@@ -19,7 +19,7 @@ function EventDetails() {
   const { id } = useParams();
 
   const [data, setData] = useState();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   console.log("data--------------");
@@ -60,7 +60,7 @@ function EventDetails() {
 
   if (loading) {
     return (
-      <div className="w-full min-h-screen flex justify-center items-center">
+      <div className="w-full min-h-[90vh] flex justify-center items-center">
         <RequestLoader size="large" />
       </div>
     );
@@ -68,7 +68,7 @@ function EventDetails() {
 
   if (error) {
     return (
-      <div className="w-full min-h-screen flex justify-center items-center">
+      <div className="w-full min-h-[90vh] flex justify-center items-center">
         <h1 className="text-2xl">{error}</h1>
       </div>
     );
