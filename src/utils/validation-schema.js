@@ -6,12 +6,18 @@ import * as Yup from "yup";
 // }
 
 export const loginSchema = Yup.object({
-  email: Yup.string().email().required("Please enter your email"),
+  email: Yup.string().email().required("Invalid email address"),
+  password: Yup.string().required("Invalid Password"),
+});
+export const signUpSchema = Yup.object({
+  userName: Yup.string().required("User's Name is required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .required("User's Email is required"),
   password: Yup.string().required("Please enter your password"),
-  // .matches(
-  //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-  //   "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character"
-  // ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Confirm Password is required"),
 });
 
 // interface ForgotPasswordSchema {

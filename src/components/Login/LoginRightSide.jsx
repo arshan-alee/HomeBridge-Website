@@ -1,49 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from "../../context/StateContext";
 import { useFormik } from "formik";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
 import { loginSchema } from "../../utils/validation-schema";
+import toast from "react-hot-toast";
+import RequestLoader from "../Shared/RequestLoader";
 
 const LoginRightSide = () => {
   const { setIsLoggedIn } = useStateContext();
   const navigate = useNavigate();
+  const [loader, setLoader] = useState(false);
 
   const initialValues = {
     email: "",
     password: "",
   };
 
-  // const LoginUser = async (values, actions) => {
-  //   setloading(true);
-  //   try {
-  //     const res = await axios.post(`${baseUrl}/user/loginUser`, values);
+  // onClick={() => {
+  //   setIsLoggedIn(true);
+  //   navigate("/");
+  // }}
 
-  //     if (res?.data?.success) {
-  //       toast.success("Login Successful !");
-  //       router.push("/search");
-
-  //       localStorage.setItem("userId", res?.data?.data?.userId);
-  //       localStorage.setItem("token", res?.data?.data?.token);
-  //       localStorage.setItem("userName", res?.data?.data?.userName);
-  //       checkToken();
-  //     } else {
-  //       toast.error("Invalid Credentails !");
-  //     }
-  //   } catch (error) {
-  //     if (error?.response?.data?.message == "User not found") {
-  //       toast.error("Your account is not registered");
-  //     }
-  //     setloading(true);
-  //   } finally {
-  //     setloading(false);
-  //   }
-  // };
+  const LoginUser = async (values, actions) => {
+    setLoader(true);
+    try {
+      const response = await axios.post(`${baseUrl}/api/user/login`, values);
+      if (response?.data?.status) {
+        localStorage.setItem("info", JSON.stringify(response.data.user));
+        toast.success("Login Successfull");
+        navigate("/");
+      } else if (!response?.data?.status) {
+        toast.error(response?.data?.message);
+      }
+    } catch (error) {
+      if (error?.response?.data?.message == "User not found") {
+        toast.error("Your account is not registered");
+      }
+      setLoader(true);
+    } finally {
+      setLoader(false);
+    }
+  };
 
   const onSubmit = async (values, actions) => {
-    // await LoginUser(values, actions);
-    console.log("submit called", values);
+    await LoginUser(values, actions);
+    // console.log("submit called", values);
   };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -52,8 +55,6 @@ const LoginRightSide = () => {
       validationSchema: loginSchema,
       onSubmit,
     });
-
-  console.log({ errors });
 
   return (
     <div
@@ -69,14 +70,16 @@ const LoginRightSide = () => {
           Welcome Back
         </p>
         <div>
-          <p className="text-right text-[12px] text-[#00CE3A] cursor-pointer">
+          <p
+            className="text-right text-[12px] text-[#00CE3A] cursor-pointer"
+            onClick={() => navigate("/auth/register")}
+          >
             Don't you have an ID?
           </p>
           <div className="relative mb-3">
             <input
               type="email"
               name="email"
-              // className={`w-full pl-[48px] pr-[26px] py-[18px] border rounded-full focus:outline-none focus:shadow-outline`}
               className={`w-full pl-[48px] pr-[26px] py-[18px] border rounded-full focus:outline-none focus:shadow-outline ${
                 touched.email && errors.email ? "red-placeholder" : ""
               }`}
@@ -87,25 +90,26 @@ const LoginRightSide = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {/* {(touched.email || errors.email) && (
-              <p className="text-sm text-[#ff0000]">{errors.email}</p>
-            )}   */}
+
             <img
               src="/icons/mail.png"
               alt="icon"
               className="absolute left-[20px] top-[19px]"
             />
           </div>
-          {/* error={(touched.email || errors.email) && errors.email} */}
-          {/* {(touched.email || errors.email) && (
-            <p className="text-sm text-[#ff0000]">{errors.email}</p>
-          )} */}
+
           <div className="relative mb-3">
             <input
               type="password"
               name="password"
-              className="w-full pl-[48px] pr-[26px] py-[18px] border rounded-full focus:outline-none focus:shadow-outline"
-              placeholder="Password"
+              className={`w-full pl-[48px] pr-[26px] py-[18px] border rounded-full focus:outline-none focus:shadow-outline ${
+                touched.password && errors.password ? "red-placeholder" : ""
+              }`}
+              placeholder={
+                touched.password || errors.password
+                  ? errors.password
+                  : "Email Address"
+              }
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -118,14 +122,10 @@ const LoginRightSide = () => {
           </div>
         </div>
         <button
-          // onClick={() => {
-          //   setIsLoggedIn(true);
-          //   navigate("/");
-          // }}
           type="submit"
           className="w-full bg-[#00CE3A] text-white px-[26px] py-[18px] rounded-full mt-6 focus:outline-none focus:shadow-outline"
         >
-          Login
+          {loader ? <RequestLoader /> : "Login"}
         </button>
         <Link to="/auth/forgot-password">
           <p className="text-center text-[14px] py-2 cursor-pointer">
