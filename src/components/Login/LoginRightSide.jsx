@@ -18,17 +18,12 @@ const LoginRightSide = () => {
     password: "",
   };
 
-  // onClick={() => {
-  //   setIsLoggedIn(true);
-  //   navigate("/");
-  // }}
-
   const LoginUser = async (values, actions) => {
     setLoader(true);
     try {
       const response = await axios.post(`${baseUrl}/api/user/login`, values);
       if (response?.data?.status) {
-        localStorage.setItem("info", JSON.stringify(response.data.user));
+        localStorage.setItem("Info", JSON.stringify(response.data.user));
         toast.success("Login Successfull");
         navigate("/");
       } else if (!response?.data?.status) {
