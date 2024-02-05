@@ -55,8 +55,6 @@ const RegisterRightSide = () => {
       onSubmit,
     });
 
-  console.log({ errors });
-
   return (
     <div
       className="flex items-center justify-center w-full md:w-[40%]"

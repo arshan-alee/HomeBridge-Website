@@ -20,6 +20,15 @@ export const signUpSchema = Yup.object({
     .required("Confirm Password is required"),
 });
 
+export const jobApplicationSchema = Yup.object({
+  name: Yup.string().required("Name is required"),
+  gender: Yup.string().required("Gender is required"),
+  nationality: Yup.string().required("Nationality is required"),
+  phoneNumber: Yup.string().required("Phone Number is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  message: Yup.string().required("Message is required"),
+});
+
 // interface ForgotPasswordSchema {
 //   email: string;
 // }

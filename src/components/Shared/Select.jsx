@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-const Select = ({ options, onChange, value, placeholder, label }) => {
+const Select = ({ options, onChange, value, name, placeholder, error }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Wrapper function to integrate with Formik
   const handleSelect = (option) => {
-    onChange(option);
-    setIsOpen(false);
+    // Construct a synthetic event object
+    const changeEvent = {
+      target: {
+        name: name, // Use the 'name' prop to identify the form field
+        value: option, // The selected option's value
+      },
+    };
+    onChange(changeEvent); // Call Formik's onChange handler
+    setIsOpen(false); // Close the dropdown
   };
 
   return (
-    <div className=" relative w-full">
+    <div className="relative w-full">
       <div className="">
         <button
           type="button"
@@ -20,7 +28,9 @@ const Select = ({ options, onChange, value, placeholder, label }) => {
           {value ? (
             <span className="text-[#3b3f3d]">{value}</span>
           ) : (
-            <span className="text-[#6c7571]">{placeholder}</span>
+            <span className={` ${error ? "text-[#ffb8b8]" : "text-[#3b3f3d]"}`}>
+              {placeholder}
+            </span>
           )}
           {isOpen ? (
             <IoIosArrowUp className="text-[22px] text-[#8f9b95] m-0" />

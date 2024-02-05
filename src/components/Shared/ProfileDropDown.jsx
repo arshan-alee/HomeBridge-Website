@@ -8,6 +8,18 @@ const ProfileDropDown = ({
 }) => {
   const { setIsLoggedIn } = useStateContext();
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    console.log("handle logout");
+    setOpenProfileDropdown(!openProfileDropDown);
+    localStorage.removeItem("Info");
+    navigate("/");
+  };
+  // () => {
+  //   setOpenProfileDropdown(!openProfileDropDown);
+  //   // setIsLoggedIn(false);
+  //   navigate("/");
+  // }}
   return (
     <div
       className={`absolute ${
@@ -35,16 +47,9 @@ const ProfileDropDown = ({
           </Link>
         </div>
         <div className="w-1/2 py-3 sm:py-4 text-center">
-          <Link
-            className="text-[#2B2B2B] text-[12px]"
-            onClick={() => {
-              setOpenProfileDropdown(!openProfileDropDown);
-              setIsLoggedIn(false);
-              navigate("/");
-            }}
-          >
+          <div className="text-[#2B2B2B] text-[12px]" onClick={handleLogout}>
             logout{" "}
-          </Link>
+          </div>
         </div>
       </div>
     </div>

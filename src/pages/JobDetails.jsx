@@ -19,8 +19,8 @@ function JobDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log("data--------------");
-  console.log(data);
+  // console.log("data--------------");
+  // console.log(data);
 
   useEffect(() => {
     window.scrollTo(0, 0);

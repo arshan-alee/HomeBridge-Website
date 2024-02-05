@@ -684,11 +684,11 @@ const PaginatedCards = () => {
     totalData
   );
 
-  console.log("data--------------");
-  console.log(data);
+  // console.log("data--------------");
+  // console.log(data);
 
-  console.log("currentPage");
-  console.log(currentPage, "totalPages", totalPages);
+  // console.log("currentPage");
+  // console.log(currentPage, "totalPages", totalPages);
 
   useEffect(() => {
     getData();
