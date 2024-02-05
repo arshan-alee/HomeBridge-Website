@@ -36,6 +36,16 @@ export const eventApplicationSchema = Yup.object({
   message: Yup.string().required("Message is required"),
 });
 
+export const f2RApplicationSchema = Yup.object({
+  name: Yup.string().required("Name is required"),
+  gender: Yup.string().required("Gender is required"),
+  nationality: Yup.string().required("Nationality is required"),
+  address: Yup.string().required("Address is required"),
+  phoneNumber: Yup.string().required("Phone Number is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  message: Yup.string().required("Message is required"),
+});
+
 // interface ForgotPasswordSchema {
 //   email: string;
 // }

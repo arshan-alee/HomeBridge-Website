@@ -1,18 +1,81 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../components/Shared/Input";
 import Textarea from "../components/Shared/Textarea";
 import Select from "../components/Shared/Select";
+import toast from "react-hot-toast";
+import { PostData } from "../axios/NetworkCalls";
+import { useFormik } from "formik";
+import { f2RApplicationSchema } from "../utils/validation-schema";
+import { useNavigate } from "react-router-dom";
+import RequestLoader from "../components/Shared/RequestLoader";
 
 function F2RApplication() {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const initialValues = {
+    name: "",
+    gender: "",
+    nationality: "",
+    address: "",
+    phoneNumber: "",
+    email: "",
+    message: "",
+  };
+
+  const F2RApplication = async (values, actions) => {
+    try {
+      setLoading(true);
+      const Info = localStorage.getItem("Info");
+      const updatedData = {
+        ...values,
+
+        user: JSON.parse(Info)?.userId,
+      };
+      const response = await PostData(
+        "/api/f_2_r/createApplication",
+        updatedData
+      );
+
+      if (response?.status) {
+        toast.success(response?.message);
+        setLoading(false);
+        actions.resetForm();
+      } else {
+        toast.error(response);
+        if (response == "You're not logged in. Please login first") {
+          navigate("/auth/login");
+        }
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+      setLoading(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onSubmit = async (values, actions) => {
+    await F2RApplication(values, actions);
+  };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema: f2RApplicationSchema,
+      onSubmit,
+    });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div className="my-12 md:my-24">
       <h2 className="px-36 text-[38px] font-bold mb-16 hidden lg:block">
         F-2-R Application
       </h2>
-      <div className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-2xl">
+      <form className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-2xl">
         <h3 className="font-600 text-[16px] font-bold lg:font-normal pt-6 pb-4">
           F-2-R Application
         </h3>
@@ -47,14 +110,17 @@ function F2RApplication() {
           />
         </div>
         <div className="py-2 w-full mb-1 text-center">
-          <button className="bg-[#00CE3A] text-white px-8 py-2 rounded-3xl">
-            To apply
+          <button
+            type="submit"
+            className="bg-[#00CE3A] text-white px-8 py-2 rounded-3xl"
+          >
+            {loading ? <RequestLoader /> : "To apply"}
           </button>
         </div>
         <p className="text-center text-[12px] text-[#000000]">
           The person in charge will contact you after checking.
         </p>
-      </div>
+      </form>
     </div>
   );
 }
