@@ -12,11 +12,18 @@ const ProfileDropDown = ({
   const [userName, setUserName] = useState("");
 
   const handleLogout = () => {
-    console.log("handle logout");
     setOpenProfileDropdown(!openProfileDropDown);
+    setIsLoggedIn(false); // Ensure this updates your context's state
     localStorage.removeItem("Info");
     navigate("/");
   };
+
+  // const handleLogout = () => {
+  //   console.log("handle logout");
+  //   setOpenProfileDropdown(!openProfileDropDown);
+  //   localStorage.removeItem("Info");
+  //   navigate("/");
+  // };
   // () => {
   //   setOpenProfileDropdown(!openProfileDropDown);
   //   // setIsLoggedIn(false);
@@ -68,8 +75,11 @@ const ProfileDropDown = ({
             Mypage{" "}
           </Link>
         </div>
-        <div className="w-1/2 py-3 sm:py-4 text-center">
-          <div className="text-[#2B2B2B] text-[12px]" onClick={handleLogout}>
+        <div className="w-1/2 py-3 sm:py-4 text-center ">
+          <div
+            className="text-[#2B2B2B] text-[12px] cursor-pointer"
+            onClick={handleLogout}
+          >
             logout{" "}
           </div>
         </div>

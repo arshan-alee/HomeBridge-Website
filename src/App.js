@@ -16,6 +16,7 @@ import Events from "./pages/Events";
 import Footer from "./components/Shared/Footer";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import EventDetails from "./pages/EventDetails";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
   const location = useLocation();
@@ -34,12 +35,62 @@ function App() {
         <Route path="/auth/new-password" element={<NewPassword />} />
         <Route path="/job_house" element={<JobNHouse />} />
         <Route path="/event" element={<Events />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/f2r-application" element={<><Header /><F2RApplication /></>} />
-        <Route path="/job_house/:id" element={<><Header /><JobDetails /></>} />
-        <Route path="/event/:id" element={<><Header /><EventDetails /></>} />
-        <Route path="/payment/success" element={<><Header /><PaymentSuccess /></>} />
-        <Route path="/refund" element={<><Header /><RefundPage /></>} />
+        {/* <ProtectedRoute>
+          <Route path="/mypage" element={<MyPage />} />
+        </ProtectedRoute> */}
+        <Route
+          path="/mypage"
+          element={
+            <ProtectedRoute>
+              <MyPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/f2r-application"
+          element={
+            <>
+              <Header />
+              <F2RApplication />
+            </>
+          }
+        />
+        <Route
+          path="/job_house/:id"
+          element={
+            <>
+              <Header />
+              <JobDetails />
+            </>
+          }
+        />
+        <Route
+          path="/event/:id"
+          element={
+            <>
+              <Header />
+              <EventDetails />
+            </>
+          }
+        />
+        <Route
+          path="/payment/success"
+          element={
+            <>
+              <Header />
+              <PaymentSuccess />
+            </>
+          }
+        />
+        <Route
+          path="/refund"
+          element={
+            <>
+              <Header />
+              <RefundPage />
+            </>
+          }
+        />
         <Route path="/about" element={<About />} />
       </Routes>
       {renderFooter && <Footer />}
