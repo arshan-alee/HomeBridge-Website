@@ -51,13 +51,15 @@ const Header = () => {
     const Info = localStorage.getItem("Info");
     const userToken = JSON.parse(Info)?.token;
 
-    if (!userToken || (userToken === "undefined" && isLoggedIn)) {
+    console.log("userToken: ", userToken);
+
+    if (!userToken || userToken === "undefined") {
+      console.log("Its run:::::::");
       setIsLoggeIn(false);
       return;
     }
     const userName = JSON.parse(Info)?.userName;
 
-    // console.log("userName", JSON.parse(Info)?.userName);
     setUserName(userName.split(" ")[0]);
 
     setIsLoggeIn(true);
