@@ -85,9 +85,17 @@ function EventDetails() {
             <div className="rounded-[30px] pt-3 lg:py-3 custom-shadow-right-bottom">
               <ImageShowcase images={images} />
             </div>
-            <EventInfo />
-            <ProductInfo />
-            <Day />
+            {data?.eventInformation && (
+              <EventInfo eventInfo={data?.eventInformation} />
+            )}
+            {data?.productInformation && (
+              <ProductInfo productInfo={data?.productInformation} />
+            )}
+            {data?.schedules &&
+              data?.schedules.length > 0 &&
+              data?.schedules.map((schedule, index) => (
+                <Day day={index} schedule={schedule} />
+              ))}
           </div>
           <ApplicationForm title="Event application" type="event" />
         </div>

@@ -65,7 +65,7 @@ const PaginatedCards = () => {
   };
 
   return (
-    <div className="mx-12 md:mx-14 lg:mx-24 my-8">
+    <div className="mx-12 md:mx-14 lg:mx-24 my-8 sm:my-16">
       <h1 className="hidden lg:block text-[34px] font-extrabold my-12">
         Experiencing Korea
       </h1>
@@ -111,12 +111,14 @@ const PaginatedCards = () => {
           </div>
 
           {/* Pagination */}
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onPageChange={goToPage}
-            pageNumbersToShow={pageNumbersToShow}
-          />
+          {totalData && totalData > 12 && (
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              onPageChange={goToPage}
+              pageNumbersToShow={pageNumbersToShow}
+            />
+          )}
         </>
       )}
     </div>
