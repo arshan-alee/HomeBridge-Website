@@ -31,7 +31,6 @@ function EventApplicationForm({ title, type }) {
 
       if (response?.status) {
         toast.success(response?.message);
-
         setLoading(false);
         actions.resetForm();
       } else {

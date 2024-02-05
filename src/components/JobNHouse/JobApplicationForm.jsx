@@ -11,7 +11,6 @@ import RequestLoader from "../Shared/RequestLoader";
 
 function JobApplicationForm({ title, type }) {
   const { id } = useParams();
-  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -25,8 +24,8 @@ function JobApplicationForm({ title, type }) {
   };
 
   const JobHouseApplication = async (values, actions) => {
-    setLoader(true);
     try {
+      setLoading(true);
       const Info = localStorage.getItem("Info");
       const updatedData = {
         ...values,
@@ -37,41 +36,27 @@ function JobApplicationForm({ title, type }) {
         "/api/job_house_application/createApplication",
         updatedData
       );
-      console.log("response: ", response);
 
       if (response?.status) {
         toast.success(response?.message);
-
         setLoading(false);
         actions.resetForm();
       } else {
-        console.log("Here error falls: ", response);
         toast.error(response);
         if (response == "You're not logged in. Please login first") {
           navigate("/auth/login");
         }
       }
-
-      // if (response?.data?.status) {
-      //   // localStorage.setItem("info", JSON.stringify(response.data.user));
-      //   toast.success("Registeration Successfull");
-      //   navigate("/auth/login");
-      // } else if (!response?.data?.status) {
-      //   toast.error(response?.data?.message);
-      // }
     } catch (error) {
-      console.log("error: ", error);
       toast.error(error?.response?.data?.message);
-
-      setLoader(true);
+      setLoading(true);
     } finally {
-      setLoader(false);
+      setLoading(false);
     }
   };
 
   const onSubmit = async (values, actions) => {
     await JobHouseApplication(values, actions);
-    // console.log("submit called", values);
   };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -80,7 +65,6 @@ function JobApplicationForm({ title, type }) {
       validationSchema: jobApplicationSchema,
       onSubmit,
     });
-  // console.log("errors: ", errors);
 
   return (
     <div className="w-full lg:w-1/3 md:px-6">
@@ -102,12 +86,6 @@ function JobApplicationForm({ title, type }) {
         </div>
 
         <div className="py-1 w-full">
-          {/* <Select
-            placeholder="Gender"
-            options={["Japan", "South Korea"]}
-            onChange={() => console.log("abc")}
-          /> */}
-
           <Select
             name="gender"
             options={["Male", "Female"]}
@@ -119,11 +97,6 @@ function JobApplicationForm({ title, type }) {
         </div>
 
         <div className="py-1 w-full">
-          {/* <Select
-            placeholder="Country"
-            options={["Male", "Female"]}
-            onChange={() => console.log("abc")}
-          /> */}
           <Select
             name="nationality"
             options={["South Korea", "China", , "Pakistan"]}
@@ -177,7 +150,7 @@ function JobApplicationForm({ title, type }) {
             type="submit"
             className="w-full bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]"
           >
-            {loader ? <RequestLoader /> : "To apply"}
+            {loading ? <RequestLoader /> : "To apply"}
           </button>
         </div>
         <p className="text-center text-[10px] font-medium mb-2">

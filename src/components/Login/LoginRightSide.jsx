@@ -26,7 +26,7 @@ const LoginRightSide = () => {
         localStorage.setItem("Info", JSON.stringify(response.data.user));
         toast.success("Login Successfull");
         setIsLoggedIn(true);
-        navigate("/");
+        navigate(-1);
       } else if (!response?.data?.status) {
         toast.error(response?.data?.message);
       }
