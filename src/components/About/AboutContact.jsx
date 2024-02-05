@@ -1,7 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import AboutInputContainer from "./AboutInputContainer";
+import { inquirySchema } from "../../utils/validation-schema";
+import { useFormik } from "formik";
+import RequestLoader from "../Shared/RequestLoader";
+import { PostData } from "../../axios/NetworkCalls";
+import toast from "react-hot-toast";
 
 const AboutContact = () => {
+  const [loading, setLoading] = useState(false);
+
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+    message: "",
+  };
+
+  const handleInquiry = async (values, actions) => {
+    try {
+      setLoading(true);
+      const response = await PostData(`/api/inquiry/createInquiry`, values);
+
+      if (response?.status) {
+        toast.success(response?.message);
+        setLoading(false);
+      } else {
+        toast.error(response);
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.message);
+      setLoading(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onSubmit = async (values, actions) => {
+    await handleInquiry(values, actions);
+  };
+
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues,
+      validationSchema: inquirySchema,
+      onSubmit,
+    });
+
   return (
     <div className="bg-white">
       <div className="w-[80%] my-[100px]  mx-auto min-h-[600px] p-2 bg-white flex flex-col md:flex-row relative shadow-md rounded-lg">
@@ -41,22 +86,62 @@ const AboutContact = () => {
 
         {/* Right Container */}
 
-        <div className="bg-white md:w-[60%] w-[100%] mx-auto py-4 px-4 rounded-lg ">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white md:w-[60%] w-[100%] mx-auto py-4 px-4 rounded-lg "
+        >
           <div className="flex flex-1 flex-col gap-4 sm:flex-row md:gap-8 sm:pr-2 md:pr-6 lg:pr-0 ">
             <div className="flex-1 md:w-1/2">
-              <AboutInputContainer label="First Name" />
+              <AboutInputContainer
+                label="First Name"
+                type="text"
+                name="firstName"
+                value={values.firstName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.firstName || errors.firstName) && errors.firstName
+                }
+              />
             </div>
             <div className="flex-1 md:w-1/2">
-              <AboutInputContainer label="Last Name" />
+              <AboutInputContainer
+                label="Last Name"
+                name="lastName"
+                type="text"
+                value={values.lastName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={(touched.lastName || errors.lastName) && errors.lastName}
+              />
             </div>
           </div>
 
           <div className="flex flex-1 flex-col gap-4 sm:flex-row md:gap-8 sm:pr-2 md:pr-6 lg:pr-0 ">
             <div className="flex-1 md:w-1/2">
-              <AboutInputContainer label="Email" />
+              <AboutInputContainer
+                label="Email"
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={(touched.email || errors.email) && errors.email}
+              />
             </div>
             <div className="flex-1 md:w-1/2">
-              <AboutInputContainer label="Phone Number" />
+              <AboutInputContainer
+                label="Phone Number"
+                type="phoneNumber"
+                name="phoneNumber"
+                value={values.phoneNumber}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={
+                  (touched.phoneNumber || errors.phoneNumber) &&
+                  errors.phoneNumber
+                }
+              />
             </div>
           </div>
 
@@ -64,15 +149,24 @@ const AboutContact = () => {
             <AboutInputContainer
               label="Message"
               placeHolder="Write your message..."
+              type="text"
+              name="message"
+              value={values.message}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={(touched.message || errors.message) && errors.message}
             />
           </div>
 
           <div className="flex md:justify-end justify-center">
-            <button className="rounded-md bg-[#00CE3A] shadow-lg text-white px-4 py-2 mt-4 w-full md:w-auto">
-              Send Message
+            <button
+              type="submit"
+              className="rounded-md bg-[#00CE3A] min-w-20 shadow-lg text-white px-4 py-2 mt-4 w-full md:w-auto"
+            >
+              {loading ? <RequestLoader /> : "Send Message"}
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

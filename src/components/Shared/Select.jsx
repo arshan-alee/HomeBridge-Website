@@ -26,16 +26,16 @@ const Select = ({ options, onChange, value, name, placeholder, error }) => {
           onClick={() => setIsOpen(!isOpen)}
         >
           {value ? (
-            <span className="text-[#3b3f3d]">{value}</span>
+            <span className="text-[#9ca3af]">{value}</span>
           ) : (
-            <span className={` ${error ? "text-[#ffb8b8]" : "text-[#3b3f3d]"}`}>
+            <span className={` ${error ? "text-[#ffb8b8]" : "text-[#9ca3af]"}`}>
               {placeholder}
             </span>
           )}
           {isOpen ? (
-            <IoIosArrowUp className="text-[22px] text-[#8f9b95] m-0" />
+            <IoIosArrowUp className="text-[22px] text-[#9ca3af] m-0" />
           ) : (
-            <IoIosArrowDown className="text-[22px] text-[#8f9b95] m-0" />
+            <IoIosArrowDown className="text-[22px] text-[#9ca3af] m-0" />
           )}
         </button>
       </div>
