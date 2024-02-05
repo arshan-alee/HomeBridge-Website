@@ -75,38 +75,88 @@ function F2RApplication() {
       <h2 className="px-36 text-[38px] font-bold mb-16 hidden lg:block">
         F-2-R Application
       </h2>
-      <form className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-2xl">
+      <form
+        onSubmit={handleSubmit}
+        className="mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom px-4 rounded-2xl"
+      >
         <h3 className="font-600 text-[16px] font-bold lg:font-normal pt-6 pb-4">
           F-2-R Application
         </h3>
         <div className="py-2 w-full">
-          <Input placeholder="Jason Kim" type="text" />
+          <Input
+            placeholder="Jason Kim"
+            type="text"
+            name="name"
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={(touched.name || errors.name) && errors.name}
+          />
         </div>
         <div className="py-2 flex flex-col md:flex-row w-full gap-2">
           <Select
-            placeholder="japan"
-            options={["Japan", "South Korea"]}
-            onChange={() => console.log("abc")}
+            name="gender"
+            options={["Male", "Female"]}
+            value={values.gender} // Formik state value
+            onChange={handleChange} // Formik handleChange function
+            placeholder="Gender"
+            error={(touched.gender || errors.gender) && errors.gender}
           />
           <Select
-            placeholder="man"
-            options={["Male", "Female"]}
-            onChange={() => console.log("abc")}
+            name="nationality"
+            options={["South Korea", "China", , "Pakistan"]}
+            value={values.nationality} // Formik state value
+            onChange={handleChange} // Formik handleChange function
+            placeholder="Country"
+            error={
+              (touched.nationality || errors.nationality) && errors.nationality
+            }
           />
         </div>
         <div className="py-2 w-full">
-          <Input placeholder="seoul" type="text" />
+          <Input
+            placeholder="seoul"
+            type="text"
+            name="address"
+            value={values.address}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={(touched.address || errors.address) && errors.address}
+          />
         </div>
         <div className="py-2 w-full">
-          <Input placeholder="010-1111-1111" type="tel" />
+          <Input
+            placeholder="010-1111-1111"
+            type="tel"
+            name="phoneNumber"
+            value={values.phoneNumber}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={
+              (touched.phoneNumber || errors.phoneNumber) && errors.phoneNumber
+            }
+          />
         </div>
         <div className="py-2 w-full">
-          <Input placeholder="test@gmail.com" type="mail" />
+          <Input
+            placeholder="test@gmail.com"
+            type="mail"
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={(touched.email || errors.email) && errors.email}
+          />
         </div>
         <div className="w-full mb-4">
           <Textarea
             placeholder="How much is the f-2-r visa ap........."
             rows={8}
+            name="message"
+            value={values.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={(touched.message || errors.message) && errors.message}
           />
         </div>
         <div className="py-2 w-full mb-1 text-center">
