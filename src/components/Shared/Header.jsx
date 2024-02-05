@@ -9,6 +9,7 @@ import {
 import Drawer from "./Drawer";
 import ProfileDropDown from "./ProfileDropDown";
 import { useStateContext } from "../../context/StateContext";
+import { useMediaQuery } from "react-responsive";
 
 const linksArray = [
   {
@@ -41,6 +42,7 @@ const Header = () => {
   // const { isLoggedIn, setIsLoggedIn } = useStateContext();
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
+  const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
@@ -56,7 +58,7 @@ const Header = () => {
     const userName = JSON.parse(Info)?.userName;
 
     // console.log("userName", JSON.parse(Info)?.userName);
-    setUserName(userName);
+    setUserName(userName.split(" ")[0]);
 
     setIsLoggedIn(true);
   };
@@ -148,7 +150,7 @@ const Header = () => {
                   onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
                   className="lg:hidden block cursor-pointer"
                 >
-                  {userName}
+                  {isMediumScreen ? userName : userName.slice(0, 8)}
                   {/* Jason */}
                 </p>
                 {openProfileDropDown && (
