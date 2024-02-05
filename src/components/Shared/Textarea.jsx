@@ -14,8 +14,6 @@ const Textarea = ({
         value={value}
         onChange={onChange}
         rows={rows}
-        // className="w-full resize-none text-sm  p-4 outline-none rounded-2xl bg-[#D4D4D433]"
-        // placeholder={placeholder}
         className={`w-full resize-none text-sm  p-4 outline-none rounded-2xl bg-[#D4D4D433] ${
           error ? "red-placeholder" : ""
         }`}

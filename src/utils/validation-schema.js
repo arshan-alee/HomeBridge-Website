@@ -35,3 +35,11 @@ export const eventApplicationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
   message: Yup.string().required("Message is required"),
 });
+
+export const inquirySchema = Yup.object({
+  firstName: Yup.string().required("First Name is required"),
+  lastName: Yup.string().required("Last Name is required"),
+  phoneNumber: Yup.string().required("Phone Number is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  message: Yup.string().required("Message is required"),
+});
