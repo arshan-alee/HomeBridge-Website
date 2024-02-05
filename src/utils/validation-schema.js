@@ -29,6 +29,13 @@ export const jobApplicationSchema = Yup.object({
   message: Yup.string().required("Message is required"),
 });
 
+export const eventApplicationSchema = Yup.object({
+  name: Yup.string().required("Name is required"),
+  phoneNumber: Yup.string().required("Phone Number is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  message: Yup.string().required("Message is required"),
+});
+
 // interface ForgotPasswordSchema {
 //   email: string;
 // }

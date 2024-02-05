@@ -46,7 +46,7 @@
 }
 
 .red-placeholder::placeholder {
-  color: #ffb8b8; /* Or use any specific shade of red you prefer */
+  color: #fa8c8c; /* Or use any specific shade of red you prefer */
 }
 
 @media (max-width: 750px) {
