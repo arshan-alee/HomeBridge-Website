@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useStateContext } from "../../context/StateContext";
+import { useEffect, useState } from "react";
 
 const ProfileDropDown = ({
   isMobile,
@@ -8,6 +9,7 @@ const ProfileDropDown = ({
 }) => {
   const { setIsLoggedIn } = useStateContext();
   const navigate = useNavigate();
+  const [userName, setUserName] = useState("");
 
   const handleLogout = () => {
     console.log("handle logout");
@@ -20,6 +22,26 @@ const ProfileDropDown = ({
   //   // setIsLoggedIn(false);
   //   navigate("/");
   // }}
+
+  const checkUserToken = () => {
+    const Info = localStorage.getItem("Info");
+    const userToken = JSON.parse(Info)?.token;
+
+    if (!userToken || userToken === "undefined") {
+      setIsLoggedIn(false);
+      return;
+    }
+    const userName = JSON.parse(Info)?.userName;
+
+    // console.log("userName", JSON.parse(Info)?.userName);
+    setUserName(userName);
+
+    setIsLoggedIn(true);
+  };
+
+  useEffect(() => {
+    checkUserToken();
+  }, []);
   return (
     <div
       className={`absolute ${
@@ -34,7 +56,7 @@ const ProfileDropDown = ({
           alt="logo"
           className="w-[40px] sm:w-[60px] mx-auto mb-1"
         />
-        <p className="font-semibold text-center text-[#000]">Jason</p>
+        <p className="font-semibold text-center text-[#000]">{userName}</p>
       </div>
       <div className="w-full flex ">
         <div className="w-1/2 py-3 sm:py-4 text-center border-r-[0.5px] border-[#AAA]">

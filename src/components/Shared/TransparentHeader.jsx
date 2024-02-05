@@ -3,6 +3,7 @@ import { RxCross1 } from "react-icons/rx";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Drawer from "./Drawer";
 import ProfileDropDown from "./ProfileDropDown";
+import { useMediaQuery } from "react-responsive";
 
 const linksArray = [
   {
@@ -35,6 +36,7 @@ const TransparentHeader = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
 
   const checkUserToken = () => {
     const Info = localStorage.getItem("Info");
@@ -47,7 +49,7 @@ const TransparentHeader = () => {
     const userName = JSON.parse(Info)?.userName;
 
     // console.log("userName", JSON.parse(Info)?.userName);
-    setUserName(userName);
+    setUserName(userName.split(" ")[0]);
 
     setIsLoggedIn(true);
   };
@@ -137,7 +139,7 @@ const TransparentHeader = () => {
                   onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
                   className="lg:hidden block cursor-pointer"
                 >
-                  {userName}
+                  {isMediumScreen ? userName : userName.slice(0, 8)}
                   {/* Jason */}
                 </p>
                 {openProfileDropDown && (
