@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import GeneralSection from "../components/MyPage/JobPage/GeneralSection";
-import ApplicationForm from "../components/MyPage/JobPage/ApplicationForm";
 import JobDetail from "../components/MyPage/JobPage/JobDetail";
+import JobApplicationForm from "../components/JobNHouse/JobApplicationForm";
 
 function JobDetails() {
   useEffect(() => {
@@ -20,13 +20,11 @@ function JobDetails() {
       </div>
       <div className="flex flex-row px-2 lg:px-6">
         <JobDetail />
-        {isLargeScreen && (
-          <ApplicationForm title="Job application" type="job" />
-        )}
+        {isLargeScreen && <JobApplicationForm />}
       </div>
       <GeneralSection />
       <div className="flex md:mx-16 lg:hidden">
-        <ApplicationForm title="Job application" type="job" />
+        <JobApplicationForm />
       </div>
     </div>
   );

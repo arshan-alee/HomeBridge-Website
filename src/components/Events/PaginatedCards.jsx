@@ -30,12 +30,6 @@ const PaginatedCards = () => {
     totalData
   );
 
-  console.log("data--------------");
-  console.log(data);
-
-  console.log("currentPage");
-  console.log(currentPage);
-
   useEffect(() => {
     getData();
   }, [currentPage]);
@@ -46,9 +40,6 @@ const PaginatedCards = () => {
       const response = await GetAllData(
         `/api/getAllEventsWebsite?page=${currentPage}&eventsPerPage=${12}`
       );
-
-      console.log("response->");
-      console.log(response);
 
       if (response.success) {
         setData(response?.data?.events);
@@ -80,7 +71,7 @@ const PaginatedCards = () => {
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 rounded-md">
+          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  rounded-md">
             {data.map((card) => (
               <div
                 key={card?._id}

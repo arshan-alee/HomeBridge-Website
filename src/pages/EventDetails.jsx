@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ImageShowcase from "../components/MyPage/ImageShowcase";
-import ApplicationForm from "../components/MyPage/JobPage/ApplicationForm";
 import EventInfo from "../components/MyPage/Event/EventInfo";
 import ProductInfo from "../components/MyPage/Event/ProductInfo";
 import Day from "../components/MyPage/Event/Day";
 import { GetSingleData } from "../axios/NetworkCalls";
 import { useParams } from "react-router-dom";
 import RequestLoader from "../components/Shared/RequestLoader";
+import EventApplicationForm from "../components/Events/EventApplicationForm";
 
 const images = [
   "/images/image_catalogue.png",
@@ -97,7 +97,7 @@ function EventDetails() {
                 <Day day={index} schedule={schedule} />
               ))}
           </div>
-          <ApplicationForm title="Event application" type="event" />
+          <EventApplicationForm />
         </div>
       </div>
     </>
