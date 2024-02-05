@@ -30,9 +30,31 @@ const linksArray = [
 const TransparentHeader = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const checkUserToken = () => {
+    const Info = localStorage.getItem("Info");
+    const userToken = JSON.parse(Info)?.token;
+
+    if (!userToken || userToken === "undefined") {
+      setIsLoggedIn(false);
+      return;
+    }
+    const userName = JSON.parse(Info)?.userName;
+
+    // console.log("userName", JSON.parse(Info)?.userName);
+    setUserName(userName);
+
+    setIsLoggedIn(true);
+  };
+
+  useEffect(() => {
+    checkUserToken();
+  }, []);
 
   const dropdownRef = useRef(null);
 
@@ -115,7 +137,8 @@ const TransparentHeader = () => {
                   onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
                   className="lg:hidden block cursor-pointer"
                 >
-                  Jason
+                  {userName}
+                  {/* Jason */}
                 </p>
                 {openProfileDropDown && (
                   <ProfileDropDown
@@ -133,7 +156,8 @@ const TransparentHeader = () => {
                 onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
                 className="lg:block hidden cursor-pointer"
               >
-                Jason
+                {userName}
+                {/* Jason */}
               </p>
             ) : (
               <Link to="/auth/login" className="lg:block hidden">

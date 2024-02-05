@@ -25,14 +25,14 @@ const LoginRightSide = () => {
       if (response?.data?.status) {
         localStorage.setItem("Info", JSON.stringify(response.data.user));
         toast.success("Login Successfull");
+        setIsLoggedIn(true);
         navigate("/");
       } else if (!response?.data?.status) {
         toast.error(response?.data?.message);
       }
     } catch (error) {
-      if (error?.response?.data?.message == "User not found") {
-        toast.error("Your account is not registered");
-      }
+      console.log("error: ", error);
+      toast.error(error?.message);
       setLoader(true);
     } finally {
       setLoader(false);
