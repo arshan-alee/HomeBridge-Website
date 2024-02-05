@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const NeedHelp = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full lg:w-[85%] mt-24  lg:my-24 h-[60vh] md:h-[315px] mx-auto lg:rounded-[40px] bg-[#00CE3A] relative flex flex-col justify-center items-center">
       {/* Balls */}
@@ -20,7 +23,10 @@ const NeedHelp = () => {
         If you need help with the F-2-R visa, <br /> please apply.
       </h1>
 
-      <button className="mt-6 py-3 px-7 rounded-3xl font-semibold bg-[#fff] text-[#00CE3A]">
+      <button
+        onClick={() => navigate("/f2r-application")}
+        className="mt-6 py-3 px-7 rounded-3xl font-semibold bg-[#fff] text-[#00CE3A]"
+      >
         To apply
       </button>
     </div>
