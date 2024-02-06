@@ -70,6 +70,7 @@ function App() {
           path="/job_house/:jobId/:applicationId"
           element={
             <ProtectedRoute>
+              <Header />
               <EditJobDetails />
             </ProtectedRoute>
           }
