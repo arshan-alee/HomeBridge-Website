@@ -9,7 +9,7 @@ function JobNHouse() {
   }, []);
   return (
     <div className="relative">
-      <TransparentHeader />
+      {/* <TransparentHeader /> */}
       <Hero />
       <PaginatedCards />
     </div>

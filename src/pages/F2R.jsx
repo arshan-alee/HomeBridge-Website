@@ -9,7 +9,7 @@ import TransparentHeader from "../components/Shared/TransparentHeader";
 const F2R = () => {
   return (
     <div>
-      <TransparentHeader />
+      {/* <TransparentHeader /> */}
       <Hero />
       <Advantages />
       <Visa />

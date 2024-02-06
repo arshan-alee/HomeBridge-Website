@@ -1,14 +1,22 @@
 import * as Yup from "yup";
 
-// interface LoginSchema {
-//   email: string;
-//   password: string;
-// }
-
 export const loginSchema = Yup.object({
   email: Yup.string().email().required("Invalid email address"),
   password: Yup.string().required("Invalid Password"),
 });
+
+export const forgotPasswordSchema = Yup.object({
+  email: Yup.string().email().required("Invalid email address"),
+  userName: Yup.string().required("Invalid User name"),
+});
+
+export const resetPasswordSchema = Yup.object({
+  password: Yup.string().required("Invalid Password"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Confirm Password is required"),
+});
+
 export const signUpSchema = Yup.object({
   userName: Yup.string().required("User's Name is required"),
   email: Yup.string()

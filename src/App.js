@@ -19,6 +19,7 @@ import EventDetails from "./pages/EventDetails";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import EditJobDetails from "./pages/EditJobDetails";
 import EditF2RApplication from "./pages/EditF2RApplication";
+import TransparentHeader from "./components/Shared/TransparentHeader";
 
 function App() {
   const location = useLocation();
@@ -30,16 +31,37 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/f_2_r" element={<F2R />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-        <Route path="/auth/new-password" element={<NewPassword />} />
-        <Route path="/job_house" element={<JobNHouse />} />
-        <Route path="/event" element={<Events />} />
-        {/* <ProtectedRoute>
-          <Route path="/mypage" element={<MyPage />} />
-        </ProtectedRoute> */}
+        <Route path="/auth/new-password/:token" element={<NewPassword />} />
+        <Route
+          path="/f_2_r"
+          element={
+            <>
+              <TransparentHeader />
+              <F2R />
+            </>
+          }
+        />
+        <Route
+          path="/job_house"
+          element={
+            <>
+              <TransparentHeader />
+              <JobNHouse />
+            </>
+          }
+        />
+        <Route
+          path="/event"
+          element={
+            <>
+              <TransparentHeader />
+              <Events />
+            </>
+          }
+        />
         <Route
           path="/mypage"
           element={
@@ -114,7 +136,15 @@ function App() {
             </>
           }
         />
-        <Route path="/about" element={<About />} />
+        <Route
+          path="/about"
+          element={
+            <>
+              {/* <TransparentHeader /> */}
+              <About />
+            </>
+          }
+        />
       </Routes>
       {renderFooter && <Footer />}
     </div>
