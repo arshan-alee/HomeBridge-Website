@@ -85,9 +85,16 @@ function EventDetails() {
             <div className="rounded-[30px] pt-3 lg:py-3 custom-shadow-right-bottom">
               <ImageShowcase images={images} />
             </div>
-            {data?.eventInformation && (
-              <EventInfo eventInfo={data?.eventInformation} />
-            )}
+
+            <EventInfo
+              data={{
+                departure: data?.departure,
+                arrival: data?.arrival,
+                traffic: data?.traffic,
+                price: data?.price,
+              }}
+            />
+
             {data?.productInformation && (
               <ProductInfo productInfo={data?.productInformation} />
             )}
