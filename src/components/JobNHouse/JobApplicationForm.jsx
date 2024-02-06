@@ -9,18 +9,19 @@ import { PostData } from "../../axios/NetworkCalls";
 import { jobApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
 
-function JobApplicationForm({ title, type }) {
+function JobApplicationForm({ formData }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  console.log("formData: ", formData);
 
   const initialValues = {
-    name: "",
-    gender: "",
-    nationality: "",
-    phoneNumber: "",
-    email: "",
-    message: "",
+    name: formData?.name || "",
+    gender: formData?.gender || "",
+    nationality: formData?.nationality || "",
+    phoneNumber: formData?.phoneNumber || "",
+    email: formData?.email || "",
+    message: formData?.message || "",
   };
 
   const JobHouseApplication = async (values, actions) => {
@@ -144,18 +145,6 @@ function JobApplicationForm({ title, type }) {
             error={(touched.message || errors.message) && errors.message}
           />
         </div>
-
-        <div className="flex justify-center mt-4 mb-2">
-          <button
-            type="submit"
-            className="w-full bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]"
-          >
-            {loading ? <RequestLoader /> : "To apply"}
-          </button>
-        </div>
-        <p className="text-center text-[10px] font-medium mb-2">
-          The person in charge will contact you after checking.
-        </p>
       </form>
     </div>
   );

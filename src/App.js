@@ -17,6 +17,7 @@ import Footer from "./components/Shared/Footer";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import EventDetails from "./pages/EventDetails";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import EditJobDetails from "./pages/EditJobDetails";
 
 function App() {
   const location = useLocation();
@@ -62,6 +63,15 @@ function App() {
               <Header />
               <JobDetails />
             </>
+          }
+        />
+
+        <Route
+          path="/job_house/:jobId/:applicationId"
+          element={
+            <ProtectedRoute>
+              <EditJobDetails />
+            </ProtectedRoute>
           }
         />
         <Route

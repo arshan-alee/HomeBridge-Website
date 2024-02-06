@@ -34,9 +34,9 @@ function JobHouse() {
   const [data, setData] = useState([]);
   const [Error, setError] = useState();
 
-  function handleClick() {
-    navigate("/job_house/123");
-  }
+  // function handleClick() {
+  //   navigate("/job_house/123");
+  // }
 
   useEffect(() => {
     getData();
@@ -76,11 +76,7 @@ function JobHouse() {
           {Error ? (
             <div className="text-black text-center ">{Error}</div>
           ) : (
-            <TableComponent
-              columns={columns}
-              data={data}
-              handleClick={handleClick}
-            />
+            <TableComponent columns={columns} data={data} />
           )}
         </>
       )}
