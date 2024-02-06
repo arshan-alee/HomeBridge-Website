@@ -18,6 +18,7 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 import EventDetails from "./pages/EventDetails";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import EditJobDetails from "./pages/EditJobDetails";
+import EditF2RApplication from "./pages/EditF2RApplication";
 
 function App() {
   const location = useLocation();
@@ -56,6 +57,17 @@ function App() {
             </>
           }
         />
+
+        <Route
+          path="/f2r-application/:id"
+          element={
+            <ProtectedRoute>
+              <Header />
+              <EditF2RApplication />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/job_house/:id"
           element={

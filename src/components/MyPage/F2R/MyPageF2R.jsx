@@ -15,14 +15,9 @@ function MyPageF2R() {
     "Message",
   ];
 
-  const navigate = useNavigate();
   const [loader, setLoader] = useState();
   const [data, setData] = useState([]);
   const [Error, setError] = useState();
-
-  function handleClick() {
-    navigate("/f2r-application");
-  }
 
   useEffect(() => {
     getData();
@@ -60,11 +55,7 @@ function MyPageF2R() {
           {Error ? (
             <div className="text-black text-center ">{Error}</div>
           ) : (
-            <TableComponent
-              columns={columns}
-              data={data}
-              handleClick={handleClick}
-            />
+            <TableComponent columns={columns} data={data} />
           )}
         </>
       )}

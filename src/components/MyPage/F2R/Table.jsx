@@ -1,8 +1,10 @@
 import { useState, useMemo } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const TableComponent = ({ columns, data, handleClick }) => {
+const TableComponent = ({ columns, data }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
   const recordsPerPage = 10;
   const totalPages = Math.ceil(data.length / recordsPerPage);
@@ -36,6 +38,9 @@ const TableComponent = ({ columns, data, handleClick }) => {
     }
     return pageNumbers;
   };
+  function handleClick(id) {
+    navigate(`/f2r-application/${id}`);
+  }
 
   return (
     <div className="overflow-x-auto max-w-3/4 custom-shadow-right-bottom rounded-b-xl">
@@ -56,7 +61,7 @@ const TableComponent = ({ columns, data, handleClick }) => {
         <tbody className="bg-white" style={{ border: "none" }}>
           {paginatedData.map((row, index) => (
             <tr
-              onClick={handleClick}
+              onClick={() => handleClick(row?._id)}
               key={index}
               className="custom-shadow-right-bottom rounded-2xl"
             >
