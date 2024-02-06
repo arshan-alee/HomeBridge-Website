@@ -41,7 +41,7 @@ function JobApplicationForm({ formData, isFilled }) {
       if (response?.status) {
         toast.success(response?.message);
         setLoading(false);
-        // actions.resetForm();
+        actions.resetForm();
       } else {
         toast.error(response);
         if (response == "You're not logged in. Please login first") {
