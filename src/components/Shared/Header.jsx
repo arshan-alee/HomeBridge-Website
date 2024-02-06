@@ -36,38 +36,12 @@ const linksArray = [
 
 // Profile DropDown
 
-const Header = () => {
+const Header = ({ isLoggedIn, userName }) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isLoggedIn } = useStateContext();
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
   const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
-
-  const [isLoggeIn, setIsLoggeIn] = useState(false);
-  const [userName, setUserName] = useState("");
-
-  const checkUserToken = () => {
-    const Info = localStorage.getItem("Info");
-    const userToken = JSON.parse(Info)?.token;
-
-    console.log("userToken: ", userToken);
-
-    if (!userToken || userToken === "undefined") {
-      console.log("Its run:::::::");
-      setIsLoggeIn(false);
-      return;
-    }
-    const userName = JSON.parse(Info)?.userName;
-
-    setUserName(userName?.split(" ")[0]);
-
-    setIsLoggeIn(true);
-  };
-
-  useEffect(() => {
-    checkUserToken();
-  }, []);
 
   const dropdownRef = useRef(null);
 

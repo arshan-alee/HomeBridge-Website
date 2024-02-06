@@ -28,53 +28,14 @@ const linksArray = [
   },
 ];
 
-const TransparentHeader = () => {
+const TransparentHeader = ({ isLoggedIn, userName }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
   const isMediumScreen = useMediaQuery({ query: "(min-width: 768px)" });
 
-  const checkUserToken = () => {
-    const Info = localStorage.getItem("Info");
-    const userToken = JSON.parse(Info)?.token;
-
-    if (!userToken || userToken === "undefined") {
-      setIsLoggedIn(false);
-      return;
-    }
-    const userName = JSON.parse(Info)?.userName;
-
-    // console.log("userName", JSON.parse(Info)?.userName);
-    setUserName(userName.split(" ")[0]);
-
-    setIsLoggedIn(true);
-  };
-
-  useEffect(() => {
-    checkUserToken();
-  }, []);
-
   const dropdownRef = useRef(null);
-
-  // const handleClickOutsideDropdown = (event) => {
-  //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //     setOpenProfileDropdown(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (openProfileDropDown) {
-  //     window.addEventListener("click", handleClickOutsideDropdown);
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("click", handleClickOutsideDropdown);
-  //   };
-  // }, [openProfileDropDown]);
 
   // Mobile
   const handleNavbar = () => {

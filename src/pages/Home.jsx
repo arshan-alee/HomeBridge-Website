@@ -11,7 +11,7 @@ import Header from "../components/Shared/Header";
 const Home = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Hero />
       <Partnership />
       <WhoWeAre />

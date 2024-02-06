@@ -11,7 +11,7 @@ const About = () => {
 
   return (
     <>
-      <TransparentHeader />
+      {/* <TransparentHeader /> */}
       <div
         style={
           {

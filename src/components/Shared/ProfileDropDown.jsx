@@ -7,43 +7,28 @@ const ProfileDropDown = ({
   setOpenProfileDropdown,
   openProfileDropDown,
 }) => {
-  const { setIsLoggedIn } = useStateContext();
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
 
   const handleLogout = () => {
     setOpenProfileDropdown(!openProfileDropDown);
-    setIsLoggedIn(false); // Ensure this updates your context's state
     localStorage.removeItem("Info");
+    window.dispatchEvent(new CustomEvent("logout"));
     navigate("/");
   };
-
-  // const handleLogout = () => {
-  //   console.log("handle logout");
-  //   setOpenProfileDropdown(!openProfileDropDown);
-  //   localStorage.removeItem("Info");
-  //   navigate("/");
-  // };
-  // () => {
-  //   setOpenProfileDropdown(!openProfileDropDown);
-  //   // setIsLoggedIn(false);
-  //   navigate("/");
-  // }}
 
   const checkUserToken = () => {
     const Info = localStorage.getItem("Info");
     const userToken = JSON.parse(Info)?.token;
 
     if (!userToken || userToken === "undefined") {
-      setIsLoggedIn(false);
+      // setIsLoggedIn(false);
       return;
     }
     const userName = JSON.parse(Info)?.userName;
 
     // console.log("userName", JSON.parse(Info)?.userName);
     setUserName(userName);
-
-    setIsLoggedIn(true);
   };
 
   useEffect(() => {

@@ -9,9 +9,9 @@ import toast from "react-hot-toast";
 import RequestLoader from "../Shared/RequestLoader";
 
 const LoginRightSide = () => {
-  const { setIsLoggedIn } = useStateContext();
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
+  const { setIsLoggedIn } = useStateContext();
 
   const initialValues = {
     email: "",
@@ -25,8 +25,10 @@ const LoginRightSide = () => {
       if (response?.data?.status) {
         localStorage.setItem("Info", JSON.stringify(response.data.user));
         toast.success("Login Successfull");
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
+        window.dispatchEvent(new CustomEvent("login"));
         navigate(-1);
+        // navigate(previousRoute);
       } else if (!response?.data?.status) {
         toast.error(response?.data?.message);
       }

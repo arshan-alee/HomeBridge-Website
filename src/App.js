@@ -20,26 +20,101 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import EditJobDetails from "./pages/EditJobDetails";
 import EditF2RApplication from "./pages/EditF2RApplication";
 import TransparentHeader from "./components/Shared/TransparentHeader";
+import { useEffect, useState } from "react";
+import { useStateContext } from "./context/StateContext";
 
 function App() {
   const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const { isLoggedIn, setIsLoggedIn } = useStateContext();
+  const [userName, setUserName] = useState("");
 
   const isAuthRoute = location.pathname.startsWith("/auth");
   const renderFooter = !isAuthRoute;
 
+  const checkUserToken = () => {
+    const Info = localStorage.getItem("Info");
+    const userToken = JSON.parse(Info)?.token;
+
+    if (!userToken || userToken === "undefined") {
+      setIsLoggedIn(false);
+      return;
+    }
+    const userName = JSON.parse(Info)?.userName;
+    setUserName(userName.split(" ")[0]);
+    setIsLoggedIn(true);
+  };
+
+  useEffect(() => {
+    checkUserToken();
+    const handleLoginChange = () => {
+      checkUserToken();
+    };
+
+    // setup the event listeners:
+    window.addEventListener("login", handleLoginChange);
+    window.addEventListener("logout", handleLoginChange);
+
+    // Clean up the event listeners when the component unmounts
+    return () => {
+      window.removeEventListener("login", handleLoginChange);
+      window.removeEventListener("logout", handleLoginChange);
+    };
+  }, []);
+
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth/register" element={<Register />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-        <Route path="/auth/new-password/:token" element={<NewPassword />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <Home />
+            </>
+          }
+        />
+        <Route
+          path="/auth/register"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <Register />
+            </>
+          }
+        />
+        <Route
+          path="/auth/login"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <Login />
+            </>
+          }
+        />
+        <Route
+          path="/auth/forgot-password"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <ForgotPassword />
+            </>
+          }
+        />
+        <Route
+          path="/auth/new-password/:token"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <NewPassword />
+            </>
+          }
+        />
         <Route
           path="/f_2_r"
           element={
             <>
-              <TransparentHeader />
+              <TransparentHeader isLoggedIn={isLoggedIn} userName={userName} />
               <F2R />
             </>
           }
@@ -48,7 +123,7 @@ function App() {
           path="/job_house"
           element={
             <>
-              <TransparentHeader />
+              <TransparentHeader isLoggedIn={isLoggedIn} userName={userName} />
               <JobNHouse />
             </>
           }
@@ -57,7 +132,7 @@ function App() {
           path="/event"
           element={
             <>
-              <TransparentHeader />
+              <TransparentHeader isLoggedIn={isLoggedIn} userName={userName} />
               <Events />
             </>
           }
@@ -66,6 +141,7 @@ function App() {
           path="/mypage"
           element={
             <ProtectedRoute>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <MyPage />
             </ProtectedRoute>
           }
@@ -74,7 +150,7 @@ function App() {
           path="/f2r-application"
           element={
             <>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <F2RApplication />
             </>
           }
@@ -84,7 +160,7 @@ function App() {
           path="/f2r-application/:id"
           element={
             <ProtectedRoute>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <EditF2RApplication />
             </ProtectedRoute>
           }
@@ -94,7 +170,7 @@ function App() {
           path="/job_house/:id"
           element={
             <>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <JobDetails />
             </>
           }
@@ -104,7 +180,7 @@ function App() {
           path="/job_house/:jobId/:applicationId"
           element={
             <ProtectedRoute>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <EditJobDetails />
             </ProtectedRoute>
           }
@@ -113,7 +189,7 @@ function App() {
           path="/event/:id"
           element={
             <>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <EventDetails />
             </>
           }
@@ -122,7 +198,7 @@ function App() {
           path="/payment/success"
           element={
             <>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <PaymentSuccess />
             </>
           }
@@ -131,7 +207,7 @@ function App() {
           path="/refund"
           element={
             <>
-              <Header />
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
               <RefundPage />
             </>
           }
@@ -140,7 +216,7 @@ function App() {
           path="/about"
           element={
             <>
-              {/* <TransparentHeader /> */}
+              <TransparentHeader isLoggedIn={isLoggedIn} userName={userName} />
               <About />
             </>
           }

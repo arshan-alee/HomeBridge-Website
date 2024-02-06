@@ -5,11 +5,14 @@ const StateContext = createContext();
 
 // Create a provider component
 export function StateProvider({ children }) {
+  const [previousRoute, setPreviousRoute] = useState("/");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <StateContext.Provider
       value={{
+        previousRoute,
+        setPreviousRoute,
         isLoggedIn,
         setIsLoggedIn,
       }}
