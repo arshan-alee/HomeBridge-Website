@@ -60,7 +60,7 @@ const Header = () => {
     }
     const userName = JSON.parse(Info)?.userName;
 
-    setUserName(userName.split(" ")[0]);
+    setUserName(userName?.split(" ")[0]);
 
     setIsLoggeIn(true);
   };

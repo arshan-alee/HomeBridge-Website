@@ -11,6 +11,7 @@ function EditJobDetails() {
   // useEffect(() => {
   //   window.scrollTo(0, 0);
   // }, []);
+
   const isLargeScreen = useMediaQuery({ query: "(min-width: 1024px)" });
 
   const { jobId, applicationId } = useParams();
@@ -84,7 +85,7 @@ function EditJobDetails() {
 
   // ==========
 
-  if (loading && formLoading) {
+  if (loading || formLoading) {
     return (
       <div className="w-full min-h-[90vh] flex justify-center items-center">
         <RequestLoader size="large" />
@@ -92,7 +93,7 @@ function EditJobDetails() {
     );
   }
 
-  if (error && formError) {
+  if (error || formError) {
     return (
       <div className="w-full min-h-[90vh] flex justify-center items-center">
         <h1 className="text-2xl">{error}</h1>
@@ -110,11 +111,13 @@ function EditJobDetails() {
       </div>
       <div className="flex flex-row px-2 lg:px-6">
         <JobDetail data={data} />
-        {isLargeScreen && <JobApplicationForm formData={formData} />}
+        {isLargeScreen && (
+          <JobApplicationForm formData={formData} isFilled={true} />
+        )}
       </div>
       <GeneralSection data={data} />
       <div className="flex md:mx-16 lg:hidden">
-        <JobApplicationForm formData={formData} />
+        <JobApplicationForm formData={formData} isFilled={true} />
       </div>
     </div>
   );

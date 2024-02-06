@@ -74,11 +74,11 @@ const TableComponent = ({ columns, data }) => {
               ))} */}
               <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
                 <div className="truncate text-[12px]">
-                  {row.job.announcementName}
+                  {row.job.announcementName || "-"}
                 </div>
               </td>
               <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
-                <div className="truncate text-[12px]">{row.name}</div>
+                <div className="truncate text-[12px]">{row.name || "-"}</div>
               </td>
               <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
                 <div className="truncate text-[12px]">
@@ -86,17 +86,18 @@ const TableComponent = ({ columns, data }) => {
                 </div>
               </td>
               <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
-                <div className="truncate text-[12px]">{row.nationality}</div>
+                <div className="truncate text-[12px]">
+                  {row.nationality || "-"}
+                </div>
               </td>
-              {/* <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
-                <div className="truncate text-[12px]">{row.phoneNumber}</div>
-              </td>
-              <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
-                <div className="truncate text-[12px]">{row.email}</div>
-              </td> */}
               <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
                 <div className="truncate text-[12px]">
-                  {row.message.toString().slice(0, 20)}
+                  {row.job.salary || "-"}
+                </div>
+              </td>
+              <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
+                <div className="truncate text-[12px]">
+                  {row.job.rent || "-"}
                 </div>
               </td>
             </tr>

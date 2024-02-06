@@ -80,7 +80,7 @@ const PaginatedCards = () => {
                 onClick={() => navigate(`/job_house/${card?._id}`)}
               >
                 <img
-                  src={card?.jobHouseimages[0]}
+                  src={card?.jobHouseimages[0] || "/images/image_catalogue.png"}
                   alt={dummyData[0].title}
                   className="w-full h-[200px] object-cover mb-2 rounded-[10px]"
                 />

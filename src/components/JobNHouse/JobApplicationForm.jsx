@@ -9,7 +9,7 @@ import { PostData } from "../../axios/NetworkCalls";
 import { jobApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
 
-function JobApplicationForm({ formData }) {
+function JobApplicationForm({ formData, isFilled }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,7 @@ function JobApplicationForm({ formData }) {
       if (response?.status) {
         toast.success(response?.message);
         setLoading(false);
-        actions.resetForm();
+        // actions.resetForm();
       } else {
         toast.error(response);
         if (response == "You're not logged in. Please login first") {
@@ -145,6 +145,21 @@ function JobApplicationForm({ formData }) {
             error={(touched.message || errors.message) && errors.message}
           />
         </div>
+        {isFilled ? null : (
+          <>
+            <div className="flex justify-center mt-4 mb-2">
+              <button
+                type="submit"
+                className="w-full bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px]"
+              >
+                {loading ? <RequestLoader /> : "To apply"}
+              </button>
+            </div>
+            <p className="text-center text-[10px] font-medium mb-2">
+              The person in charge will contact you after checking.
+            </p>
+          </>
+        )}
       </form>
     </div>
   );

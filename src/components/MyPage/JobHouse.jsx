@@ -10,7 +10,9 @@ function JobHouse() {
     "Name",
     "Accommodation",
     "Country",
-    "Message",
+    "Salary",
+    "rent",
+
     // , "Salary", "Rent"
   ];
   // const data = [
