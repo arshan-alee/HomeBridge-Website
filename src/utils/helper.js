@@ -20,3 +20,14 @@ export const convertDate = (inputDate) => {
 
   return formattedDate;
 };
+
+export function checkDeadline(isoDate) {
+  const date = new Date(isoDate);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Check if the deadline has passed
+  if (date < today) {
+    return "Deadline Passed";
+  }
+}

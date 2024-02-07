@@ -22,6 +22,7 @@ import EditF2RApplication from "./pages/EditF2RApplication";
 import TransparentHeader from "./components/Shared/TransparentHeader";
 import { useEffect, useState } from "react";
 import { useStateContext } from "./context/StateContext";
+import EditEventApplication from "./pages/EditEventApplication";
 
 function App() {
   const location = useLocation();
@@ -192,6 +193,15 @@ function App() {
               <Header isLoggedIn={isLoggedIn} userName={userName} />
               <EventDetails />
             </>
+          }
+        />
+        <Route
+          path="/event/:eventId/:applicationId"
+          element={
+            <ProtectedRoute>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <EditEventApplication />
+            </ProtectedRoute>
           }
         />
         <Route

@@ -59,7 +59,7 @@ function MyPage() {
             <JobHouse />
           ) : (
             <div className="w-full lg:w-3/4">
-              <EventTable columns={columns} data={data} />
+              <EventTable columns={columns} />
             </div>
           )}
         </div>
