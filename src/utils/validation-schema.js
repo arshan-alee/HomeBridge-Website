@@ -61,3 +61,9 @@ export const inquirySchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Email is required"),
   message: Yup.string().required("Message is required"),
 });
+
+export const refundSchema = Yup.object({
+  accountNumber: Yup.string().required("Account Number is required"),
+  accountName: Yup.string().required("Account Name is required"),
+  bankName: Yup.string().required("Bank Name is required"),
+});

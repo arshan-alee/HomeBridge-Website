@@ -29,6 +29,8 @@ function EventApplicationForm({ formData, isFilled }) {
         values
       );
 
+      console.log("response: ", response);
+
       if (response?.status) {
         toast.success(response?.message);
         setLoading(false);
