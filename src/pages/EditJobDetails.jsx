@@ -23,9 +23,6 @@ function EditJobDetails() {
   const [formLoading, setFormLoading] = useState(true);
   const [formError, setFormError] = useState(null);
 
-  // console.log("data--------------");
-  // console.log(data);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

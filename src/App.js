@@ -214,7 +214,7 @@ function App() {
           }
         />
         <Route
-          path="/refund"
+          path="/refund/:applicationId"
           element={
             <>
               <Header isLoggedIn={isLoggedIn} userName={userName} />

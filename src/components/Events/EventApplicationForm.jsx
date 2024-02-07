@@ -8,16 +8,16 @@ import { useFormik } from "formik";
 import { eventApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
 
-function EventApplicationForm({ title, type }) {
+function EventApplicationForm({ formData, isFilled }) {
   const navigate = useNavigate();
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
-    name: "",
-    phoneNumber: "",
-    email: "",
-    message: "",
+    name: formData?.name || "",
+    phoneNumber: formData?.phoneNumber || "",
+    email: formData?.email || "",
+    message: formData?.message || "",
   };
 
   const EventApplication = async (values, actions) => {
@@ -49,7 +49,12 @@ function EventApplicationForm({ title, type }) {
   };
 
   const onSubmit = async (values, actions) => {
-    await EventApplication(values, actions);
+    if (isFilled) {
+      // reserve cancellation:
+      navigate(`/refund/${formData?._id}`);
+    } else {
+      await EventApplication(values, actions);
+    }
   };
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
@@ -72,6 +77,7 @@ function EventApplicationForm({ title, type }) {
             type="text"
             name="name"
             value={values.name}
+            isDisable={isFilled}
             onChange={handleChange}
             onBlur={handleBlur}
             error={(touched.name || errors.name) && errors.name}
@@ -84,6 +90,7 @@ function EventApplicationForm({ title, type }) {
             type="tel"
             name="phoneNumber"
             value={values.phoneNumber}
+            isDisable={isFilled}
             onChange={handleChange}
             onBlur={handleBlur}
             error={
@@ -97,6 +104,7 @@ function EventApplicationForm({ title, type }) {
             type="email"
             name="email"
             value={values.email}
+            isDisable={isFilled}
             onChange={handleChange}
             onBlur={handleBlur}
             error={(touched.email || errors.email) && errors.email}
@@ -108,6 +116,7 @@ function EventApplicationForm({ title, type }) {
             rows={10}
             name="message"
             value={values.message}
+            isDisable={isFilled}
             onChange={handleChange}
             onBlur={handleBlur}
             error={(touched.message || errors.message) && errors.message}
@@ -118,14 +127,25 @@ function EventApplicationForm({ title, type }) {
           <p className="text-[12px] font-medium">Price</p>
           <p className="text-[24px] font-semibold text-[#00CE3A]">199,000KRW</p>
         </div>
-        <div className="flex justify-center mt-4">
-          <button
-            type="submit"
-            className="bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px] w-full"
-          >
-            {loading ? <RequestLoader /> : " Payment"}
-          </button>
-        </div>
+        {isFilled ? (
+          <div className="flex justify-center mt-4">
+            <button
+              type="submit"
+              className="bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px] w-full"
+            >
+              {loading ? <RequestLoader /> : " Reservation cancellation"}
+            </button>
+          </div>
+        ) : (
+          <div className="flex justify-center mt-4">
+            <button
+              type="submit"
+              className="bg-[#00CE3A] text-white px-8 py-2 rounded-3xl text-[16px] w-full"
+            >
+              {loading ? <RequestLoader /> : " Payment"}
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );

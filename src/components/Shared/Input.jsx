@@ -6,6 +6,7 @@ const Input = ({
   name,
   value,
   placeholder,
+  isDisable,
   onChange,
   require,
   onBlur,
@@ -21,6 +22,7 @@ const Input = ({
         required={require}
         // placeholder={placeholder}
         onBlur={onBlur}
+        disabled={isDisable}
         // className="outline-none text-sm p-3 w-full rounded-xl bg-[#D4D4D433]"
         className={`outline-none text-sm p-3 w-full rounded-xl bg-[#D4D4D433] ${
           error ? "red-placeholder" : ""

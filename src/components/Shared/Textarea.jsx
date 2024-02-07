@@ -3,6 +3,7 @@ const Textarea = ({
   onChange,
   placeholder,
   label,
+  isDisable,
   rows,
   error,
   name,
@@ -14,6 +15,7 @@ const Textarea = ({
         value={value}
         onChange={onChange}
         rows={rows}
+        disabled={isDisable}
         className={`w-full resize-none text-sm  p-4 outline-none rounded-2xl bg-[#D4D4D433] ${
           error ? "red-placeholder" : ""
         }`}
