@@ -8,12 +8,13 @@ import toast from "react-hot-toast";
 import { PostData } from "../../axios/NetworkCalls";
 import { jobApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
+import { useStateContext } from "../../context/StateContext";
 
 function JobApplicationForm({ formData, isFilled }) {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { setPreviousRoute } = useStateContext();
   const [loading, setLoading] = useState(false);
-  console.log("formData: ", formData);
 
   const initialValues = {
     name: formData?.name || "",
@@ -45,6 +46,7 @@ function JobApplicationForm({ formData, isFilled }) {
       } else {
         toast.error(response);
         if (response == "You're not logged in. Please login first") {
+          setPreviousRoute("go_back");
           navigate("/auth/login");
         }
       }

@@ -7,10 +7,12 @@ import toast from "react-hot-toast";
 import { useFormik } from "formik";
 import { eventApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
+import { useStateContext } from "../../context/StateContext";
 
-function EventApplicationForm({ formData, isFilled }) {
+function EventApplicationForm({ formData, isFilled, price }) {
   const navigate = useNavigate();
   const { id } = useParams();
+  const { setPreviousRoute } = useStateContext();
   const [loading, setLoading] = useState(false);
 
   const initialValues = {
@@ -38,6 +40,7 @@ function EventApplicationForm({ formData, isFilled }) {
       } else {
         toast.error(response);
         if (response == "You're not logged in. Please login first") {
+          setPreviousRoute("go_back");
           navigate("/auth/login");
         }
       }
@@ -127,7 +130,7 @@ function EventApplicationForm({ formData, isFilled }) {
 
         <div className="flex justify-between border-t pt-4">
           <p className="text-[12px] font-medium">Price</p>
-          <p className="text-[24px] font-semibold text-[#00CE3A]">199,000KRW</p>
+          <p className="text-[24px] font-semibold text-[#00CE3A]">{price}</p>
         </div>
         {isFilled ? (
           <div className="flex justify-center mt-4">

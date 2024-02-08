@@ -33,9 +33,6 @@ function EditEventApplication() {
   const [formLoading, setFormLoading] = useState(true);
   const [formError, setFormError] = useState(null);
 
-  // console.log("data--------------");
-  // console.log(data);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -117,7 +114,7 @@ function EditEventApplication() {
         <div className="w-full lg:px-12 flex flex-col lg:flex-row">
           <div className="w-full lg:w-2/3 mr-2">
             <div className="rounded-[30px] pt-3 lg:py-3 custom-shadow-right-bottom">
-              <ImageShowcase images={images} />
+              <ImageShowcase images={data?.eventImages} />
             </div>
 
             <EventInfo
@@ -138,7 +135,11 @@ function EditEventApplication() {
                 <Day day={index} schedule={schedule} />
               ))}
           </div>
-          <EventApplicationForm formData={formData} isFilled={true} />
+          <EventApplicationForm
+            formData={formData}
+            isFilled={true}
+            price={data?.price}
+          />
         </div>
       </div>
     </>

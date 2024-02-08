@@ -83,9 +83,9 @@ const PaginatedCards = () => {
                 onClick={() => navigate(`/event/${card?._id}`)}
               >
                 <img
-                  src={dummyData[0].imageUrl}
-                  alt={dummyData[0].title}
-                  className="w-full h-[200px] object-cover lg:object-contain mb-2 rounded-[10px]"
+                  src={card?.eventImages[0]}
+                  alt="Event "
+                  className="w-full h-[200px] object-cover lg:object-cover mb-2 rounded-[10px]"
                 />
                 <h3 className="text-[20px] font-semibold mb-2 mt-4 leading-6 font-montserrat break-words">
                   {card?.productIntroduction}
@@ -95,7 +95,7 @@ const PaginatedCards = () => {
                 </p>
                 <p className="text-[12px] text-[#232323] font-medium">Price</p>
                 <p className="text-[#00CE3A] text-[24px] font-bold">
-                  {dummyData[0].price}
+                  {card?.price}
                 </p>
               </div>
             ))}

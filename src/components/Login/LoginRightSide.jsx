@@ -11,7 +11,7 @@ import RequestLoader from "../Shared/RequestLoader";
 const LoginRightSide = () => {
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
-  const { setIsLoggedIn } = useStateContext();
+  const { previousRoute } = useStateContext();
 
   const initialValues = {
     email: "",
@@ -27,8 +27,11 @@ const LoginRightSide = () => {
         toast.success("Login Successfull");
         // setIsLoggedIn(true);
         window.dispatchEvent(new CustomEvent("login"));
-        navigate(-1);
-        // navigate(previousRoute);
+        if (previousRoute === "go_back") {
+          navigate(-1);
+        } else {
+          navigate("/");
+        }
       } else if (!response?.data?.status) {
         toast.error(response?.data?.message);
       }

@@ -22,14 +22,9 @@ function EventDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // console.log("data--------------");
-  // console.log(data);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // =================
 
   useEffect(() => {
     getData();
@@ -83,7 +78,7 @@ function EventDetails() {
         <div className="w-full lg:px-12 flex flex-col lg:flex-row">
           <div className="w-full lg:w-2/3 mr-2">
             <div className="rounded-[30px] pt-3 lg:py-3 custom-shadow-right-bottom">
-              <ImageShowcase images={images} />
+              <ImageShowcase images={data?.eventImages} />
             </div>
 
             <EventInfo
@@ -104,7 +99,7 @@ function EventDetails() {
                 <Day day={index} schedule={schedule} />
               ))}
           </div>
-          <EventApplicationForm />
+          <EventApplicationForm price={data?.price} />
         </div>
       </div>
     </>
