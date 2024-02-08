@@ -15,6 +15,7 @@ import { refundSchema } from "../utils/validation-schema";
 
 function RefundPage() {
   const { applicationId } = useParams();
+  const { setPreviousRoute } = useStateContext();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [loader, setLoader] = useState(false);
@@ -121,6 +122,7 @@ function RefundPage() {
       } else {
         toast.error(response);
         if (response == "You're not logged in. Please login first") {
+          setPreviousRoute("go_back");
           navigate("/auth/login");
         }
       }
