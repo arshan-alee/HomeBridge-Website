@@ -37,6 +37,7 @@ function EventApplicationForm({ formData, isFilled, price }) {
         toast.success(response?.message);
         setLoading(false);
         actions.resetForm();
+        navigate(`/payment/success/${id}`);
       } else {
         toast.error(response);
         if (response == "You're not logged in. Please login first") {

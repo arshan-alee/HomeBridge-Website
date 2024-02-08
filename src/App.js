@@ -205,7 +205,7 @@ function App() {
           }
         />
         <Route
-          path="/payment/success"
+          path="/payment/success/:eventId"
           element={
             <>
               <Header isLoggedIn={isLoggedIn} userName={userName} />
