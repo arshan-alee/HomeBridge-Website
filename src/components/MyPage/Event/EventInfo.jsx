@@ -38,7 +38,7 @@ function EventInfo({ data }) {
           <p
             className={`w-1/2 font-medium text-[16px] text-[#2B2B2B] mr-1 lg:mr-10`}
           >
-            {price}
+            {price} KRW
           </p>
         </div>
       </div>

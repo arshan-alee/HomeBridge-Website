@@ -131,7 +131,9 @@ function EventApplicationForm({ formData, isFilled, price }) {
 
         <div className="flex justify-between border-t pt-4">
           <p className="text-[12px] font-medium">Price</p>
-          <p className="text-[24px] font-semibold text-[#00CE3A]">{price}</p>
+          <p className="text-[24px] font-semibold text-[#00CE3A]">
+            {price} KRW
+          </p>
         </div>
         {isFilled ? (
           <div className="flex justify-center mt-4">

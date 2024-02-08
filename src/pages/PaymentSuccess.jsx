@@ -86,7 +86,7 @@ function PaymentSuccess() {
               </div>
               <div className="w-full flex my-2 px-6 lg:px-0">
                 <p className="w-1/2 text-[#00CE3A] text-left">Price</p>
-                <p className="w-1/2 text-left">{data?.price}</p>
+                <p className="w-1/2 text-left">{data?.price} KRW</p>
               </div>
             </div>
           </div>

@@ -54,7 +54,7 @@ function ApplicationForm({ title, type }) {
             <div className="flex justify-between border-t pt-4">
               <p className="text-[12px] font-medium">Price</p>
               <p className="text-[24px] font-semibold text-[#00CE3A]">
-                199,000KRW
+                199,000
               </p>
             </div>
             <div className="flex justify-center mt-4">

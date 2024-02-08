@@ -125,7 +125,7 @@ const EventTable = ({ columns }) => {
                       </td>
                       <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
                         <div className="truncate text-[12px]">
-                          {row?.event?.price || "-"}
+                          {`${row?.event?.price} KRW` || "-"}
                         </div>
                       </td>
                       <td className="h-full min-w-[85px] flex items-end justify-center">

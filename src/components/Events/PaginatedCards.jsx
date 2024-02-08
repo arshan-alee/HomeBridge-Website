@@ -95,7 +95,7 @@ const PaginatedCards = () => {
                 </p>
                 <p className="text-[12px] text-[#232323] font-medium">Price</p>
                 <p className="text-[#00CE3A] text-[24px] font-bold">
-                  {card?.price}
+                  {card?.price} KRW
                 </p>
               </div>
             ))}
