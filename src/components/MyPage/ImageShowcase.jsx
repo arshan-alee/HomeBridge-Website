@@ -8,11 +8,11 @@ const ImageShowcase = ({ images, type }) => {
 
   return (
     <div className="flex flex-col items-center lg:px-6 lg:py-8 rounded-2xl lg:bg-white lg:custom-shadow-right-bottom">
-      <div className="relative w-full lg:mb-2">
+      <div className="relative w-full   lg:mb-2">
         <img
           src={images[currentImageIndex]}
           alt={`${currentImageIndex + 1}`}
-          className="w-full h-auto"
+          className="w-full h-full lg:h-[400px] object-cover"
         />
         <button
           onClick={prevImage}

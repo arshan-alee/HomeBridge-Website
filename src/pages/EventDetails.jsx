@@ -8,13 +8,6 @@ import { useParams } from "react-router-dom";
 import RequestLoader from "../components/Shared/RequestLoader";
 import EventApplicationForm from "../components/Events/EventApplicationForm";
 
-const images = [
-  "/images/image_catalogue.png",
-  "/images/image_catalogue.png",
-  "/images/image_catalogue.png",
-  "/images/image_catalogue.png",
-];
-
 function EventDetails() {
   const { id } = useParams();
 
