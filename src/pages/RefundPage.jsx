@@ -47,12 +47,12 @@ function RefundPage() {
       label: "Payment method",
       value: data?.paymentMethod + " (Kukmin Card)",
     },
-    { label: "Payment amount", value: data?.event?.price },
+    { label: "Payment amount", value: data?.event?.price + " KRW" },
   ];
 
   const refundInfo = [
     { label: "Application date", value: convertDate(data?.applicationDate) },
-    { label: "Refund amount", value: `${refundAmount}` },
+    { label: "Refund amount", value: `${refundAmount}` + " KRW" },
   ];
 
   useEffect(() => {

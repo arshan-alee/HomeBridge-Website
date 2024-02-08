@@ -58,14 +58,13 @@ export const calculateRefundAmount = (departureDate, price) => {
     refundAmount = price;
   } else if (diffDays <= 7 && diffDays >= 3) {
     // 50% refund
-    refundAmount =
-      parseInt(price.replace("KRW", "").replace(/,/g, "")) / 2 + "KRW";
+    refundAmount = price / 2;
   } else if (diffDays < 3 && diffDays >= 0) {
     // No refund
-    refundAmount = "0KRW";
+    refundAmount = 0;
   } else {
     // In case the departure date has already passed
-    refundAmount = "0KRW";
+    refundAmount = 0;
   }
 
   return refundAmount;
