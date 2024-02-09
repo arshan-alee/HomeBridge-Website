@@ -1,19 +1,21 @@
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
-const Drawer = ({ isOpen, onClose }) => {
+const Drawer = ({ isLoggedIn, isOpen, onClose }) => {
   return (
     <div
       className={`fixed z-50 top-0 right-0 h-full w-[80%] bg-[#00CE3A] text-white px-6 pt-7 ${
         isOpen ? "transform translate-x-0" : "transform translate-x-full"
       } transition-transform ease-in-out duration-300`}
     >
-      <div className="flex justify-between items-center  ">
-        <Link to="/auth/login" className="text-[20px]">
-          Login/Register
-        </Link>
+      <div className="relative  ">
+        {isLoggedIn ? null : (
+          <Link to="/auth/login" className="text-[20px]">
+            Login/Register
+          </Link>
+        )}
         <div
-          className="text-white bg-[#00a52e] w-[40px] h-[40px] grid place-items-center rounded-md"
+          className="text-white absolute top-0 right-0 bg-[#00a52e] w-[40px] h-[40px] grid place-items-center rounded-md"
           onClick={onClose}
         >
           <RxCross1 className="text-[25px]" />

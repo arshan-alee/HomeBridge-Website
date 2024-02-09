@@ -141,7 +141,11 @@ const TransparentHeader = ({ isLoggedIn, userName }) => {
       </div>
 
       {/* Drawer */}
-      <Drawer isOpen={openNavbar} onClose={handleNavbar} />
+      <Drawer
+        isLoggedIn={isLoggedIn}
+        isOpen={openNavbar}
+        onClose={handleNavbar}
+      />
     </div>
   );
 };
