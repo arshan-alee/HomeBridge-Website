@@ -148,7 +148,7 @@ function App() {
           }
         />
         <Route
-          path="/f2r-application"
+          path="/f_2_r/application"
           element={
             <>
               <Header isLoggedIn={isLoggedIn} userName={userName} />
@@ -158,7 +158,7 @@ function App() {
         />
 
         <Route
-          path="/f2r-application/:id"
+          path="/f_2_r/application/:id"
           element={
             <ProtectedRoute>
               <Header isLoggedIn={isLoggedIn} userName={userName} />

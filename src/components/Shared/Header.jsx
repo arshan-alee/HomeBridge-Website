@@ -38,6 +38,7 @@ const linksArray = [
 
 const Header = ({ isLoggedIn, userName }) => {
   const location = useLocation();
+
   const navigate = useNavigate();
   const [openNavbar, setOpenNavbar] = useState(false);
   const [openProfileDropDown, setOpenProfileDropdown] = useState(false);
@@ -48,6 +49,19 @@ const Header = ({ isLoggedIn, userName }) => {
   // Mobile
   const handleNavbar = () => {
     setOpenNavbar(!openNavbar);
+  };
+
+  const isRefundPage = (pathname) => {
+    // This checks if the pathname starts with /refund/ and has some additional characters after it
+    return pathname.match(/^\/refund\/\w+/);
+  };
+
+  const isActiveLink = (linkPath) => {
+    // Exact match or starts with the link path followed by a "/" (to cover subpaths)
+    return (
+      location.pathname === linkPath ||
+      location.pathname.startsWith(`${linkPath}/`)
+    );
   };
 
   return (
@@ -77,7 +91,7 @@ const Header = ({ isLoggedIn, userName }) => {
       </h1>
       {/* Right */}
       <div className="flex justify-end items-center gap-7">
-        {linksArray.map((item, i) => (
+        {/* {linksArray.map((item, i) => (
           <Link
             key={i}
             to={item.linkTo}
@@ -87,17 +101,32 @@ const Header = ({ isLoggedIn, userName }) => {
           >
             {item.linkText}
           </Link>
+        ))} */}
+
+        {linksArray.map((item, i) => (
+          <Link
+            key={i}
+            to={item.linkTo}
+            className={`lg:block hidden py-1 px-3 rounded-[30px] ${
+              isActiveLink(item.linkTo) && "bg-[#00CE3A]"
+            }`}
+          >
+            {item.linkText}
+          </Link>
         ))}
 
         <div
           className={`flex justify-center items-center py-1 px-3 rounded-[30px] gap-2 ${
             location.pathname === "/mypage" && "bg-[#00CE3A] text-[#fff]"
+          } ${
+            isRefundPage(location.pathname) ? "bg-[#00CE3A] text-[#fff]" : ""
           } `}
         >
           <div className="flex gap-2 ">
             <img
               src={
-                location.pathname === "/mypage"
+                location.pathname === "/mypage" ||
+                isRefundPage(location.pathname)
                   ? "/icons/header__profile__white.png"
                   : "/icons/header__profile.svg"
               }

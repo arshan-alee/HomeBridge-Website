@@ -24,7 +24,7 @@ const Hero = () => {
         </h2>
         <button
           className="mt-12 py-3 px-20 rounded-3xl border-[1px] border-[#BFBDC1] font-medium bg-[#00CE3A] text-[#fff]"
-          onClick={() => navigate("/f2r-application")}
+          onClick={() => navigate("/f_2_r/application")}
         >
           To apply
         </button>

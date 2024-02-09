@@ -5,9 +5,11 @@ import { useFormik } from "formik";
 import RequestLoader from "../Shared/RequestLoader";
 import { PostData } from "../../axios/NetworkCalls";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AboutContact = () => {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const initialValues = {
     firstName: "",
@@ -25,6 +27,7 @@ const AboutContact = () => {
       if (response?.status) {
         toast.success(response?.message);
         setLoading(false);
+        navigate("/");
       } else {
         toast.error(response);
       }

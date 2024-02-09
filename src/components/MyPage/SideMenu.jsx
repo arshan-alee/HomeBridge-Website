@@ -38,7 +38,7 @@ function SideMenu({ selectedOption, setSelectedOption }) {
 
   return (
     <div className="min-w-1/4 lg:px-8">
-      <div className="flex lg:flex-col items-center justify-center rounded-2xl px-4 mx-4 lg:mx-0 py-2 lg:py-6 custom-shadow-right-bottom gap-3 mb-6">
+      <div className="flex lg:flex-col items-center lg:justify-center justify-between rounded-2xl px-4 mx-4 lg:mx-0 py-2 lg:py-6 custom-shadow-right-bottom gap-3 mb-6">
         <img src="/icons/user_circle.png" alt="" className="lg:mb-4" />
         {loader ? (
           <div>...</div>

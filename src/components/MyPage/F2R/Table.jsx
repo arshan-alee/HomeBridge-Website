@@ -39,7 +39,7 @@ const TableComponent = ({ columns, data }) => {
     return pageNumbers;
   };
   function handleClick(id) {
-    navigate(`/f2r-application/${id}`);
+    navigate(`/f_2_r/application/${id}`);
   }
 
   return (

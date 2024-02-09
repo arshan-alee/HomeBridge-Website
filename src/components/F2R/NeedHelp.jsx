@@ -24,7 +24,7 @@ const NeedHelp = () => {
       </h1>
 
       <button
-        onClick={() => navigate("/f2r-application")}
+        onClick={() => navigate("/f_2_r/application")}
         className="mt-6 py-3 px-7 rounded-3xl font-semibold bg-[#fff] text-[#00CE3A]"
       >
         To apply
