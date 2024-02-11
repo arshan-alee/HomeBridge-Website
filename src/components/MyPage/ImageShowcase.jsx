@@ -2,27 +2,37 @@ import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useImageSlider from "../../utils/useImageSlider";
 
-const ImageShowcase = ({ images, type }) => {
+const ImageShowcase = ({ images }) => {
   const { currentImageIndex, prevImage, nextImage, selectImage } =
     useImageSlider(0, images);
 
   return (
     <div className="flex flex-col items-center lg:px-6 lg:py-8 rounded-2xl lg:bg-white lg:custom-shadow-right-bottom">
-      <div className="relative w-full   lg:mb-2">
+      <div className="relative w-full lg:mb-2">
         <img
           src={images[currentImageIndex]}
-          alt={`${currentImageIndex + 1}`}
-          className="w-full h-full lg:h-[400px] object-cover"
+          alt={`Image ${currentImageIndex + 1}`}
+          className="w-full h-[250px] lg:h-[400px] object-cover"
         />
         <button
           onClick={prevImage}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 focus:outline-none bg-[#FFFFFF80] p-2 rounded-full"
+          disabled={currentImageIndex === 0}
+          className={`absolute top-1/2 left-2 transform -translate-y-1/2 focus:outline-none ${
+            currentImageIndex === 0
+              ? "bg-[#FFFFFF30] cursor-not-allowed"
+              : "bg-[#FFFFFF80]"
+          } p-2 rounded-full`}
         >
           <FaChevronLeft className="w-4 md:w-6 h-4 md:h-6 text-[#00000080]" />
         </button>
         <button
           onClick={nextImage}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 focus:outline-none bg-[#FFFFFF80] p-2 rounded-full"
+          disabled={currentImageIndex === images.length - 1}
+          className={`absolute top-1/2 right-2 transform -translate-y-1/2 focus:outline-none ${
+            currentImageIndex === images.length - 1
+              ? "bg-[#FFFFFF30] cursor-not-allowed"
+              : "bg-[#FFFFFF80]"
+          } p-2 rounded-full`}
         >
           <FaChevronRight className="w-4 md:w-6 h-4 md:h-6 text-[#00000080]" />
         </button>

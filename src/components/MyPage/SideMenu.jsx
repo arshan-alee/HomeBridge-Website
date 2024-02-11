@@ -38,7 +38,7 @@ function SideMenu({ selectedOption, setSelectedOption }) {
 
   return (
     <div className="min-w-1/4 lg:px-8">
-      <div className="flex lg:flex-col items-center lg:justify-center justify-between rounded-2xl px-4 mx-4 lg:mx-0 py-2 lg:py-6 custom-shadow-right-bottom gap-3 mb-6">
+      <div className="flex lg:flex-col items-center lg:items-center text-center lg:justify-center justify-between rounded-2xl px-4 mx-4 lg:mx-0 py-2 lg:py-6 custom-shadow-right-bottom1 gap-3 mb-6">
         <img
           src="/icons/user_circle.png"
           alt=""
@@ -49,13 +49,15 @@ function SideMenu({ selectedOption, setSelectedOption }) {
         ) : (
           <>
             {error ? (
-              <div className="text-black text-center ">{error}</div>
+              <div className="text-black text-center w-full truncate">
+                {error}
+              </div>
             ) : (
-              <div className="flex flex-col items-center">
-                <h1 className="lg:text-[20px] text-[16px] font-medium">
+              <div className="flex flex-col items-center lg:items-center w-full ">
+                <h1 className="lg:text-[18px] text-[16px] font-medium w-full truncate">
                   {data?.userName}
                 </h1>
-                <p className="text-[#333333] text-[12px] lg:text-[14px] font-normal">
+                <p className="text-[#333333] text-[12px] lg:text-[13px] font-normal w-full truncate">
                   {data?.email}
                 </p>
               </div>
@@ -63,6 +65,7 @@ function SideMenu({ selectedOption, setSelectedOption }) {
           </>
         )}
       </div>
+
       <div className="hidden lg:flex flex-col rounded-2xl p-8 custom-shadow-right-bottom space-y-4">
         <h1
           className={`text-[18px] font-semibold cursor-pointer ${

@@ -106,7 +106,7 @@ const EventTable = ({ columns }) => {
                   {paginatedData.map((row, index) => (
                     <tr
                       key={index}
-                      className="custom-shadow-right-bottom rounded-2xl"
+                      className="custom-shadow-right-bottom1 rounded-2xl"
                     >
                       <td className="px-4 py-4 whitespace-nowrap overflow-hidden text-[12px] cursor-pointer font-hind font-medium">
                         <div className="truncate text-[12px]">

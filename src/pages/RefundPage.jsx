@@ -277,7 +277,7 @@ function RefundPage({ isLoggedIn, userName }) {
                           />
                         </div>
                       </div>
-                      <div className="w-full flex items-center md:items-end justify-center md:justify-end">
+                      <div className="w-full flex items-center md:items-end justify-end">
                         <button
                           type="submit"
                           className="bg-[#00CE3A] text-white text-[16px] px-6 py-2 rounded-[20px] btn-shadow"

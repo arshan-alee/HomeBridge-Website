@@ -26,7 +26,7 @@ const Select = ({ options, onChange, value, name, placeholder, error }) => {
           onClick={() => setIsOpen(!isOpen)}
         >
           {value ? (
-            <span className="text-[#9ca3af]">{value}</span>
+            <span className="text-[#000]">{value}</span>
           ) : (
             <span className={` ${error ? "text-[#ffb8b8]" : "text-[#9ca3af]"}`}>
               {placeholder}

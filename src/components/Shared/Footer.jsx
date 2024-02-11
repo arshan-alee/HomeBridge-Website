@@ -1,9 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  const shouldHideFooterOnMobile = [
+    "/mypage",
+    "/f_2_r/application/:id",
+    "/job_house/:jobId/:applicationId",
+    "/event/:eventId/:applicationId",
+    "/payment/success/:eventId",
+    "/refund/:applicationId",
+  ].some((path) => {
+    const regex = new RegExp(path.replace(/:\w+/g, "\\w+"));
+    return regex.test(pathname);
+  });
+
   return (
-    <div className="w-full py-16 px-5 sm:py-20 sm:px-12 lg:py-24 lg:px-24 bg-[#e5faeb] gap-12 lg:gap-unset flex lg:flex-row flex-col justify-between items-center">
+    <div
+      className={`w-full py-16 px-5 sm:py-20 sm:px-12 lg:py-24 lg:px-24 bg-[#e5faeb] gap-12 lg:gap-unset flex lg:flex-row flex-col justify-between items-center ${
+        shouldHideFooterOnMobile ? "lg:flex hidden" : ""
+      }`}
+    >
       {/* Left */}
       <div>
         <h1 className="text-lg text-[#1B1C57] font-bold mb-2 sm:mb-3">
