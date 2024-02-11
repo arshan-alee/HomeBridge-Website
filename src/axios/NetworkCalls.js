@@ -10,6 +10,7 @@ export const GetAllData = async (endpoint) => {
       return { success: false, message: "No data found" };
     }
   } catch (error) {
+    console.log("error: ", error);
     return {
       success: false,
       message: error.response?.data.message || "An error occurred",

@@ -6,6 +6,7 @@ if (environment === "production") {
   baseUrl = "https://black-panda-slip.cyclic.app";
 } else {
   baseUrl = "http://localhost:5000";
+  // baseUrl = "http://192.168.1.108:5000";
 }
 
 export default baseUrl;
