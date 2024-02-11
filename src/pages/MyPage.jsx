@@ -47,7 +47,7 @@ function MyPage() {
           My Page
         </h1>
         <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-1/4">
+          <div className="w-full lg:w-[30%]">
             <SideMenu
               selectedOption={selectedOption}
               setSelectedOption={setSelectedOption}
@@ -58,7 +58,7 @@ function MyPage() {
           ) : selectedOption === 1 ? (
             <JobHouse />
           ) : (
-            <div className="w-full lg:w-3/4">
+            <div className="w-full lg:w-[70%]">
               <EventTable columns={columns} />
             </div>
           )}

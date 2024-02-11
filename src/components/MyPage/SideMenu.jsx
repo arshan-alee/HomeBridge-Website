@@ -39,7 +39,11 @@ function SideMenu({ selectedOption, setSelectedOption }) {
   return (
     <div className="min-w-1/4 lg:px-8">
       <div className="flex lg:flex-col items-center lg:justify-center justify-between rounded-2xl px-4 mx-4 lg:mx-0 py-2 lg:py-6 custom-shadow-right-bottom gap-3 mb-6">
-        <img src="/icons/user_circle.png" alt="" className="lg:mb-4" />
+        <img
+          src="/icons/user_circle.png"
+          alt=""
+          className="lg:mb-4 w-[45px] lg:w-auto "
+        />
         {loader ? (
           <div>...</div>
         ) : (
@@ -48,9 +52,11 @@ function SideMenu({ selectedOption, setSelectedOption }) {
               <div className="text-black text-center ">{error}</div>
             ) : (
               <div className="flex flex-col items-center">
-                <h1 className="text-[20px] font-medium">Jason kim</h1>
-                <p className="text-[#333333] text-[14px] font-normal">
-                  kim9999@gmail.com
+                <h1 className="lg:text-[20px] text-[16px] font-medium">
+                  {data?.userName}
+                </h1>
+                <p className="text-[#333333] text-[12px] lg:text-[14px] font-normal">
+                  {data?.email}
                 </p>
               </div>
             )}

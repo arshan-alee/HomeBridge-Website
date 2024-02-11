@@ -13,8 +13,9 @@ import toast from "react-hot-toast";
 import { useFormik } from "formik";
 import { refundSchema } from "../utils/validation-schema";
 import { useStateContext } from "../context/StateContext";
+import RefundHeader from "../components/Refund/RefundHeader";
 
-function RefundPage() {
+function RefundPage({ isLoggedIn, userName }) {
   const { applicationId } = useParams();
   const { setPreviousRoute } = useStateContext();
   const [data, setData] = useState();
@@ -148,142 +149,154 @@ function RefundPage() {
     });
 
   return (
-    <div className={`${!precautions && "mx-4"} my-6 lg:my-22`}>
-      {condition ? (
-        <div className="w-full h-screen flex flex-col items-center justify-center px-4 text-center">
-          <h2 className="text-[16px]">
-            Your refund application has been completed.
-          </h2>
-          <p className="text-[14px] mb-8">
-            (The refund may be completed 30 minutes to 1 hour depending on the
-            payment method.)
-          </p>
-          <button
-            onClick={() => navigate("/")}
-            className="bg-[#00CE3A] text-white rounded-[20px] px-8 py-4 btn-shadow"
-          >
-            Move main page
-          </button>
-        </div>
-      ) : precautions ? (
-        <Precautions />
-      ) : (
-        <>
-          <h2 className="mx-2 md:mx-16 lg:mx-72 text-[16px] font-bold mb-6 hidden lg:block">
-            Refund application
-          </h2>
-
-          {loading ? (
-            <div className="w-full h-[60vh] flex items-center justify-center">
-              <RequestLoader size="large" />
-            </div>
-          ) : (
-            <>
-              {error ? (
-                <div className="text-black text-center ">{error}</div>
-              ) : (
-                <div className="relative mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom p-6 md:p-12 rounded-lg mb-8">
-                  <div className="border-b pb-2">
-                    <h2 className="mb-2 text-[#2C406E] text-[15px]">
-                      Purchase information
-                    </h2>
-                    {purchaseInfo.map((item, index) => (
-                      <div className="flex justify-between">
-                        <h2 className="text-[#6A6A6A] text-[12px]">
-                          {item.label}
-                        </h2>
-                        <p className="text-[#181A1F] text-[12px]">
-                          {item.value}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="border-b py-2 mt-4">
-                    <h2 className="mb-2 text-[#2C406E] text-[15px]">
-                      Refund information
-                    </h2>
-                    {refundInfo.map((item, index) => (
-                      <div className="flex justify-between">
-                        <h2 className="text-[#6A6A6A] text-[12px]">
-                          {item.label}
-                        </h2>
-                        <p className="text-[#181A1F] text-[12px]">
-                          {item.value}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <form
-                    onSubmit={handleSubmit}
-                    className="flex flex-col md:flex-row mt-4"
-                  >
-                    <div className="lg:hidden flex justify-end">
-                      <div
-                        className="px-6 text-[12px] cursor-pointer border border-[#B2B2B2] text-[#B2B2B2] rounded-[10px]"
-                        onClick={() => setPrecautions(true)}
-                      >
-                        Refund Regulations
-                      </div>
-                    </div>
-                    <div className="w-full md:w-1/2 py-2">
-                      <h2 className="mb-2 text-[#2C406E] text-[15px]">
-                        Refund account
-                      </h2>
-                      <div className="relative space-y-4">
-                        <Input
-                          placeholder="Bank account number"
-                          name="accountNumber"
-                          value={values.accountNumber}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          error={
-                            (touched.accountNumber || errors.accountNumber) &&
-                            errors.accountNumber
-                          }
-                        />
-                        <Input
-                          placeholder="Account name"
-                          name="accountName"
-                          value={values.accountName}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          error={
-                            (touched.accountName || errors.accountName) &&
-                            errors.accountName
-                          }
-                        />
-                        <Input
-                          placeholder="Bank"
-                          name="bankName"
-                          value={values.bankName}
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          error={
-                            (touched.bankName || errors.bankName) &&
-                            errors.bankName
-                          }
-                        />
-                      </div>
-                    </div>
-                    <div className="w-full flex items-center md:items-end justify-center md:justify-end">
-                      <button
-                        type="submit"
-                        className="bg-[#00CE3A] text-white text-[16px] px-6 py-2 rounded-[20px] btn-shadow"
-                      >
-                        {loader ? <RequestLoader /> : "Refund request"}
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
-            </>
-          )}
-          <div className="hidden lg:flex">
-            <Precautions />
+    <>
+      <RefundHeader
+        condition={condition}
+        setCondition={setCondition}
+        precautions={precautions}
+        setPrecautions={setPrecautions}
+        isLoggedIn={isLoggedIn}
+        userName={userName}
+      />
+      <div className={`${!precautions && "mx-4"} my-6 lg:my-22`}>
+        {condition ? (
+          <div className="w-full h-screen flex flex-col items-center justify-center px-4 text-center">
+            <h2 className="text-[16px]">
+              Your refund application has been completed.
+            </h2>
+            <p className="text-[14px] mb-8">
+              (The refund may be completed 30 minutes to 1 hour depending on the
+              payment method.)
+            </p>
+            <button
+              onClick={() => navigate("/")}
+              className="bg-[#00CE3A] text-white rounded-[20px] px-8 py-4 btn-shadow"
+            >
+              Move main page
+            </button>
           </div>
-        </>
-      )}
-    </div>
+        ) : precautions ? (
+          <Precautions />
+        ) : (
+          <>
+            <h2 className="mx-2 md:mx-16 lg:mx-72 text-[16px] font-bold mb-6 hidden lg:block">
+              Refund application
+            </h2>
+
+            {loading ? (
+              <div className="w-full h-[60vh] flex items-center justify-center">
+                <RequestLoader size="large" />
+              </div>
+            ) : (
+              <>
+                {error ? (
+                  <div className="text-black text-center ">{error}</div>
+                ) : (
+                  <div className="relative lg:bg-[#FFF] bg-[#fbfbfb] mx-2 md:mx-16 lg:mx-72 pb-4 text-xl custom-shadow-right-bottom p-6 md:p-12 rounded-lg mb-8">
+                    <div className="border-b pb-2">
+                      <h2 className="mb-2 text-[#2C406E] text-[15px]">
+                        Purchase information
+                      </h2>
+                      {purchaseInfo.map((item, index) => (
+                        <div className="flex justify-between">
+                          <h2 className="text-[#6A6A6A] text-[12px]">
+                            {item.label}
+                          </h2>
+                          <p className="text-[#181A1F] text-[12px]">
+                            {item.value}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="border-b py-2 mt-4">
+                      <h2 className="mb-2 text-[#2C406E] text-[15px]">
+                        Refund information
+                      </h2>
+                      {refundInfo.map((item, index) => (
+                        <div className="flex justify-between">
+                          <h2 className="text-[#6A6A6A] text-[12px]">
+                            {item.label}
+                          </h2>
+                          <p className="text-[#181A1F] text-[12px]">
+                            {item.value}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                    <form
+                      onSubmit={handleSubmit}
+                      className="flex flex-col md:flex-row mt-4"
+                    >
+                      <div className="lg:hidden flex justify-end">
+                        <div
+                          className="px-6 text-[12px] cursor-pointer border border-[#B2B2B2] text-[#B2B2B2] rounded-[10px]"
+                          onClick={() => {
+                            setPrecautions(true);
+                          }}
+                        >
+                          Refund Regulations
+                        </div>
+                      </div>
+                      <div className="w-full md:w-1/2 py-2">
+                        <h2 className="mb-2 text-[#2C406E] text-[15px]">
+                          Refund account
+                        </h2>
+                        <div className="relative space-y-4">
+                          <Input
+                            placeholder="Bank account number"
+                            name="accountNumber"
+                            value={values.accountNumber}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={
+                              (touched.accountNumber || errors.accountNumber) &&
+                              errors.accountNumber
+                            }
+                          />
+                          <Input
+                            placeholder="Account name"
+                            name="accountName"
+                            value={values.accountName}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={
+                              (touched.accountName || errors.accountName) &&
+                              errors.accountName
+                            }
+                          />
+                          <Input
+                            placeholder="Bank"
+                            name="bankName"
+                            value={values.bankName}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            error={
+                              (touched.bankName || errors.bankName) &&
+                              errors.bankName
+                            }
+                          />
+                        </div>
+                      </div>
+                      <div className="w-full flex items-center md:items-end justify-center md:justify-end">
+                        <button
+                          type="submit"
+                          className="bg-[#00CE3A] text-white text-[16px] px-6 py-2 rounded-[20px] btn-shadow"
+                        >
+                          {loader ? <RequestLoader /> : "Refund request"}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                )}
+              </>
+            )}
+            <div className="hidden lg:flex">
+              <Precautions />
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 

@@ -83,7 +83,7 @@ const PaginatedCards = () => {
                 onClick={() => navigate(`/event/${card?._id}`)}
               >
                 <img
-                  src={card?.eventImages[0]}
+                  src={card?.eventImages[0] || "/images/event_card.png"}
                   alt="Event "
                   className="w-full h-[200px] object-cover lg:object-cover mb-2 rounded-[10px]"
                 />

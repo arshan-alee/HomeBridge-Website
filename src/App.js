@@ -217,8 +217,8 @@ function App() {
           path="/refund/:applicationId"
           element={
             <>
-              <Header isLoggedIn={isLoggedIn} userName={userName} />
-              <RefundPage />
+              {/* <Header isLoggedIn={isLoggedIn} userName={userName} /> */}
+              <RefundPage isLoggedIn={isLoggedIn} userName={userName} />
             </>
           }
         />
