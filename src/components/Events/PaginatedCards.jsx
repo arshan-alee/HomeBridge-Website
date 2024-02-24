@@ -91,7 +91,7 @@ const PaginatedCards = () => {
                   {card?.productIntroduction}
                 </h3>
                 <p className="text-[#3A544F] text-[12px] font-normal mb-2 break-words">
-                  {dummyData[0].subtitle}
+                  {card?.productDescription}
                 </p>
                 <p className="text-[12px] text-[#232323] font-medium">Price</p>
                 <p className="text-[#00CE3A] text-[24px] font-bold">
