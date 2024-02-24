@@ -85,10 +85,10 @@ const PaginatedCards = () => {
                   className="w-full h-[200px] object-cover mb-2 rounded-[10px]"
                 />
                 <h3 className="text-[20px] font-semibold mb-2 mt-4 leading-6 font-montserrat break-words">
-                  {card.announcementName}
+                  {card?.announcementName}
                 </h3>
                 <p className="text-[#3A544F] text-[12px] font-normal mb-2 break-words">
-                  {dummyData[0].subtitle}
+                  {card?.companyName}
                 </p>
               </div>
             ))}

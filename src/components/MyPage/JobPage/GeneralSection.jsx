@@ -16,7 +16,7 @@ function GeneralSection({ data }) {
       {data?.isAccomodated ? (
         <>
           <h1 className="text-[32px] font-semibold text-center mb-4 md:mb-8 px-6 lg:px-12">
-            [강원도 영월] 포도농장과 가까운 남자 전용숙소
+            {data?.accomodationName}
           </h1>
           <div className="lg:bg-white lg:rounded-[30px] custom-shadow-right-bottom">
             <ImageShowcase

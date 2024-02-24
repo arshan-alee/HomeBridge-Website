@@ -68,9 +68,9 @@ function JobDetails() {
   return (
     <div className="py-6 lg:py-12 bg-white">
       <div className="flex flex-col items-center justify-center my-4 md:mt-8 mb-4 lg:mb-12">
-        <h1 className="text-[32px] font-semibold">UX / UI Designer</h1>
+        <h1 className="text-[32px] font-semibold">{data?.announcementName}</h1>
         <h5 className="text-[14px] font-normal">
-          <b className="mr-2">₩</b> company name
+          <b className="mr-2">₩</b> {data?.companyName}
         </h5>
       </div>
       <div className="flex flex-row px-2 lg:px-6">
