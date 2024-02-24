@@ -19,14 +19,9 @@ function JobDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // console.log("data--------------");
-  // console.log(data);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // =================
 
   useEffect(() => {
     getData();
@@ -38,9 +33,6 @@ function JobDetails() {
       const response = await GetSingleData(
         `/api/job_house/announcement?id=${id}`
       );
-
-      console.log("response->");
-      console.log(response);
 
       if (response.success) {
         setData(response?.data);
