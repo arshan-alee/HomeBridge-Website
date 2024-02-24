@@ -10,7 +10,7 @@ const Drawer = ({ isLoggedIn, isOpen, onClose }) => {
     >
       <div className="relative  ">
         {isLoggedIn ? null : (
-          <Link to="/auth/login" className="text-[20px]">
+          <Link to="/auth/login" className="text-[20px] " onClick={onClose}>
             Login/Register
           </Link>
         )}

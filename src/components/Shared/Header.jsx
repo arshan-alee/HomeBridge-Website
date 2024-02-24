@@ -83,26 +83,12 @@ const Header = ({ isLoggedIn, userName }) => {
         className="w-[80px] lg:block hidden lg:w-[130px] cursor-pointer "
       />
       <h1
-        className={`font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset ${
-          isLoggedIn ? "-ml-16" : "-ml-5"
-        }`}
+        className={`font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset -ml-5`}
       >
         HOMEBRIDGE
       </h1>
       {/* Right */}
       <div className="flex justify-end items-center gap-7">
-        {/* {linksArray.map((item, i) => (
-          <Link
-            key={i}
-            to={item.linkTo}
-            className={`lg:block hidden py-1 px-3 rounded-[30px] ${
-              location.pathname === item.linkTo && "bg-[#00CE3A]"
-            }`}
-          >
-            {item.linkText}
-          </Link>
-        ))} */}
-
         {linksArray.map((item, i) => (
           <Link
             key={i}
@@ -122,7 +108,7 @@ const Header = ({ isLoggedIn, userName }) => {
             isRefundPage(location.pathname) ? "bg-[#00CE3A] text-[#fff]" : ""
           } `}
         >
-          <div className="flex gap-2 ">
+          <div className="flex sm:gap-2 ">
             <img
               src={
                 location.pathname === "/mypage" ||
@@ -132,12 +118,13 @@ const Header = ({ isLoggedIn, userName }) => {
               }
               alt="logo"
               className="cursor-pointer "
+              onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
             />
             {isLoggedIn && (
               <div className="relative">
                 <p
                   onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
-                  className="lg:hidden block cursor-pointer"
+                  className="lg:hidden sm:block hidden cursor-pointer"
                 >
                   {isMediumScreen ? userName : userName.slice(0, 8)}
                   {/* Jason */}

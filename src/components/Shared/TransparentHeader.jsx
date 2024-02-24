@@ -60,9 +60,7 @@ const TransparentHeader = ({ isLoggedIn, userName }) => {
         className="w-[80px] lg:block hidden lg:w-[130px] cursor-pointer"
       />
       <h1
-        className={`font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset ${
-          isLoggedIn ? "-ml-16" : "-ml-5"
-        }`}
+        className={`font-semibold lg:hidden block text-base sm:text-lg lg:ml-unset -ml-5`}
       >
         HOMEBRIDGE
       </h1>
@@ -81,7 +79,7 @@ const TransparentHeader = ({ isLoggedIn, userName }) => {
         ))}
 
         <div className="flex justify-center items-center gap-2">
-          <div className="flex gap-2">
+          <div className="flex sm:gap-2">
             <img
               src="/icons/header__profile__white.png"
               alt="logo"
@@ -92,13 +90,14 @@ const TransparentHeader = ({ isLoggedIn, userName }) => {
               src="/icons/header__profile.svg"
               alt="logo"
               className="cursor-pointer lg:hidden block "
+              onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
             />
 
             {isLoggedIn && (
               <div className="relative">
                 <p
                   onClick={() => setOpenProfileDropdown(!openProfileDropDown)}
-                  className="lg:hidden block cursor-pointer"
+                  className="lg:hidden sm:block hidden cursor-pointer"
                 >
                   {isMediumScreen ? userName : userName.slice(0, 8)}
                   {/* Jason */}
