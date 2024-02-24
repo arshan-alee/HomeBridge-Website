@@ -23,7 +23,7 @@ const LoginRightSide = () => {
     try {
       const response = await axios.post(`${baseUrl}/api/user/login`, values);
       if (response?.data?.status) {
-        localStorage.setItem("Info", JSON.stringify(response.data.user));
+        localStorage.setItem("Info", JSON.stringify(response?.data?.user));
         toast.success("Login Successfull");
         // setIsLoggedIn(true);
         window.dispatchEvent(new CustomEvent("login"));
