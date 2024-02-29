@@ -28,8 +28,9 @@ const RegisterRightSide = () => {
       console.log("response: ", response);
       if (response?.data?.status) {
         // localStorage.setItem("info", JSON.stringify(response.data.user));
-        toast.success("Registeration Successfull");
-        navigate("/auth/login");
+        toast.success(response?.data?.message);
+        // navigate("/auth/login");
+        actions.resetForm();
       } else if (!response?.data?.status) {
         toast.error(response?.data?.message);
       }

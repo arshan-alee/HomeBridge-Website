@@ -23,6 +23,7 @@ import TransparentHeader from "./components/Shared/TransparentHeader";
 import { useEffect, useState } from "react";
 import { useStateContext } from "./context/StateContext";
 import EditEventApplication from "./pages/EditEventApplication";
+import ConfirmMail from "./pages/ConfirmMail";
 
 function App() {
   const location = useLocation();
@@ -111,6 +112,17 @@ function App() {
             </>
           }
         />
+
+        <Route
+          path="/auth/confirm-email/:token"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              <ConfirmMail />
+            </>
+          }
+        />
+
         <Route
           path="/f_2_r"
           element={
