@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import RequestLoader from "../components/Shared/RequestLoader";
 import baseUrl from "../utils/baseUrl";
+import LoginLeft from "../components/Shared/LoginLeft";
 
 const ConfirmMail = () => {
   const [loader, setLoader] = useState(false);
@@ -36,12 +37,24 @@ const ConfirmMail = () => {
   };
 
   return (
-    <>
-      <div>ConfirmMail</div>
-      <button className="bg-green-500 text-white p-2" onClick={handleClick}>
-        {loader ? <RequestLoader /> : "Confirm mail"}
+    // <div className="flex">
+    //   <LoginLeft />
+    //   <div className="flex flex-col items-center justify-center min-h-[60vh] gap-5 mx-6">
+    //     <div>Email Confirmation</div>
+    //     <p>To complete email verification, please press the button below</p>
+    //     <button className="bg-green-500 text-white p-2 px-8" onClick={handleClick}>
+    //       {loader ? <RequestLoader /> : "Confirm Email Address"}
+    //     </button>
+    //   </div>
+    // </div>
+
+    <div className="flex flex-col items-center justify-center min-h-[60vh] gap-5 mx-6">
+      <div>Email Confirmation</div>
+      <p className="text-center">To complete email verification, please press the button below</p>
+      <button className="bg-green-500 text-white p-2 px-8" onClick={handleClick}>
+        {loader ? <RequestLoader /> : "Confirm Email Address"}
       </button>
-    </>
+    </div>
   );
 };
 
