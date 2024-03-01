@@ -117,7 +117,7 @@ function App() {
           path="/auth/confirm-email/:token"
           element={
             <>
-              <Header isLoggedIn={isLoggedIn} userName={userName} />
+              {/* <Header isLoggedIn={isLoggedIn} userName={userName} /> */}
               <ConfirmMail />
             </>
           }

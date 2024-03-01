@@ -37,23 +37,15 @@ const ConfirmMail = () => {
   };
 
   return (
-    // <div className="flex">
-    //   <LoginLeft />
-    //   <div className="flex flex-col items-center justify-center min-h-[60vh] gap-5 mx-6">
-    //     <div>Email Confirmation</div>
-    //     <p>To complete email verification, please press the button below</p>
-    //     <button className="bg-green-500 text-white p-2 px-8" onClick={handleClick}>
-    //       {loader ? <RequestLoader /> : "Confirm Email Address"}
-    //     </button>
-    //   </div>
-    // </div>
-
-    <div className="flex flex-col items-center justify-center min-h-[60vh] gap-5 mx-6">
-      <div>Email Confirmation</div>
-      <p className="text-center">To complete email verification, please press the button below</p>
-      <button className="bg-green-500 text-white p-2 px-8" onClick={handleClick}>
-        {loader ? <RequestLoader /> : "Confirm Email Address"}
-      </button>
+    <div className="flex min-h-screen">
+      <LoginLeft fullHeight={true} />
+      <div className="flex flex-col items-center justify-center min-h-[60vh] gap-5 mx-6">
+        <div className="font-semibold">Email Confirmation</div>
+        <p className="text-center">To complete email verification, please press the button below</p>
+        <button className="bg-green-500 text-white p-2 px-8" onClick={handleClick}>
+          {loader ? <RequestLoader /> : "Confirm Email Address"}
+        </button>
+      </div>
     </div>
   );
 };
