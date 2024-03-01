@@ -39,7 +39,7 @@ const ConfirmMail = () => {
   return (
     <div className="flex min-h-screen">
       <LoginLeft fullHeight={true} />
-      <div className="flex flex-col items-center justify-center min-h-[60vh] gap-5 mx-6">
+      <div className="flex flex-col items-center justify-center w-full md:w-[40%] min-h-[100vh] gap-5 mx-6">
         <div className="font-semibold">Email Confirmation</div>
         <p className="text-center">To complete email verification, please press the button below</p>
         <button className="bg-green-500 text-white p-2 px-8" onClick={handleClick}>
