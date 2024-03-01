@@ -12,7 +12,7 @@ const ImageShowcase = ({ images }) => {
         <img
           src={images[currentImageIndex]}
           alt={`Image ${currentImageIndex + 1}`}
-          className="w-full h-[250px] lg:h-[400px] object-cover"
+          className="w-full h-[250px] lg:h-[400px] "
         />
         <button
           onClick={prevImage}
@@ -49,7 +49,7 @@ const ImageShowcase = ({ images }) => {
             <img
               src={image}
               alt={`Thumbnail ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full "
             />
           </button>
         ))}
