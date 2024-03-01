@@ -9,6 +9,7 @@ import { PostData } from "../../axios/NetworkCalls";
 import { jobApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
 import { useStateContext } from "../../context/StateContext";
+import { countryNames } from "../../utils/countiresList";
 
 function JobApplicationForm({ formData, isFilled }) {
   const { id } = useParams();
@@ -102,7 +103,7 @@ function JobApplicationForm({ formData, isFilled }) {
         <div className="py-1 w-full">
           <Select
             name="nationality"
-            options={["South Korea", "China", , "Pakistan"]}
+            options={countryNames}
             value={values.nationality} // Formik state value
             onChange={handleChange} // Formik handleChange function
             placeholder="Country"

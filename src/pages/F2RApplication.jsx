@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import { f2RApplicationSchema } from "../utils/validation-schema";
 import { useNavigate } from "react-router-dom";
 import RequestLoader from "../components/Shared/RequestLoader";
+import { countryNames } from "../utils/countiresList";
 
 function F2RApplication() {
   const [loading, setLoading] = useState(false);
@@ -104,7 +105,7 @@ function F2RApplication() {
           />
           <Select
             name="nationality"
-            options={["South Korea", "China", , "Pakistan"]}
+            options={countryNames}
             value={values.nationality} // Formik state value
             onChange={handleChange} // Formik handleChange function
             placeholder="Country"

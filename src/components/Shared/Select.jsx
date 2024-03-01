@@ -40,7 +40,7 @@ const Select = ({ options, onChange, value, name, placeholder, error }) => {
         </button>
       </div>
       {isOpen && (
-        <div className="origin-top-right absolute right-0  w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+        <div className="origin-top-right absolute right-0 max-h-[280px] overflow-y-auto  w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
           <div className="py-1">
             {options.map((option) => (
               <button
