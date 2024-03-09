@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "../Shared/Input";
 import Textarea from "../Shared/Textarea";
@@ -8,12 +8,25 @@ import { useFormik } from "formik";
 import { eventApplicationSchema } from "../../utils/validation-schema";
 import RequestLoader from "../Shared/RequestLoader";
 import { useStateContext } from "../../context/StateContext";
+// import { PaymentWidgetInstance, loadPaymentWidget, ANONYMOUS } from "@tosspayments/payment-widget-sdk";
+import {
+  PaymentWidgetInstance,
+  loadPaymentWidget,
+  ANONYMOUS,
+} from "@tosspayments/payment-widget-sdk";
+import { nanoid } from "nanoid";
+import PaymentModal from "../Modal/PaymentModal";
 
 function EventApplicationForm({ formData, isFilled, price }) {
   const navigate = useNavigate();
   const { id } = useParams();
   const { setPreviousRoute } = useStateContext();
   const [loading, setLoading] = useState(false);
+  const [askModalShow, setAskModalShow] = useState(false);
+
+  const [paymentInitialized, setPaymentInitialized] = useState(false);
+  const [widgetInstance, setWidgetInstance] = useState(null);
+  const clientKey = "test_ck_26DlbXAaV0O65WmpvGPn3qY50Q9R";
 
   const initialValues = {
     name: formData?.name || "",
@@ -54,12 +67,45 @@ function EventApplicationForm({ formData, isFilled, price }) {
     }
   };
 
+  // const onSubmit = async (values, actions) => {
+  //   if (isFilled) {
+  //     // reserve cancellation:
+  //     navigate(`/refund/${formData?._id}`);
+  //   } else {
+  //     await EventApplication(values, actions);
+  //   }
+  // };
+
   const onSubmit = async (values, actions) => {
     if (isFilled) {
-      // reserve cancellation:
       navigate(`/refund/${formData?._id}`);
     } else {
-      await EventApplication(values, actions);
+      // await EventApplication(values, actions);
+      // After a successful event application, set paymentInitialized to true to load the payment widget
+      // setPaymentInitialized(true);
+      setAskModalShow(true);
+
+      // Here, instead of immediately navigating away, wait for payment to be completed
+      // handlePaymentClick();
+    }
+  };
+
+  const handlePaymentClick = async () => {
+    if (widgetInstance) {
+      try {
+        await widgetInstance.requestPayment({
+          orderId: nanoid(),
+          orderName: "Your Order Name",
+          customerName: "Customer's Name",
+          customerEmail: "customer@example.com",
+          customerMobilePhone: "01012345678",
+          amount: price,
+          successUrl: `${window.location.origin}/payment/success`,
+          failUrl: `${window.location.origin}/payment/fail`,
+        });
+      } catch (error) {
+        console.error("Payment request error:", error);
+      }
     }
   };
 
@@ -89,7 +135,6 @@ function EventApplicationForm({ formData, isFilled, price }) {
             error={(touched.name || errors.name) && errors.name}
           />
         </div>
-
         <div className="py-1 w-full">
           <Input
             placeholder="Phone number"
@@ -155,6 +200,14 @@ function EventApplicationForm({ formData, isFilled, price }) {
           </div>
         )}
       </form>
+
+      {askModalShow && (
+        <PaymentModal
+          setAskModalShow={setAskModalShow}
+          price={price}
+          clientKey={clientKey}
+        />
+      )}
     </div>
   );
 }
