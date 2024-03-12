@@ -25,7 +25,7 @@ function NewPasswordRightSide() {
         token,
         newPassword: password,
       };
-      console.log("body: ", body);
+      // console.log("body: ", body);
       const response = await PostData("/api/user/resetPassword", body);
 
       if (response?.status) {
