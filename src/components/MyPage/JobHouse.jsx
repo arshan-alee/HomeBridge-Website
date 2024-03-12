@@ -26,7 +26,7 @@ function JobHouse() {
       const response = await GetAllData(
         `/api/job_house_application/myApplications`
       );
-      console.log("response: ", response);
+      // console.log("response: ", response);
       if (response.success) {
         setData(response.data);
       } else {
