@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "../Shared/Input";
 import Textarea from "../Shared/Textarea";
-import { PostData } from "../../axios/NetworkCalls";
+import { GetAllData, PostData } from "../../axios/NetworkCalls";
 import toast from "react-hot-toast";
 import { useFormik } from "formik";
 import { eventApplicationSchema } from "../../utils/validation-schema";
@@ -90,22 +90,31 @@ function EventApplicationForm({ formData, isFilled, price }) {
     }
   };
 
-  const handlePaymentClick = async () => {
-    if (widgetInstance) {
-      try {
-        await widgetInstance.requestPayment({
-          orderId: nanoid(),
-          orderName: "Your Order Name",
-          customerName: "Customer's Name",
-          customerEmail: "customer@example.com",
-          customerMobilePhone: "01012345678",
-          amount: price,
-          successUrl: `${window.location.origin}/payment/success`,
-          failUrl: `${window.location.origin}/payment/fail`,
-        });
-      } catch (error) {
-        console.error("Payment request error:", error);
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    try {
+      // setLoader(true);
+      const Info = localStorage.getItem("Info");
+
+      const response = await GetAllData(
+        `/api/user?id=${JSON.parse(Info)?.userId}`
+      );
+      console.log("response: ", response);
+      if (response.success) {
+        setData(response.data);
+      } else {
+        // console.error("Error or no data:", response.message);
+        // setError(response.message);
       }
+    } catch (err) {
+      console.error("Error fetching data:", err);
+    } finally {
+      // setLoader(false);
     }
   };
 
@@ -206,6 +215,11 @@ function EventApplicationForm({ formData, isFilled, price }) {
           setAskModalShow={setAskModalShow}
           price={price}
           clientKey={clientKey}
+          userData={data}
+          eventId={id}
+          EventApplication={EventApplication} // Add this
+          eventApplicationValues={values} // Assuming you have the values available here
+          // eventApplicationActions={actions} // Assuming you have the formik actions available here
         />
       )}
     </div>

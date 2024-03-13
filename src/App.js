@@ -24,6 +24,7 @@ import { useEffect, useState } from "react";
 import { useStateContext } from "./context/StateContext";
 import EditEventApplication from "./pages/EditEventApplication";
 import ConfirmMail from "./pages/ConfirmMail";
+import PaymentFail from "./pages/PaymentFail";
 
 function App() {
   const location = useLocation();
@@ -239,6 +240,16 @@ function App() {
             <>
               <TransparentHeader isLoggedIn={isLoggedIn} userName={userName} />
               <About />
+            </>
+          }
+        />
+
+        <Route
+          path="/payment/fail"
+          element={
+            <>
+              <TransparentHeader isLoggedIn={isLoggedIn} userName={userName} />
+              <PaymentFail />
             </>
           }
         />

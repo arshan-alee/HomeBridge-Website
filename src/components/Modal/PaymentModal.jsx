@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { loadPaymentWidget } from "@tosspayments/payment-widget-sdk";
 import { nanoid } from "nanoid";
 
-export default function PaymentModal({ setAskModalShow, price, clientKey }) {
+export default function PaymentModal({
+  setAskModalShow,
+  price,
+  clientKey,
+  userData,
+  eventId,
+}) {
   const [widgetInstance, setWidgetInstance] = useState(null);
 
   useEffect(() => {
@@ -31,13 +37,13 @@ export default function PaymentModal({ setAskModalShow, price, clientKey }) {
       try {
         await widgetInstance.requestPayment({
           orderId: nanoid(),
-          orderName: "Your Order Name",
-          customerName: "Customer's Name",
-          customerEmail: "customer@example.com",
-          customerMobilePhone: "01012345678",
+          orderName: "Homebridge Payment",
+          customerName: userData?.userName,
+          customerEmail: userData?.email,
+          customerMobilePhone: userData?.phoneNumber || "01012345678",
           amount: price,
-          successUrl: `${window.location.origin}/payment/success`,
           failUrl: `${window.location.origin}/payment/fail`,
+          successUrl: `${window.location.origin}/payment/success/${eventId}`,
         });
       } catch (error) {
         console.error("Payment request error:", error);
@@ -54,10 +60,18 @@ export default function PaymentModal({ setAskModalShow, price, clientKey }) {
         <div id="payment-methods" className="my-4"></div>
         <div id="payment-agreement" className="my-4"></div>
         {/* Add a button to initiate payment */}
-        <button onClick={handlePayment} className="my-4 ">
+        <button
+          onClick={handlePayment}
+          className="my-4 bg-[#227af6d9] text-white py-3 mx-7 rounded-md font-semibold"
+        >
           Proceed with Payment
         </button>
-        <button onClick={() => setAskModalShow(false)}>Close</button>
+        <button
+          className="my-1 bg-[#000] text-white py-3 mx-7 rounded-md font-semibold"
+          onClick={() => setAskModalShow(false)}
+        >
+          Close
+        </button>
       </div>
     </div>
   );
