@@ -18,7 +18,6 @@ const About = () => {
             // background: "url(/images/about.png) no-repeat center center/cover",
           }
         }
-        // className="h-[800px] sm:h-[860px] md:h-[960px] w-[100%] relative"
         className="h-96 lg:min-h-screen w-full relative flex justify-start items-center"
       >
         {/* Background */}
